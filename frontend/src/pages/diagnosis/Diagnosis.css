@@ -1,0 +1,13 @@
+.diagnosisContainer{
+    width: 70vw;
+    height: 70vh;
+    margin: auto;
+    /* border: 2px solid red; */
+    margin-top: 5vh;
+}
+.diagnosisContainer form, .diagnosisContainer .finalUpload{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
