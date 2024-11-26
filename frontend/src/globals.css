@@ -1,18 +1,30 @@
-*{
+:root {
+    --main-bg-color: #f9fef9;
+    --main-font: "Poppins", serif;
+    --text-color: rgb(10, 10, 10);
+    --cursor-url: url("./icons/leafCursor.svg");
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body{
-    background-color: #f9fef9;
-    font-family: "Poppins", serif;
-    font-weight: 400;
-    font-style: normal;
-    color: rgb(10, 10, 10);
-    height:fit-content;
-}
-.darkmode{
-    background-color:#042004;
-    color: white;
-}
+    cursor: var(--cursor-url), auto;
+  }
+  
+  /* body {
+    background-color: var(--main-bg-color);
+    font-family: var(--main-font);
+    color: var(--text-color); */
+  body{
+      background-color: #f9fef9;
+      font-family: "Poppins", serif;
+      font-weight: 400;
+      font-style: normal;
+      color: rgb(10, 10, 10);
+      height:fit-content;
+  }
+  .darkmode{
+      background-color:#042004;
+      color: white;
+  }

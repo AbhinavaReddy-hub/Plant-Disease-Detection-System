@@ -12,8 +12,12 @@ import Diagnosis from './pages/diagnosis/diagnosis.jsx';
 const Layout = () => (
   <>
     <NavBar />
-    <Outlet />
-    <Footer />
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div style={{ flex: 1, marginTop: '60px' }}>
+        <Outlet />
+      </div>
+      <Footer />
+    </div>
   </>
 );
 

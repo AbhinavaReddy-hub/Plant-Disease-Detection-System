@@ -1,5 +1,12 @@
-.contentWrapper{
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.contentWrapper {
+    flex: 1;
     width: 80vw;
-    height: fit-content;
     margin: auto;
 }

@@ -43,7 +43,7 @@
     padding: 12px;
     border-radius: 8px;
     background-color: rgb(156, 212, 160);
-    cursor: pointer;
+    cursor: url('../../../icons/leafPointer.svg'), pointer;
     transition: all 0.2s ease;
     border: 1px solid transparent;
 }

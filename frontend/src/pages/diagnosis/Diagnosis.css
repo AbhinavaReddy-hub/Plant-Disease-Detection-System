@@ -2,8 +2,9 @@
     width: 70vw;
     height: 70vh;
     margin: auto;
-    /* border: 2px solid red; */
-    margin-top: 5vh;
+    border: 2px solid red;
+    position: relative;
+    /* top: 56px; */
 }
 .diagnosisContainer form, .diagnosisContainer .finalUpload{
     display: flex;

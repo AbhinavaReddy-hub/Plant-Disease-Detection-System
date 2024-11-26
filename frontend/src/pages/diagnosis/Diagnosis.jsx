@@ -16,7 +16,7 @@ export default function Diagnosis() {
   };
   return (
     <div className="diagnosisContainer">
-      <h1>Vriksha</h1>
+      <h3>Vriksha Rakshak Diagnosis Page</h3>
       <form
         action=""
         className="uploadOptions"

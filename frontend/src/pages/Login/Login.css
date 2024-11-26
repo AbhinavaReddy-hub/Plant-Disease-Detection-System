@@ -1,4 +1,4 @@
-.loginWrapper{
+.loginWrapper {
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -7,44 +7,44 @@
     box-shadow: 2px 2px 5px;
 }
 
-.loginWrapper .loginContainer{
+.loginWrapper .loginContainer {
     display: flex;
     flex-direction: column;
     gap: 1em;
     align-items: center;
     justify-content: center;
-    padding:2em;
+    padding: 2em;
     background-image: url('./bg2.JPG'); 
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 2em;
 }
 
-.loginWrapper .header{
+.loginWrapper .header {
     display: flex;
     flex-direction: column;
-    align-items:center;
-    gap:0.7em;
+    align-items: center;
+    gap: 0.7em;
 }
 
-.loginWrapper .header #logo{
+.loginWrapper .header #logo {
     font-size: 50px;
     fill: black;
 }
 
-.loginWrapper .header h3{
+.loginWrapper .header h3 {
     font-size: 25px;
     color: white;
-    mix-blend-mode:difference;
+    mix-blend-mode: difference;
 }
 
-.loginWrapper .fieldContainer{
+.loginWrapper .fieldContainer {
     display: flex;
     flex-direction: column;
-    gap:0.8em;
+    gap: 0.8em;
 }
 
-.loginWrapper .userText,.passText{
+.loginWrapper .userText, .passText {
     margin-left: 1.2em;
     font-size: 16px;
     color: rgb(8, 8, 8);
@@ -52,9 +52,9 @@
     transition: all 0.4s;
 }
 
-.loginWrapper .fieldContainer input{
-    all:unset;
-    border: 2px solid rgb(7, 7, 7) ;
+.loginWrapper .fieldContainer input {
+    all: unset;
+    border: 2px solid rgb(7, 7, 7);
     background-color: #ffffff5a;
     backdrop-filter: blur(7px);
     border-radius: 2em;
@@ -62,58 +62,60 @@
     height: 2.5em;
     padding-left: 15px;
     transition: all 0.4s;
+    /* cursor: pointer; */
 }
 
-.loginWrapper .fieldContainer input::placeholder{
+.loginWrapper .fieldContainer input::placeholder {
     color: rgb(2, 2, 2);
     font-style: italic;
 }
 
-.loginWrapper .fieldContainer input:focus::placeholder{
+.loginWrapper .fieldContainer input:focus::placeholder {
     opacity: 0;
     transition: all 0.4s;
 }
 
-.loginWrapper .active{
+.loginWrapper .active {
     opacity: 1;
 }
 
-.loginWrapper .fieldContainer input:focus{
+.loginWrapper .fieldContainer input:focus {
     border: 2px solid blue;
+    /* Keep custom cursor */
 }
 
-.loginWrapper .passwordField{
+.loginWrapper .passwordField {
     position: relative;
     display: flex;
 }
 
-.loginWrapper .password a{
-    all:unset;
+.loginWrapper .password a {
+    all: unset;
 }
 
-.loginWrapper .password a p{
-    color:rgb(17, 17, 247);
+.loginWrapper .password a p {
+    color: rgb(17, 17, 247);
 }
 
-.loginWrapper .showbutton{
+.loginWrapper .showbutton {
     position: absolute;
     font-size: 25px;
     left: 83%;
-    top:21%;
-    border:none;
-    background:none;
+    top: 21%;
+    border: none;
+    background: none;
     cursor: pointer;
 }
 
-.loginWrapper .fieldContainer p{
+.loginWrapper .fieldContainer p {
     margin-top: 0.3em;
     margin-left: 0.6em;
     color: rgb(20, 19, 19);
     cursor: pointer;
 }
 
-.loginWrapper .loginbutton button{
-    all:unset;
+.loginWrapper .loginbutton button {
+    all: unset;
     font-size: 22px;
     font-weight: 500;
     padding: 2px 15px;
@@ -121,14 +123,14 @@
     background-color: #2e51327d;
     border: 2px solid black;
     border-radius: 20px;
-    cursor: pointer;
+    cursor: pointer; 
     transition: all 0.4s;
 }
 
-.loginWrapper .loginbutton button:hover{
+.loginWrapper .loginbutton button:hover {
     filter: brightness(120%);
 }
 
-.loginWrapper .dontAccount a{
-    color:rgb(17, 17, 247);
+.loginWrapper .dontAccount a {
+    color: rgb(17, 17, 247);
 }
