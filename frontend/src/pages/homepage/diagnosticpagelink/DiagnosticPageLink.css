@@ -1,0 +1,89 @@
+.diagnosisPageLink{
+    margin-top: 1em;
+    /* padding: 3vh; */
+    width:70%;
+    /* border: 2px solid red; */
+    text-align: center;
+    /* color:rgb(249, 253, 225); */
+}
+
+.diagnosisPageLink .title{
+    position: relative;
+    bottom: 10px;
+    font-size: 2.4vh;
+}
+
+.diagnosisPageLink .heal-your-crop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5vh;
+}
+
+.diagnosisPageLink .step img{
+    width: 80px;
+    background: none;
+    border-radius: 10px;
+}
+
+.diagnosisPageLink .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.65vh;
+}
+
+.diagnosisPageLink .arrow {
+    color: black;
+    font-size: 2.8vh;
+    background: none;
+    transform: translateY(-0.3em);
+    
+    /* position: relative;
+    bottom: 1.5vh; */
+}
+
+.diagnosisPageLink .upload-btn-label {
+    background-color: #4CAF50;
+    color: rgb(246, 246, 246);
+    font-weight: 500;
+    padding: 0.6vh 1.1vh;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.diagnosisPageLink .upload-btn-label {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.diagnosisPageLink .take-picture-btn:hover, .upload-btn-label:hover {
+    background-color: #388E3C;
+}
+@media (max-width:1200px){
+    .diagnosisPageLink{
+        width: 50vw;
+    }
+    .heal-your-crop{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .diagnosisPageLink .upload-btn-label{
+        font-size: 18px;
+    }
+}
+
+@media (max-width:950px) {
+    .diagnosisPageLink{
+        width: 70vw;
+    }
+    .diagnosisPageLink .arrow {
+        transform: translateY(-0.3em);
+    }
+}
