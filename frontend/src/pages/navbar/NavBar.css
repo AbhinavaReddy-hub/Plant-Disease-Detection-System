@@ -47,7 +47,14 @@
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 32px;
+    }
+
+    nav .extraOptions{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
     }
     .deactive {
       display: none;

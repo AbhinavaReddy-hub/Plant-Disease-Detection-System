@@ -7,7 +7,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: absolute;
-    right: calc(5% + 40px + 30px + 19px - 150px);;
+    right: calc(6.1% + 40px + 33px + 17px - 150px);;
     top: 60px; /* Start above the final position */
     padding: 16px;
     z-index: 1000;

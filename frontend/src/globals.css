@@ -1,30 +1,55 @@
 :root {
-    --main-bg-color: #f9fef9;
-    --main-font: "Poppins", serif;
-    --text-color: rgb(10, 10, 10);
-    --cursor-url: url("./icons/leafCursor.svg");
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    cursor: var(--cursor-url), auto;
-  }
-  
-  /* body {
+  --main-bg-color: #f9fef9;
+  --main-font: "Poppins", serif;
+  --text-color: rgb(10, 10, 10);
+  --cursor-url: url("./icons/leafCursor.svg");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: var(--cursor-url), auto;
+}
+
+/* body {
     background-color: var(--main-bg-color);
     font-family: var(--main-font);
     color: var(--text-color); */
-  body{
-      background-color: #f9fef9;
-      font-family: "Poppins", serif;
-      font-weight: 400;
-      font-style: normal;
-      color: rgb(10, 10, 10);
-      height:fit-content;
-  }
-  .darkmode{
-      background-color:#042004;
-      color: white;
-  }
+body {
+  background-color: #f9fef9;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(10, 10, 10);
+  height: fit-content;
+}
+.darkmode {
+  background-color: #042004;
+  color: white;
+}
+
+.button {
+  background-color: #4caf50;
+  color: rgb(246, 246, 246);
+  font-weight: 500;
+  padding: 0.6vh 1.1vh;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover{
+  background-color: #37833c;
+  transform: scale(1.02);
+}
+
+.button:active{
+  transform: scale(.93);
+}

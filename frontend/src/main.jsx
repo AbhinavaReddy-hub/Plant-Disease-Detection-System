@@ -10,7 +10,9 @@ import Faq from "./pages/Faq_And_Feedback/Faq.jsx";
 import { DarkModeProvider } from "./pages/homepage/homepage/DarkModeContext.jsx"; // Import the provider
 import "./globals.css";
 import Diagnosis from './pages/diagnosis/diagnosis.jsx';
-
+import Blog from './pages/Blogs/Blog.jsx';
+import NewPost from './pages/Blogs/NewPost.jsx';
+import PostDetails from './pages/Blogs/PostDetails.jsx';
 const Layout = () => (
   <>
     <NavBar />
@@ -33,6 +35,18 @@ const router = createBrowserRouter([
         element: <HomePage />
       }
     ]
+  },
+  {
+    path:"/blogs",
+    element:<Blog/>
+  },
+  {
+    path:"/blogs/new",
+    element:<NewPost/>
+  },
+  {
+    path:"/blogs/:id",
+    element:<PostDetails/>
   },
   {
     path: '/',

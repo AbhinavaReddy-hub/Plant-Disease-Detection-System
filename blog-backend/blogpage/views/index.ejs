@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Vriksh Rakashak posts</h1>
+        
+     </header>
+    
+     <main>
+      <% if (posts.length > 0) { %>
+          <div class="posts-container">
+              <% posts.forEach(post => { %>
+                  <div class="card">
+                      <div class="card-header">
+                          <a href="/images/profile"><img class="profile-pic" src="images\profile.jpg" alt="Profile Picture"></a>
+                          <h2><%= post.username %></h2>
+                      </div>
+                      <div class="card-body">
+                          <p><%= post.contentPreview %></p>
+                          <% if (post.contentFull.length > 100) { %>
+                              <a href="/post/<%= post.id %>">Read More</a>
+                          <% } %>
+                          <% if (post.image) { %>
+                              <img class="post-image" src="<%= post.image %>" alt="Post Image">
+                          <% } %>
+                      </div>
+                      <div class="card-footer">
+                          <p><small>Posted on: <%= new Date(post.createdAt).toLocaleString() %></small></p>
+                      </div>
+                  </div>
+              <% }); %>
+          </div>
+      <% } else { %>
+          <p>No posts yet. <a href="/new-post">Be the first to post!</a></p>
+      <% } %>
+  </main>
+
+    <div class="add-photo">
+      <a href="/new-post">
+        <img src="/images/addphoto.png" alt="Add Photo">
+      </a>
+    </div>
+    
+    
+</body>
+</html>
+ 

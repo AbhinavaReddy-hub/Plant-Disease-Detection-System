@@ -43,28 +43,6 @@
     bottom: 1.5vh; */
 }
 
-.diagnosisPageLink .upload-btn-label {
-    background-color: #4CAF50;
-    color: rgb(246, 246, 246);
-    font-weight: 500;
-    padding: 0.6vh 1.1vh;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.diagnosisPageLink .upload-btn-label {
-    display: inline-block;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.diagnosisPageLink .take-picture-btn:hover, .upload-btn-label:hover {
-    background-color: #388E3C;
-}
 @media (max-width:1200px){
     .diagnosisPageLink{
         width: 50vw;
@@ -74,7 +52,7 @@
         justify-content: space-around;
         align-items: center;
     }
-    .diagnosisPageLink .upload-btn-label{
+    .diagnosisPageLink .button{
         font-size: 18px;
     }
 }
