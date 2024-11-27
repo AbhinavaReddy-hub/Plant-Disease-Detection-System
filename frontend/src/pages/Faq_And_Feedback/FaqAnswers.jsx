@@ -1,7 +1,9 @@
+import { useDarkMode } from "../homepage/homepage/DarkModeContext";
 export default function FaqAnswers({ question, answer, setClicked }) {
+   const {isDarkMode,setDarkmode}=useDarkMode();
     return (
         <div className="faqQuestionAnswer">
-            <div className="questioncontainer" onClick={setClicked}>
+            <div className="questioncontainer" onClick={setClicked} style={isDarkMode?{borderBottom:"1x solid white"}:{}}>
                 <div className="question">{question}</div>
                 <span className="minus">-</span>
             </div>

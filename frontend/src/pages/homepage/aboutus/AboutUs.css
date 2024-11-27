@@ -1,7 +1,6 @@
 .aboutUs{
     /* border: 2px solid red; */
     /* margin: 0% 10%; */
-    margin-top: 60px;
     display: grid;
     grid-template-columns: 2fr 1fr;
     user-select: none;
@@ -104,13 +103,13 @@
 }
 @media (max-width:530px) {
     .aboutUs{
-        margin-top: 90px ;
+        /* margin-top: 90px ; */
         width: 80vw;
     }    
 }
 @media (max-width:390px) {
     .aboutUs{
-        margin-top: 90px;
+        /* margin-top: 90px; */
         width: 80vw;
     }
 }

@@ -25,7 +25,7 @@ export default function Login() {
   const users = [
     { id: 1, username: 'shah', password: 'Kmit@123$',},
     { id: 2, username: 'ozair', password: 'kmit123#',},
-    { id:3, username: 'kt', password:'leetcode', },
+    { id:3, username: 'abhi', password:'1234', },
   ];
 
   return (
@@ -45,7 +45,7 @@ export default function Login() {
         if (user) {
           if (!timeOutWorking) {
             setIsValid(true);
-            setTimeOutWorking(true);
+            setTimeOutWorking(true); 
             setTimeout(() => {
               setIsValid(false);
               setTimeOutWorking(false);

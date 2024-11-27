@@ -55,7 +55,7 @@ export default function Carousel() {
             className="images"
             style={ScreenSize<=390?{transform:`translateX(-${startIndex * 70}px)`}:{transform: `translateX(-${startIndex * 90}px)` }}
           >
-            {images.map(({ id, src }, index) => { 
+            {images.map(({ id, src }, index) => {
               return (
                 <img
                   key={id}

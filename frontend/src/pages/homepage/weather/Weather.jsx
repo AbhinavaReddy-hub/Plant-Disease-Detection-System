@@ -63,7 +63,7 @@ export default function Weather({ onWeatherLoaded }) {
         <div className="mainDetails">
           <img
             className="weatherIcon"
-            src={`https://openweathermap.org/img/wn/${weatherData?.weather?.[0]?.icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
             width={80}
             alt="weather icon"
             draggable={false}
@@ -80,7 +80,7 @@ export default function Weather({ onWeatherLoaded }) {
         <tbody>
           <tr className="c wind">
             <td className="title">Wind</td>
-            <td className="data f" >
+            <td className="data f">
               <p>{weatherData.wind.speed || "No Data"} m/s</p>
               <p>{weatherData.wind.deg || "No Data"}°</p>
               <p>{weatherData.wind.gust ? `${weatherData.wind.gust} m/s (gust)` : "No Data"}</p>

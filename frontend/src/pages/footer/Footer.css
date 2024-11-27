@@ -1,12 +1,10 @@
-footer{
+footer {
     padding: 12px 40px;
-    bottom: 0px;
-    width: 100vw;
+    width: 100%;
     height: fit-content;
-    transform:translateY(90%);
     background-color: #185d1a;
-    margin-top: 40px;
     font-size: 14px;
+    color: white;
 }
 
 .contact span:nth-child(2){

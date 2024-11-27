@@ -9,7 +9,8 @@ import SideMenu from "./SideMenu/SideMenu";
 import { RiMenu2Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./notifDetails/NotifDetails";
-import { MdLightMode,MdDarkMode } from "react-icons/md";
+import darkmode from "C:/Users/OZAIR/Desktop/NEW_REPO/NEW_HOMEPAGE/frontend/src/icons/modes/darkmode.svg";
+import lightmode from "C:/Users/OZAIR/Desktop/NEW_REPO/NEW_HOMEPAGE/frontend/src/icons/modes/lightmode.svg";
 import "./NavBar.css";
 
 export default function NavBar() {
@@ -99,9 +100,9 @@ export default function NavBar() {
             Vriksha Rakshak
           </Link>
           <div className="options">
-            <ul className={screenSize<=1200? "deactive":" "}>
-            <li>
-                <Link to="/diagnose">Daignose Page</Link>
+            <ul className={screenSize <= 1200 ? "deactive" : " "}>
+              <li>
+                <Link to="/diagnose">Diagnose</Link>
               </li>
               <li>
                 <Link to="/history">History</Link>
@@ -133,15 +134,30 @@ export default function NavBar() {
               alt="profile"
               onClick={handleProfileClick}
             />
-            <button className="modebutton" onClick={()=>{setDarkMode((cur)=>!cur)}}>
-             {isDarkMode?<MdDarkMode style={{color:"black"}}/>:<MdLightMode style={{color: "white"}}/>}
+            <button
+              className="modebutton"
+              onClick={() => {
+                setDarkMode((cur) => !cur);
+              }}
+            >
+              {isDarkMode ? (
+                <img src={darkmode} type="svg" title="light mode" />
+              ) : (
+                <img src={lightmode} type="svg" title="dark mode" />
+              )}
             </button>
           </div>
         </nav>
-        <NotifDetails notifications={notifications} setNotifications={setNotifications} isVisible={isNotifClick} />
+        <NotifDetails
+          notifications={notifications}
+          setNotifications={setNotifications}
+          isVisible={isNotifClick}
+        />
         <ProfileSection isVisible={isProfileClick} />
-      </header>  
-       {screenSize<=1200 && (isMenuClicked && <SideMenu darkMode={isDarkMode}/>)}
+      </header>
+      {screenSize <= 1200 && isMenuClicked && (
+        <SideMenu darkMode={isDarkMode} />
+      )}
     </div>
   );
 }

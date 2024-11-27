@@ -48,7 +48,6 @@ const SignUp = () => {
   useEffect(() => {
     document.title = "Sign Up page";
   }, []);
-  // console.log(username, phone, email, password, confirmPassword);
 
   const isLowerCase = passwordPattern.lowerCase.test(password);
   const isUpperCase = passwordPattern.upperCase.test(password);
@@ -82,20 +81,6 @@ const SignUp = () => {
                 required
               />
             </div>
-            {/* <div className="phonenumber fieldwrapper">
-              <label>
-                Phone Number<span className="star">*</span>:
-              </label>
-              <PhoneInput
-                id="phone"
-                country={"in"}
-                value={phone}
-                onChange={setPhone}
-                containerClass="custom-phone-input-container"
-                inputClass="custom-phone-input"
-                buttonClass="custom-flag-button"
-              />
-            </div> */}
             <div className="email fieldwrapper">
               <label htmlFor="email">
                 Email <span className="star">*</span>:{" "}

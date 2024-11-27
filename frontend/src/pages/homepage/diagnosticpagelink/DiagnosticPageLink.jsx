@@ -28,10 +28,6 @@ export default function DiagnosticPageLink(){
                 </div>
             </div>
             <div className="picture-options">
-                {/* <form id="uploadimage" action="sandeep/model.html">
-                    <input type="submit" id="upload-picture" className="upload-picture-btn" accept="image/*" />
-                    <label htmlFor="upload-picture" className="upload-btn-label">Go to Diagnoses page</label>
-                </form> */}
                 <Link to="/diagnose" className="upload-btn-label">Go to Diagnoses page</Link>
             </div>
             <p id="classified-image"></p>

@@ -1,124 +1,134 @@
-.navWraper header{
-    position: fixed;
-    width: 100vw;
-    z-index: 20;
-    padding: 13px 5% 8px 5%;
-    top:0px;
-    user-select: none;
-    background-color: rgb(14, 188, 14); 
-    box-shadow: 2px 2px 10px;
-}
-.navWraper .modebutton{
-    align-self: center;
-    all:unset;
-    font-size: 30px;
-}
-/* .menu{
-    height: 27.5px;
-    width: 27.5px;
-    margin-right: 16px;
-    cursor: pointer;
-} */
-
-.navWraper nav .title{
-    margin-left: 7px;
-    font-weight: 600;
-    opacity: 0.9;
-    font-size: 24px;
-    text-decoration: none;
-    color: rgb(255, 252, 252);
-}
-
-
-.navWraper nav .pp{
-    width: 40px;
-    border-radius: 50%;
-    /* margin-right: 10px; */
-    cursor: pointer;
-}
-
-.navWraper nav{
-    display: flex;
-    align-items: center;
-}
-
-.navWraper nav .options{
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-.navWraper .deactive{
-    display: none;
-}
-
-.navWraper nav ul{
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-
-.navWraper nav ul a{
-    text-decoration: none;
-    color: rgb(255, 252, 252);
-    transition: 230ms color;
-}
-
-.navWraper nav ul a:hover{
-    color: rgb(72, 62, 62);
-    border-bottom: 1.5px solid rgba(255, 255, 255, 0.808);
-}
-
-.navWraper nav .notif{
-    width: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-
-.navWraper .options img.pp.active {
-    transform: scale(1.1);
-}
-
-.navWraper .options img.pp {
-    transition: transform 0.2s ease;
-    cursor: pointer;
-}
-
-.navWraper .options img.pp:hover {
-    transform: scale(1.1);
-}
-
-.navWraper .options img.notif:hover{
-    transform: scale(1.1);
-}
-
-.navWraper .SideMenuBar{
-    color:black;
-    font-size: 28px;
-    margin-right:3%;
-}
-.sidemenuDark{
-    color:white;
-    font-size: 28px;
-    margin-right: 3%;
-}
-@media (max-width:390px) {
-    .navWraper nav .title{
-        font-size: 18px;
-    }   
-    .navWraper nav .notif{
-        width: 25px;
-    } 
-    .navWraper nav .pp{
-        width: 40px;
-        border-radius: 50%;
-        /* margin-right: 10px; */
-        cursor: pointer;
+.navWraper {
+    header {
+      position: fixed;
+      border-radius: 5px 5px 20px 20px;
+      left: calc(50% - 47.5%);
+      top: 0px;
+      width: 95%;
+      z-index: 20;
+      padding: 5px 5% 5px 5%;
+      user-select: none;
+      background-color: rgba(14, 98, 14, 0.66);
+      backdrop-filter: blur(10px);
+      box-shadow: 2px 2px 10px rgba(189, 233, 189, 0.407);
     }
-    .navWraper .SideMenuBar{
-        color:black;
-        font-size: 24px;
-        margin-right:3%;
+  
+    .modebutton {
+      all: unset;
+      padding: 0;
     }
-}
+  
+    img {
+      display: block;
+    }
+  
+    nav .title {
+      margin-left: 7px;
+      font-weight: 600;
+      opacity: 0.9;
+      font-size: 24px;
+      text-decoration: none;
+      color: rgb(255, 252, 252);
+    }
+  
+    nav .pp {
+      width: 40px;
+      border-radius: 50%;
+      /* margin-right: 10px; */
+      cursor: pointer;
+    }
+  
+    nav {
+      display: flex;
+      align-items: center;
+    }
+  
+    nav .options {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+    .deactive {
+      display: none;
+    }
+  
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+  
+    nav ul a {
+      text-decoration: none;
+      color: rgb(255, 252, 252);
+      cursor: pointer;
+      transition: 230ms color;
+    }
+  
+    nav ul a:hover {
+      color: rgb(72, 62, 62);
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.808);
+    }
+  
+    nav .notif {
+      width: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  
+    .options img.pp.active {
+      transform: scale(1.1);
+    }
+  
+    .options img.pp {
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+  
+    .options img.pp:hover {
+      transform: scale(1.1);
+    }
+  
+    .options img.notif:hover {
+      transform: scale(1.1);
+    }
+  
+    .SideMenuBar {
+      color: black;
+      font-size: 28px;
+      margin-right: 3%;
+    }
+    .sidemenuDark {
+      color: white;
+      font-size: 28px;
+      margin-right: 3%;
+    }
+  }
+  /* .menu{
+      height: 27.5px;
+      width: 27.5px;
+      margin-right: 16px;
+      cursor: url('../../icons/leafPointer.svg'), pointer;
+  } */
+  
+  @media (max-width: 390px) {
+    .navWraper nav .title {
+      font-size: 18px;
+    }
+    .navWraper nav .notif {
+      width: 25px;
+    }
+    .navWraper nav .pp {
+      width: 40px;
+      border-radius: 50%;
+      /* margin-right: 10px; */
+      cursor: pointer;
+    }
+    .navWraper .SideMenuBar {
+      color: black;
+      font-size: 24px;
+      margin-right: 3%;
+    }
+  }
+  
