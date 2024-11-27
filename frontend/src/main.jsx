@@ -7,8 +7,10 @@ import NavBar from './pages/navbar/NavBar.jsx';
 import Footer from './pages/footer/Footer.jsx';
 import Login from './pages/Login/Login.jsx';
 import Signup from './pages/SignUp/SignUp.jsx';
-import Diagnosis from './pages/diagnosis/Diagnosis.jsx';
-
+import Diagnosis from './pages/diagnosis/diagnosis.jsx';
+import Blog from './pages/Blogs/Blog.jsx';
+import NewPost from './pages/Blogs/NewPost.jsx';
+import PostDetails from './pages/Blogs/PostDetails.jsx';
 const Layout = () => (
   <>
     <NavBar />
@@ -31,6 +33,18 @@ const router = createBrowserRouter([
         element: <HomePage />
       }
     ]
+  },
+  {
+    path:"/blogs",
+    element:<Blog/>
+  },
+  {
+    path:"/blogs/new",
+    element:<NewPost/>
+  },
+  {
+    path:"/blogs/:id",
+    element:<PostDetails/>
   },
   {
     path: '/',
