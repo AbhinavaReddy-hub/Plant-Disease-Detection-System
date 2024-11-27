@@ -7,7 +7,7 @@ import NavBar from './pages/navbar/NavBar.jsx';
 import Footer from './pages/footer/Footer.jsx';
 import Login from './pages/Login/Login.jsx';
 import Signup from './pages/SignUp/SignUp.jsx';
-import Diagnosis from './pages/diagnosis/diagnosis.jsx';
+import Diagnosis from './pages/diagnosis/Diagnosis.jsx';
 
 const Layout = () => (
   <>

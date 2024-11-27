@@ -29,7 +29,7 @@ export default function DiagnosticPageLink(){
                     <input type="submit" id="upload-picture" className="upload-picture-btn" accept="image/*" />
                     <label htmlFor="upload-picture" className="upload-btn-label">Go to Diagnoses page</label>
                 </form> */}
-                <Link to="/diagnose" className="upload-btn-label">Go to Diagnoses page</Link>
+                <Link to="/diagnose" className="button">Go to Diagnoses page</Link>
             </div>
             <p id="classified-image"></p>
         </div>

@@ -165,31 +165,35 @@ export default function NavBar() {
               </li>
             </ul>
 
-            <img
-              className={`notif ${isNotifClick ? "active" : ""}`}
-              src={notif ? notifOn : notifOff}
-              alt={notif ? "New Notifications" : "No notifications"}
-              onClick={handleNotifClick}
-            />
+            <div className="extraOptions">
 
-            <img
-              className={`pp ${isProfileClick ? "active" : ""}`}
-              src={profilePic}
-              alt="profile"
-              onClick={handleProfileClick}
-            />
-            <button
-              className="modebutton"
-              onClick={() => {
-                setDarkMode((cur) => !cur);
-              }}
-            >
-              {isDarkMode ? (
-                <img src={darkmode} type="svg" title="light mode" />
-              ) : (
-                <img src={lightmode} type="svg" title="dark mode" />
-              )}
-            </button>
+              <img
+                className={`notif ${isNotifClick ? "active" : ""}`}
+                src={notif ? notifOn : notifOff}
+                alt={notif ? "New Notifications" : "No notifications"}
+                onClick={handleNotifClick}
+              />
+
+              <img
+                className={`pp ${isProfileClick ? "active" : ""}`}
+                src={profilePic}
+                alt="profile"
+                onClick={handleProfileClick}
+              />
+              <button
+                className="modebutton"
+                onClick={() => {
+                  setDarkMode((cur) => !cur);
+                }}
+              >
+                {isDarkMode ? (
+                  <img src={darkmode} type="svg" title="light mode" />
+                ) : (
+                  <img src={lightmode} type="svg" title="dark mode" />
+                )}
+              </button>
+            </div>
+
           </div>
         </nav>
         <NotifDetails
