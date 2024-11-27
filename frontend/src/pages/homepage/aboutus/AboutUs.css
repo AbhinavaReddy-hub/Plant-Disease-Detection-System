@@ -1,6 +1,7 @@
 .aboutUs{
     /* border: 2px solid red; */
     /* margin: 0% 10%; */
+    margin-top: 1.3vh;
     display: grid;
     grid-template-columns: 2fr 1fr;
     user-select: none;

@@ -30,26 +30,37 @@ body {
 }
 
 .button {
-  background-color: #4caf50;
-  color: rgb(246, 246, 246);
-  font-weight: 500;
-  padding: 0.6vh 1.1vh;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  text-align: center;
-  transition: background-color 0.3s, transform 0.15s;
+  all: unset;
   display: inline-block;
   cursor: pointer;
-  text-decoration: none;
+  background-color: rgb(2, 185, 2);
+  color: white;
+  font-weight: 500;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.15s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .button:hover{
-  background-color: #37833c;
-  transform: scale(1.02);
+  background-color: rgb(9, 128, 9);
+  transform: scale(1.03);
 }
 
 .button:active{
-  transform: scale(.93);
+  transform: scale(0.88);
+}
+
+.button:disabled {
+  background-color: #c3c89c;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button:disabled:hover{
+  transform: scale(1);
 }

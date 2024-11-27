@@ -52,7 +52,7 @@
     transition: all 0.4s;
 }
 
-.loginWrapper .fieldContainer input{
+.loginWrapper .fieldContainer .login-input{
     all:unset;
     border: 2px solid rgb(7, 7, 7) ;
     background-color: #ffffff5a;
@@ -65,12 +65,12 @@
     /* cursor: pointer; */
 }
 
-.loginWrapper .fieldContainer input::placeholder {
-    color: rgb(2, 2, 2);
+.loginWrapper .fieldContainer .login-input::placeholder {
+    color: rgba(73, 72, 72, 0.742);
     font-style: italic;
 }
 
-.loginWrapper .fieldContainer input:focus::placeholder{
+.loginWrapper .fieldContainer .login-input:focus::placeholder{
     opacity: 0;
     transition: all 0.4s;
 }
@@ -79,7 +79,7 @@
     opacity: 1;
 }
 
-.loginWrapper .fieldContainer input:focus {
+.loginWrapper .fieldContainer .login-input:focus {
     border: 2px solid blue;
     /* Keep custom cursor */
 }

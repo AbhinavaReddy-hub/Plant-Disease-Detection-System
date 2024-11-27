@@ -1,7 +1,6 @@
 import { useState } from "react";
 import FaqAnswers from "./faqanswers";
 import FaqQuestions from "./faqquestions";
-import NavBar from "../navbar/NavBar";
 import { useDarkMode } from "../homepage/homepage/DarkModeContext";
 import "./Faq.css";
 
@@ -34,7 +33,6 @@ export default function Faq() {
 
     return (
         <div className="FaqandWrapper" >
-            <NavBar />
             <div className="toplevelContainer">
                 <div className="faqLeftSide">
                 <div className="headingfaq">
@@ -74,7 +72,7 @@ export default function Faq() {
                                 setfeedbackData(e.target.value)
                             }} ></textarea>
                             <p className="indicator" style={isDarkMode?{color:"white"}:{color:"black"}}>{200-feedbackData.length}chars</p>
-                            <button type="submit" className="feedbackButton">Send Feedback</button>
+                            <button type="submit" className="button">Send Feedback</button>
                         </form>
                     </div>
                 </div>

@@ -68,7 +68,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/faq',
-    element: <Faq/>
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <Faq />
+      }
+    ]
   }
 ]);
 

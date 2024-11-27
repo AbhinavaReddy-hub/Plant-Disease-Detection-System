@@ -77,6 +77,7 @@ export default function Login() {
             <div className="username">
               <h5 className={isUserFocus ? "userText active" : "userText"}>Username:</h5>
               <input
+              className="login-userName-input login-input"
                 type="text"
                 name="username"
                 placeholder="Username"
@@ -90,6 +91,7 @@ export default function Login() {
               <h5 className={isPasswordFocus ? "passText active" : "passText"}>Password:</h5>
               <div className="passwordField">
                 <input
+                className="login-password-input login-input"
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Password"

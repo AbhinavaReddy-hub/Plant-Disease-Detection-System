@@ -9,8 +9,8 @@ import SideMenu from "./SideMenu/SideMenu";
 import { RiMenu2Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./notifDetails/NotifDetails";
-import darkmode from "C:/Users/OZAIR/Desktop/NEW_REPO/NEW_HOMEPAGE/frontend/src/icons/modes/darkmode.svg";
-import lightmode from "C:/Users/OZAIR/Desktop/NEW_REPO/NEW_HOMEPAGE/frontend/src/icons/modes/lightmode.svg";
+import darkmode from "../../icons/modes/darkmode2.svg";
+import lightmode from "../../icons/modes/lightmode.svg";
 import "./NavBar.css";
 
 export default function NavBar() {

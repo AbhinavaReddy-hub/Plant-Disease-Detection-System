@@ -1,11 +1,11 @@
 .FaqandWrapper{
-    height: fit-content;
     width: 100vw;
+    position: relative;
+    top: calc(50vh - 284.375px);
 
 }
 .FaqandWrapper .toplevelContainer{
     width: 100vw;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -51,6 +51,11 @@
     border-bottom: 1px solid grey;
     user-select: none;
 }
+
+.faqQuestion, .questioncontainer{
+    cursor: pointer;
+}
+
 .faqQuestion .plus{
     font-weight: bolder;
     scale: 1.5;
@@ -79,21 +84,25 @@
     border-radius: 1em;
     font-size: 16px;
 }
+
 .FeedbackSection{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:1em;
 }
+
 .FeedbackSection form{
     margin-left: 2em;
     display: flex;
+    justify-self: center;
+    align-items: center;
     flex-direction: column;
     gap:0.3em;
 }
+
 #userfeedback{
     all:unset;
-    margin-right: 2em;
     width: 350px;
     padding-left: 1em;
     height: 200px;
@@ -101,25 +110,17 @@
     border-radius: 1em;
     font-size: 18px;
 }
+
 #userfeedback::placeholder{
     padding:0em 0.6em;
 }
+
 .indicator{
-    margin-right: 3em;
+    margin-right: 13px;
     align-self:flex-end;
     color: rgb(58, 57, 57);
 }
-.feedbackButton{
-    all:unset;
-    background-color: rgb(6, 6, 130);
-    color:white;
-    width: fit-content;
-    align-self: center;
-    font-size: 27px;
-    padding: 0.1em 0.8em;
-    border-radius: 1em;
-    margin-bottom: 2em;
-}
+
 .feedbackandQuestion{
     margin-left: 1em;
 }
