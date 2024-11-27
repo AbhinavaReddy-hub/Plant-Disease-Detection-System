@@ -116,3 +116,14 @@
 .diagnosisContainer::-webkit-scrollbar-thumb:hover {
   background: rgb(9, 128, 9);
 }
+
+@media (max-width:1100px) {
+  .diagnosisContainer{
+    width: 70vw;
+  }
+}
+@media (max-width:550px) {
+  .diagnosisContainer{
+    width: 90vw;
+  }
+}
