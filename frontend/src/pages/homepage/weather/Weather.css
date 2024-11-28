@@ -19,7 +19,7 @@
 }
 
 .weatherContainer table{
-    width: 170px;
+    width: 220px;
     display: flex;
     justify-content: center;
     border-spacing: 10px 10px;
@@ -86,8 +86,27 @@
         display: flex;
         flex-direction: column;
     }
-        
+    .weatherContainer table{
+        margin: auto;
+    }     
 }
+
+@media (max-width:480px) {
+    .weatherContainer{
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+        gap:1em
+    }
+    .weatherContainer .mainDetails{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        right: 9.5px;
+    }
+}
+
 @media (max-width:390px) {
     .weatherContainer{
         width: 70vw;
@@ -95,5 +114,4 @@
         flex-direction: column;
         gap:1em
     }
-    
 }
