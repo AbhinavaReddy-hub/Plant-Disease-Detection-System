@@ -137,7 +137,7 @@
 
 @media (max-width: 768px) {
   .navWraper header{
-    height: 50px;
+    min-height: 50px;
     top: 5.5px;
     border-radius: 20px;
     box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844), 0px -3px 15px rgba(64, 75, 64, 0.484);
