@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Blogs.css"; // Import the CSS file for styling
 
-const Blog = () => {
+const Myblog = () => {
   const [blogs, setBlogs] = useState([]);
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
@@ -13,21 +13,24 @@ const Blog = () => {
       const user = JSON.parse(storedUser);
       setUsername(user.username);
     }
-
-    // Fetch blogs
-    const getBlogs = async () => {
-      try {
-        const response = await fetch("http://localhost:5770/posts");
-        const data = await response.json();
-        setBlogs(data);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      }
-    };
-    getBlogs();
   }, []);
 
-  // Function to delete a blog post
+  const fetchUserBlogs = async () => {
+    try {
+      const response = await fetch(`http://localhost:5770/posts/${username}`);
+      const data = await response.json();
+      setBlogs(data);
+    } catch (error) {
+      console.error("Error fetching user blogs:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (username) {
+      fetchUserBlogs(); // Fetch user blogs on initial load
+    }
+  }, [username]);
+
   const deleteBlog = async (id) => {
     try {
       const response = await fetch(`http://localhost:5770/posts/${id}`, {
@@ -35,7 +38,6 @@ const Blog = () => {
       });
 
       if (response.ok) {
-        // Update the local state to remove the deleted blog
         setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog.id !== id));
         alert("Blog deleted successfully!");
       } else {
@@ -52,7 +54,6 @@ const Blog = () => {
   return (
     <div>
       <div>{username}</div>
-      
       <div className="container">
         {blogs.map((blog) => (
           <div className="card" key={blog.id}>
@@ -93,12 +94,17 @@ const Blog = () => {
         >
           Create New Blog
         </button>
-        <button onClick={() => navigate("/blogs/my")} className="showUserPostsButton">
-         Show My Posts
+
+        {/* Show All Posts Button */}
+        <button
+          onClick={() => navigate("/blogs")} // Redirect to /blogs
+          className="showAllPostsButton"
+        >
+          Show All Posts
         </button>
       </div>
     </div>
   );
 };
 
-export default Blog;
+export default Myblog;
