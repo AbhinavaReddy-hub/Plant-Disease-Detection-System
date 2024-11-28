@@ -13,6 +13,7 @@ import Diagnosis from './pages/diagnosis/diagnosis.jsx';
 import Blog from './pages/Blogs/Blog.jsx';
 import NewPost from './pages/Blogs/NewPost.jsx';
 import PostDetails from './pages/Blogs/PostDetails.jsx';
+import SendHistory from "./pages/History/SendHistory.jsx";
 const Layout = () => (
   <>
     <NavBar />
@@ -73,6 +74,16 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Faq />
+      }
+    ]
+  },
+  {
+    path: '/History',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <SendHistory />
       }
     ]
   }
