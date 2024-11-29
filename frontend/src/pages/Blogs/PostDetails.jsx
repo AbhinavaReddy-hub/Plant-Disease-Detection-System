@@ -24,7 +24,7 @@ const BlogDetail = () => {
         setLoading(false); // Stop loading on error
       }
     };
-    
+
     fetchPost();
   }, [id]);
 
@@ -38,11 +38,17 @@ const BlogDetail = () => {
 
   return (
     <div className="postDetail">
+      {/* Display title if it exists */}
+     
+
       <h1>{post.username}'s Post</h1>
-      {post.image && <img src={post.image} alt="Post" />}
-      <p>{post.content}</p>
-      <p>{new Date(post.createdAt).toLocaleDateString()}</p>
-      
+      {post.image && <img src={post.image} alt="Post" className="postImage" />}
+      {post.title && <h2 className="postTitle">{post.title}</h2>}
+      <p className="postContent">{post.content}</p>
+      <p className="postDate">
+        {new Date(post.createdAt).toLocaleDateString()}
+      </p>
+
       {/* Button to navigate back to the posts list */}
       <button onClick={() => navigate("/blogs")} className="backToBlogsButton">
         Back to Posts

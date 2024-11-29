@@ -14,6 +14,7 @@ import Blog from './pages/Blogs/Blog.jsx';
 import NewPost from './pages/Blogs/NewPost.jsx';
 import PostDetails from './pages/Blogs/PostDetails.jsx';
 import SendHistory from "./pages/History/SendHistory.jsx";
+import Myblog from "./pages/Blogs/myposts.jsx";
 const Layout = () => (
   <>
     <NavBar />
@@ -39,7 +40,13 @@ const router = createBrowserRouter([
   },
   {
     path:"/blogs",
-    element:<Blog/>
+    element:<Layout />,
+    children: [
+      {
+        path: '',
+        element:<Blog/>
+      }
+    ]
   },
   {
     path:"/blogs/new",
@@ -48,6 +55,16 @@ const router = createBrowserRouter([
   {
     path:"/blogs/:id",
     element:<PostDetails/>
+  },
+  {
+    path:"/blogs/my",
+    element:<Layout />,
+    children: [
+      {
+        path: '',
+        element:<Myblog/>
+      }
+    ]
   },
   {
     path: '/',

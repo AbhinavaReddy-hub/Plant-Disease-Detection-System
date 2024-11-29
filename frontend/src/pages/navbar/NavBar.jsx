@@ -94,7 +94,7 @@ export default function NavBar() {
       <header style={isDarkMode?{backgroundColor:"#1e251e"}:{}}>
         <nav>
           {
-            screenSize<=1200 && (isMenuClicked?<RxCross2 className={isDarkMode?"sidemenuDark":"SideMenuBar"} onClick={handleMenubarClick}/>:<RiMenu2Fill className={isDarkMode?"sidemenuDark":"SideMenuBar"} onClick={handleMenubarClick}/>)
+            screenSize<=1200 && (isMenuClicked?<RxCross2 className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>:<RiMenu2Fill className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>)
           }
           <Link className="title" to="/home">
             Vriksha Rakshak

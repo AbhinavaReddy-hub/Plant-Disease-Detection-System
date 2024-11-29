@@ -1,15 +1,28 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  // Import useNavigate
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./NewPost.css";
 
 const NewPost = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    title: "",
     content: "",
     image: null,
   });
+  const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate();
+
+  // Retrieve the username from sessionStorage
+  useEffect(() => {
+    const storedUser = JSON.parse(sessionStorage.getItem("user"));
+    if (storedUser && storedUser.username) {
+      setUsername(storedUser.username);
+    } else {
+      setMessage("Error: No user logged in.");
+      // Optional: Redirect to login if no user is found
+      navigate("/login");
+    }
+  }, [navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +42,8 @@ const NewPost = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData();
-    form.append("username", formData.username);
+    form.append("username", username); // Use the username from sessionStorage
+    form.append("title", formData.title); // Add title
     form.append("content", formData.content);
     if (formData.image) {
       form.append("image", formData.image);
@@ -44,13 +58,13 @@ const NewPost = () => {
       if (response.ok) {
         setMessage("Post created successfully!");
         setFormData({
-          username: "",
+          title: "",
           content: "",
           image: null,
         });
 
         // Redirect to the posts page after successful submission
-        navigate("/blogs");  // This will take the user to the /blogs page
+        navigate("/blogs");
       } else {
         setMessage("Failed to create the post. Please try again.");
       }
@@ -73,9 +87,9 @@ const NewPost = () => {
           <div className="formGroup">
             <input
               type="text"
-              name="username"
-              placeholder="Your Name"
-              value={formData.username}
+              name="title"
+              placeholder="Post Title"
+              value={formData.title}
               onChange={handleInputChange}
               required
               className="formInput"
