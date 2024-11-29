@@ -47,6 +47,9 @@ export default function SendHistory(){
                 <h2>History</h2>
                 <Link to="/insights" className="button">Check out Your Insights</Link>
             </section>
+            <div className="monthSectioin">
+                <h3>October</h3>
+            </div>
             <section className="containingDetails">
                 {history.map(({id,disease,percentage,date,leaf})=>(
                     <div id={id}>

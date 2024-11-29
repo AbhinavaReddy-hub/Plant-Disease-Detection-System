@@ -17,20 +17,21 @@
 
 .headerAndGotoInsights{
     width: 100vw;
-    margin-left: 40vh;
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
+    gap:5vw;
 }
-.HistoryCotainerwithallHistory{
-    align-self: center;
-    background-color: rgb(77, 77, 77);
-
+.headerAndGotoInsights h2{
+    font-size:35px;
+}
+.headerAndGotoInsights .button{
+    scale:0.9;
 }
 .HistoryContainerwithDetails{
     align-self: center;
     padding:1em;
-    width: 40vw;
     display: flex;
+    gap:3vw;
     justify-content: space-around;
     border-radius: 1em;
     background-color: rgb(241, 241, 241);
@@ -53,4 +54,16 @@
 .viewMoreHistoryButton{
     align-self: flex-end;
     scale:0.8;
+}
+
+@media (max-width:500px) {
+    .containingDetails{
+       width:90vw;
+    }
+    .rigthsideHistoryDetails img{
+        height: 60px;
+    }
+    .leftsideHistoryDetails{
+        gap:0.1em;
+    }
 }
