@@ -69,7 +69,7 @@ export default function Diagnosis() {
       >
         {/* Label as custom button */}
         <label
-          className="button custom-upload-button"
+          className="button"
           htmlFor="file-upload-button"
         >
           Choose Image
