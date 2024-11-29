@@ -36,13 +36,19 @@ footer {
 }
 
 @media (max-width:950px) {
+    footer{
+        font-size: 12px;
+    }
+    footer .copyright{
+        margin-right: 0px;
+    }
+}
+
+@media (max-width:700px){
     .mainFooter{
         display: flex;
         flex-direction: column;
         text-align: center;
         gap:0.5em;
-    }
-    footer .copyright{
-        margin-right: 0px;
     }
 }
