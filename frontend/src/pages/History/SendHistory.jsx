@@ -2,8 +2,12 @@ import "./History.css";
 import leaf from "./download.jpeg";
 import { Link } from "react-router-dom";
 import History from "./History";
+import { useState } from "react";
+import {useDarkMode} from "../homepage/homepage/DarkModeContext"
 
 export default function SendHistory(){
+    const{isDarkMode,setDarkMode}=useDarkMode();
+    const [countClicked,setCountClick]=useState(false)
     const history=[
         {
             id:1,
@@ -42,17 +46,18 @@ export default function SendHistory(){
         },
     ]
     return(
-        <div className="SendHistoryWrapper">
+        <div className="SendHistoryWrapper" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
              <section className="headerAndGotoInsights">
                 <h2>History</h2>
                 <Link to="/insights" className="button">Check out Your Insights</Link>
             </section>
-            <div className="monthSectioin">
-                <h3>October</h3>
-            </div>
-            <section className="containingDetails">
+            <section className="containingDetails"style={isDarkMode?{color:"white",backgroundColor:"#2e302f"}:{color:"black"}}>
+                <div className="monthSectioinAndCount">
+                    <h3 style={{fontSize:"24px"}}>October</h3>
+                    <button className="button" onClick={()=>setCountClick((cur)=>!cur)}>Count Total Diagnosis : <span style={{color:"blue",fontWeight:"bolder", fontSize:"18px"}}>{countClicked && history.length}</span></button>
+                </div>
                 {history.map(({id,disease,percentage,date,leaf})=>(
-                    <div id={id}>
+                    <div key={id}>
                         <History disease={disease} percentage={percentage} date={date} leaf={leaf}/>
                     </div>
                 ))}
