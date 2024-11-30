@@ -5,7 +5,7 @@ import { useDarkMode } from "../homepage/homepage/DarkModeContext";
 export default function HistoryModal({onclose,disease,percentage,leaf}){
     const {isDarkMode,setDarkMode}=useDarkMode();
     return ReactDOM.createPortal(
-        <div className="HistoryModalWrapper" onClick={onclose}>
+        <div className="HistoryModalWrapper">
             <div className="HistoryModalContainer" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
                 <div className="crossMarkicon" onClick={onclose}>
                     <RxCross1 />

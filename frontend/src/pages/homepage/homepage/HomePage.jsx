@@ -5,6 +5,8 @@ import EndComps from '../endcomps/EndComps.jsx';
 import { useState, useEffect } from 'react';
 import LoadingScreen from '../../loadingscreen/LoadingScreen.jsx';
 import Valid from '../../Login/validations/valid/Valid.jsx';
+import ChatBotImage from '../../ChatBot/ChatBotImage.jsx';
+
 
 function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,6 +40,7 @@ function HomePage() {
       {isLoading && <LoadingScreen />}
       <div className="contentWrapper" style={{ display: isLoading ? 'none' : 'grid', gap:"43px" }}>
         <AboutUs />
+        <ChatBotImage/>
         <Carousel />
         <EndComps onWeatherLoaded={handleWeatherLoaded} />
       </div>
