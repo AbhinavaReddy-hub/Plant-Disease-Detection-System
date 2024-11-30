@@ -9,12 +9,7 @@ import Signup from "./components/login_signup/SignUp.jsx";
 import Faq from "./components/faq_feedback/Faq.jsx";
 import { DarkModeProvider } from "./components/DarkModeContext.jsx"; // Import the provider
 import "./globals.css";
-import Diagnosis from './pages/diagnosis/diagnosis.jsx';
-import Blog from './pages/Blogs/Blog.jsx';
-import NewPost from './pages/Blogs/NewPost.jsx';
-import PostDetails from './pages/Blogs/PostDetails.jsx';
-import SendHistory from "./pages/History/SendHistory.jsx";
-import Myblog from "./pages/Blogs/myposts.jsx";
+import SendHistory from "./components/History/SendHistory.jsx";
 import Diagnosis from './components/Diagnosis.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
 import BlogDetails from './components/Blogs/blogDetails.jsx';
@@ -48,7 +43,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element:<Blog/>
+        element:<NewBlog/>
       }
     ]
   },

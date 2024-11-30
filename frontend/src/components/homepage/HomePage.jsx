@@ -3,9 +3,9 @@ import AboutUs from './AboutUs.jsx';
 import Carousel from './Carousel.jsx';
 import EndComps from './EndComps.jsx';
 import { useState, useEffect } from 'react';
-import LoadingScreen from '../../loadingscreen/LoadingScreen.jsx';
-import Valid from '../../Login/validations/valid/Valid.jsx';
-import ChatBotImage from '../../ChatBot/ChatBotImage.jsx';
+import LoadingScreen from '../LoadingScreen.jsx';
+// import Valid from '../../Login/validations/valid/Valid.jsx';
+import ChatBotImage from '../ChatBot/ChatBotImage.jsx';
 
 
 function HomePage() {
