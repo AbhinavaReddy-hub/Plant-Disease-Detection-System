@@ -2,7 +2,7 @@
   --main-bg-color: #f9fef9;
   --main-font: "Poppins", serif;
   --text-color: rgb(10, 10, 10);
-  --cursor-url: url("./icons/leafCursor.svg");
+  --cursor-url: url("./images/icons/leafCursor.svg");
 }
 
 * {
@@ -10,6 +10,7 @@
   padding: 0;
   box-sizing: border-box;
   cursor: var(--cursor-url), auto;
+  user-select: none;
 }
 
 /* body {
@@ -36,7 +37,7 @@ body {
   background-color: rgb(2, 185, 2);
   color: white;
   font-weight: 500;
-  padding: 10px 20px;
+  padding: 7.56px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;

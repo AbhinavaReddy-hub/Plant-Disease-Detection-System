@@ -1,0 +1,206 @@
+.navWraper {
+  header {
+    position: fixed;
+    border-radius: 5px 5px 20px 20px;
+    left: calc(50% - 47.5%);
+    top: 0px;
+    width: 95%;
+    z-index: 20;
+    padding: 5px 5% 8px 5%;
+    user-select: none;
+    background-color: rgba(14, 98, 14, 0.66);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
+  }
+
+  .side-menu{
+    width: 22.5px;
+  }
+
+  .modebutton {
+    all: unset;
+    padding: 0;
+  }
+
+  img {
+    display: block;
+  }
+
+  nav{
+    display: flex;
+    align-items: center;
+
+    .title{
+      margin-left: 7px;
+      font-weight: 600;
+      opacity: 0.9;
+      font-size: 24px;
+      text-decoration: none;
+      color: rgb(255, 252, 252);
+    }
+  
+    .pp{
+      width: 35px;
+      border-radius: 50%;
+      /* margin-right: 10px; */
+      cursor: pointer;
+    }
+      
+  
+    .options {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+  
+    .extraOptions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+
+      a{
+        position: relative;
+        text-decoration: none;
+        color: rgb(255, 252, 252);
+        cursor: pointer;
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        right: 50%;
+        height: 1.52px;
+        background-color: rgba(255, 255, 255, 0.808);
+        pointer-events: none;
+        transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+      }
+
+      a:hover::after {
+        left: 3.5%;
+        right: 3.5%;
+      }
+    } 
+  
+    .notif {
+      width: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
+  
+  .deactive {
+    display: none;
+  }
+
+  .options{
+    img.pp.active {
+      transform: scale(1.1);
+    }
+
+    img.pp {
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    img.pp:hover {
+      transform: scale(1.1);
+    }
+
+    img.notif:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .SideMenuBar {
+    color: black;
+    font-size: 28px;
+    margin-right: 3%;
+  }
+  .sidemenuDark {
+    color: white;
+    font-size: 28px;
+    margin-right: 3%;
+  }
+}
+
+/* .menu{
+      height: 27.5px;
+      width: 27.5px;
+      margin-right: 16px;
+      cursor: url('../../icons/leafPointer.svg'), pointer;
+  } */
+
+
+@media (max-width: 768px) {
+  .navWraper header{
+    min-height: 50px;
+    top: 5.5px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844), 0px -3px 15px rgba(64, 75, 64, 0.484);
+  }
+  nav{
+    margin-top: 3.5px;
+  }
+}
+
+@media (max-width: 470px) {
+  .navWraper nav{
+    .title {
+      font-size: 20px;
+    }
+
+    .extraOptions{
+      gap: 18px;
+    }
+
+    .notif {
+      width: 29px;
+    }
+
+    .pp {
+      width: 33px;
+    }
+
+    .modebutton img{
+      width: 30px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .navWraper{
+    nav{
+      .title {
+        font-size: 19.5px;
+      }
+  
+      .modebutton img{
+        width: 26px;
+      }
+  
+      .notif {
+        width: 26px;
+      }
+  
+      .pp {
+        width: 33px;
+      }
+    }
+
+    .SideMenuBar {
+      color: black;
+      font-size: 24px;
+      margin-right: 3%;
+    }
+  }
+}

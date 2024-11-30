@@ -1,0 +1,94 @@
+.cropsForDiagnoseContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .carouselContainer {
+    width: fit-content;
+    display: flex;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .arrow {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: rgb(180, 235, 203);
+    transition: 0.4s;
+  }
+
+  .arrow:hover {
+    background-color: rgba(180, 235, 203, 0.83);
+  }
+
+  .arrow:active {
+    background-color: rgba(180, 235, 203, 0.7);
+  }
+
+  .arrow:disabled {
+    background-color: rgba(180, 235, 203, 0.25);
+  }
+
+  .crops {
+    width: 70px;
+    width: 25%;
+    height: 70px;
+    margin: 0px 10px;
+  }
+  .carouselWrapper {
+    width: 360px;
+    overflow: hidden;
+  }
+
+  .images {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .context {
+    font-family: "Itim", cursive;
+    font-weight: 500;
+    font-size: 23px;
+    font-style: normal;
+    display: flex;
+    left: 10%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cropsForDiagnoseContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+  }
+}
+
+@media (max-width: 950px) {
+  .carouselContainer .carouselWrapper {
+    width: 270px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 530px) {
+  .carouselContainer {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 390px) {
+  .carouselContainer .carouselWrapper {
+    width: 270px;
+    overflow: hidden;
+  }
+
+  .carouselContainer .crops {
+    width: 28%;
+    height: 70px;
+    margin: 0px 6px;
+  }
+}

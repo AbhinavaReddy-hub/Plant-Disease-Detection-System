@@ -1,0 +1,16 @@
+/* body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+} */
+
+.homePageContainer {
+  display: grid;
+  gap: 43px;
+  .contentWrapper {
+    flex: 1;
+    width: 80vw;
+    margin: auto;
+  }
+}
