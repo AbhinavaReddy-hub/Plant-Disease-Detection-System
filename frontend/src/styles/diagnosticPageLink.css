@@ -1,0 +1,64 @@
+.diagnosisPageLinkContainer {
+  margin-top: 1em;
+  width: 70%;
+  text-align: center;
+
+  .title {
+    position: relative;
+    bottom: 10px;
+    font-size: 2.4vh;
+  }
+
+  .heal-your-crop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5vh;
+  }
+
+  .step img {
+    width: 80px;
+    background: none;
+    border-radius: 10px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.65vh;
+  }
+
+  .arrow {
+    color: black;
+    font-size: 2.8vh;
+    background: none;
+    transform: translateY(-0.3em);
+  }
+}
+
+@media (max-width: 1200px) {
+  .diagnosisPageLinkContainer {
+    width: 50vw;
+
+    .heal-your-crop {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .button {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .diagnosisPageLinkContainer {
+    width: 70vw;
+
+    .arrow {
+      transform: translateY(-0.3em);
+    }
+  }
+}

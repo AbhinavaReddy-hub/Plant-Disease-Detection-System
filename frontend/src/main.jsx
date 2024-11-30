@@ -1,19 +1,19 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import NavBar from "./pages/navbar/NavBar.jsx";
-import Footer from "./pages/footer/Footer.jsx";
-import HomePage from "./pages/homepage/homepage/HomePage.jsx";
-import Login from "./pages/Login/Login.jsx";
-import Signup from "./pages/SignUp/SignUp.jsx";
-import Faq from "./pages/Faq_And_Feedback/Faq.jsx";
-import { DarkModeProvider } from "./pages/homepage/homepage/DarkModeContext.jsx"; // Import the provider
+import NavBar from "./components/navbar/NavBar.jsx";
+import Footer from "./components/Footer.jsx";
+import HomePage from "./components/homepage/HomePage.jsx";
+import Login from "./components/login_signup/Login.jsx";
+import Signup from "./components/login_signup/SignUp.jsx";
+import Faq from "./components/faq_feedback/Faq.jsx";
+import { DarkModeProvider } from "./components/DarkModeContext.jsx"; // Import the provider
 import "./globals.css";
-import Diagnosis from './pages/diagnosis/diagnosis.jsx';
-import Blog from './pages/Blogs/Blog.jsx';
-import NewPost from './pages/Blogs/NewPost.jsx';
-import PostDetails from './pages/Blogs/PostDetails.jsx';
-import Myblog from "./pages/Blogs/myposts.jsx";
+import Diagnosis from './components/Diagnosis.jsx';
+import Blog from './components/Blogs/Blog.jsx';
+import NewBlog from './components/Blogs/NewBlog.jsx';
+import BlogDetails from './components/Blogs/blogDetails.jsx';
+import MyBlogs from "./components/Blogs/MyBlogs.jsx";
 const Layout = () => (
   <>
     <NavBar />
@@ -49,11 +49,11 @@ const router = createBrowserRouter([
   },
   {
     path:"/blogs/new",
-    element:<NewPost/>
+    element:<NewBlog/>
   },
   {
     path:"/blogs/:id",
-    element:<PostDetails/>
+    element:<BlogDetails/>
   },
   {
     path:"/blogs/my",
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element:<Myblog/>
+        element:<MyBlogs/>
       }
     ]
   },

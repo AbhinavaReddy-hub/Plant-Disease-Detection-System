@@ -1,0 +1,98 @@
+/* Container for the blogs */
+.blogContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+
+  /* Blog card styling */
+  .card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  /* Hover effect for the blog cards */
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Username styling */
+  .username {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  /* Image styling */
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* Content styling */
+  .content {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  /* Read more link styling */
+  .readMore {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  /* Date styling */
+  .date {
+    font-size: 12px;
+    color: #999;
+    margin-top: 10px;
+  }
+  .createBlogButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .createBlogButton:hover {
+    background-color: #0056b3;
+  }
+
+  .addPostButton {
+    background-color: #008cba;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Adds space above the post list */
+  }
+
+  .addPostButton:hover {
+    background-color: #007b9a;
+  }
+}

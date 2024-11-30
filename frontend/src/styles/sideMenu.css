@@ -1,0 +1,40 @@
+.SideMenu{
+    width: 100%;
+    z-index: 500;
+    margin-top: 61px;
+    display: block;
+    position: fixed;
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: 900;
+    background-color: rgba(68, 226, 57, 0.558);
+    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2);
+    padding: 5% 0% 5% 10%;
+
+    .SideOptions a{
+        all:unset;
+        width: 100%;
+    }
+
+    .SideOptions a:hover{
+        scale:1.1;
+    }
+
+    .SideOptions{
+        list-style:none;
+        display: flex;
+        flex-direction: column;
+        gap:0.5em;
+    }
+}
+
+.dmode{
+    background-color: rgba(22, 37, 22, 0.758);
+    color: white;
+}
+
+@media (max-width:390px) {
+    .SideMenu{
+        font-size: 15px;
+    }
+}
