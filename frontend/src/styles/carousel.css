@@ -59,7 +59,7 @@
 }
 
 @media (max-width: 1200px) {
-  .cropsForDiagnose {
+  .cropsForDiagnoseContainer {
     display: flex;
     flex-direction: column;
     gap: 2em;
