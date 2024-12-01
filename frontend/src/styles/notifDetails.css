@@ -38,7 +38,7 @@
         border-radius: 8px;
         background-color: rgb(156, 212, 160);
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
         border: 1px solid transparent;
 
         h4 {
@@ -87,13 +87,13 @@
 /* Active states for icons */
 .notif.active, .pp.active {
     transform: scale(1.1);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 /* Add to your existing NavBar.css */
 .options img.notif,
 .options img.pp {
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .options img.notif:hover,

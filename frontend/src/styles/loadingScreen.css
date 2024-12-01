@@ -1,9 +1,7 @@
 .loadingContainer{
-  height: calc(100vh - 70px - 45px);
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0px 0px 10px 15px;
 }
 
 .loading {

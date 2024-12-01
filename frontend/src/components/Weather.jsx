@@ -1,16 +1,14 @@
- import { useEffect, useState } from 'react';
-import LoadingScreen from './LoadingScreen';
-import { useDarkMode } from './DarkModeContext';
+import { useEffect, useState } from "react";
+import LoadingScreen from "./LoadingScreen";
+import { useDarkMode } from "./DarkModeContext";
 import "../styles/weather.css";
 
-export default function Weather({ onWeatherLoaded }) {
+export default function Weather() {
   const [weatherData, setWeatherData] = useState(null);
-  const [location, setLocation] = useState({
-    lat: null,
-    lon: null,
-  });
-  const{isDarkMode,setDarkmode}=useDarkMode();
-  // Fetch location data
+  const [isLoading, setIsLoading] = useState(true);
+  const [location, setLocation] = useState({ lat: null, lon: null });
+  const { isDarkMode } = useDarkMode();
+
   useEffect(() => {
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=hyderabad&limit=1&appid=fda78748a814b69515ca24c4df99e5c2`
@@ -18,19 +16,16 @@ export default function Weather({ onWeatherLoaded }) {
       .then((response) => response.json())
       .then((data) => {
         if (data.length > 0) {
-          setLocation({
-            lat: data[0].lat,
-            lon: data[0].lon,
-          });
+          setLocation({ lat: data[0].lat, lon: data[0].lon });
         } else {
-          onWeatherLoaded();
+          setIsLoading(false);
         }
       })
       .catch((error) => {
         console.error("Error fetching location data:", error);
-        onWeatherLoaded();
+        setIsLoading(false);
       });
-  }, [onWeatherLoaded]);
+  }, []);
 
   useEffect(() => {
     if (location.lat && location.lon) {
@@ -38,27 +33,41 @@ export default function Weather({ onWeatherLoaded }) {
         `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&appid=fda78748a814b69515ca24c4df99e5c2&units=metric&lang=en`
       )
         .then((response) => response.json())
-        .then((val) => {
-          setWeatherData(val);
-          onWeatherLoaded();
+        .then((data) => {
+          setWeatherData(data);
+          setIsLoading(false);
         })
         .catch((error) => {
           console.error("Error fetching weather data:", error);
-          onWeatherLoaded();
+          setIsLoading(false);
         });
     }
-  }, [location, onWeatherLoaded]);
+  }, [location]);
 
-  if (!weatherData) {
-    return null;
+  if (isLoading) {
+    return (
+      <section className="weatherContainer">
+        <LoadingScreen />
+      </section>
+    );
   }
 
+  if (!weatherData) return null;
+
   return (
-    <section className="weatherContainer" style={isDarkMode?{backgroundColor:"#242a23"}:{}}>
-      <div className="mainContent" >
+    <section
+      className="weatherContainer"
+      style={isDarkMode ? { backgroundColor: "#242a23" } : {}}
+    >
+      <div className="mainContent">
         <div className="details">
           <p className="cityDetail">{weatherData.name}</p>
-          <p className="weatherDetail" style={isDarkMode?{color:"white"}:{color:"black"}}>{weatherData.weather[0].main}</p>
+          <p
+            className="weatherDetail"
+            style={isDarkMode ? { color: "white" } : { color: "black" }}
+          >
+            {weatherData.weather[0].main}
+          </p>
         </div>
         <div className="mainDetails">
           <img
@@ -70,9 +79,10 @@ export default function Weather({ onWeatherLoaded }) {
           />
           <div className="sideDetails">
             <p className="temp">{`${Math.floor(weatherData.main.temp)}°C`}</p>
-            <p className="realFeel">
-              RealFeel: {`${Math.floor(weatherData.main.feels_like)}°C`}
-            </p>
+            <p className="realFeel">RealFeel:</p>
+            <p className="realFeel">{`${Math.floor(
+              weatherData.main.feels_like
+            )}°C`}</p>
           </div>
         </div>
       </div>
@@ -83,7 +93,11 @@ export default function Weather({ onWeatherLoaded }) {
             <td className="data f">
               <p>{weatherData.wind.speed || "No Data"} m/s</p>
               <p>{weatherData.wind.deg || "No Data"}°</p>
-              <p>{weatherData.wind.gust ? `${weatherData.wind.gust} m/s (gust)` : "No Data"}</p>
+              <p>
+                {weatherData.wind.gust
+                  ? `${weatherData.wind.gust} m/s (gust)`
+                  : "No Data"}
+              </p>
             </td>
           </tr>
           <tr className="c humidity">

@@ -4,7 +4,7 @@ import profilePic from "../../images/icons/profile.png";
 import ProfileSection from "./ProfileSection";
 import notifOff from "../../images/notification/notifOff.svg";
 import notifOn from "../../images/notification/notifOn.svg";
-import { useDarkMode } from "../DarkModeContext" ;
+import { useDarkMode } from "../DarkModeContext";
 import SideMenu from "./SideMenu";
 import { RiMenu2Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
@@ -14,21 +14,21 @@ import lightmode from "../../images/icons/modes/lightmode.svg";
 import "../../styles/navBar.css";
 
 export default function NavBar() {
-  const{isDarkMode,setDarkMode}=useDarkMode();
+  const { isDarkMode, setDarkMode } = useDarkMode();
   const [isProfileClick, setIsProfileClick] = useState(false);
   const [isNotifClick, setIsNotifClick] = useState(false);
   const [notif, setNotif] = useState(true);
-  const[isMenuClicked,setMenuClicked]=useState(false);
-  const[screenSize,setScreenSize]=useState(window.innerWidth);
+  const [isMenuClicked, setMenuClicked] = useState(false);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
-  
+
     window.addEventListener("resize", handleResize);
-  
+
     return () => window.removeEventListener("resize", handleResize);
   }, [screenSize]);
-  const [notifications,setNotifications] = useState([
+  const [notifications, setNotifications] = useState([
     {
       id: 1,
       title: "New disease spreading in your area",
@@ -45,7 +45,7 @@ export default function NavBar() {
       desc: "7 new tomato leaf blight diseases have been diagnosed in Warangal",
     },
     {
-      id:4,
+      id: 4,
       title: "New disease spreading in your area",
       desc: "7 new tomato leaf blight diseases have been diagnosed in Warangal",
     },
@@ -82,19 +82,32 @@ export default function NavBar() {
     setMenuClicked(false);
     setIsProfileClick((prev) => !prev);
   };
-  const handleMenubarClick=(e)=>{
+  const handleMenubarClick = (e) => {
     e.stopPropagation();
     setIsNotifClick(false);
-    setIsProfileClick(false)
-    setMenuClicked((cur)=>!cur);
-  }
+    setIsProfileClick(false);
+    setMenuClicked((cur) => !cur);
+  };
   return (
     <div className="navWraper">
-      <header style={isDarkMode?{backgroundColor:"#1e251e"}:{}}>
+      <header style={isDarkMode ? { backgroundColor: "#1e251e" } : {}}>
         <nav>
-          {
-            screenSize<=1200 && (isMenuClicked?<RxCross2 className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>:<RiMenu2Fill className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>)
-          }
+          {screenSize <= 1200 &&
+            (isMenuClicked ? (
+              <RxCross2
+                className={`side-menu ${
+                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
+                }`}
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <RiMenu2Fill
+                className={`side-menu ${
+                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
+                }`}
+                onClick={handleMenubarClick}
+              />
+            ))}
           <Link className="title" to="/home">
             Vriksha Rakshak
           </Link>
@@ -121,7 +134,6 @@ export default function NavBar() {
             </ul>
 
             <div className="extraOptions">
-
               <img
                 className={`notif ${isNotifClick ? "active" : ""}`}
                 src={notif ? notifOn : notifOff}
@@ -136,19 +148,24 @@ export default function NavBar() {
                 onClick={handleProfileClick}
               />
               <button
-                className="modebutton"
+                className="modebutton tooltip"
+                data-tooltip={isDarkMode ? "Dark Mode" : "Light Mode"}
                 onClick={() => {
                   setDarkMode((cur) => !cur);
                 }}
               >
-                {isDarkMode ? (
-                  <img src={darkmode} type="svg" title="light mode" />
-                ) : (
-                  <img src={lightmode} type="svg" title="dark mode" />
-                )}
+                <img
+                  src={darkmode}
+                  alt="Dark Mode"
+                  className={isDarkMode ? "active" : ""}
+                />
+                <img
+                  src={lightmode}
+                  alt="Light Mode"
+                  className={!isDarkMode ? "active" : ""}
+                />
               </button>
             </div>
-
           </div>
         </nav>
         <NotifDetails

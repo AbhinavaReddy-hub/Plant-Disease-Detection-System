@@ -1,4 +1,6 @@
 .navWraper {
+  --icon-hover-scale: 1.1;
+
   header {
     position: fixed;
     border-radius: 5px 5px 20px 20px;
@@ -13,47 +15,52 @@
     box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
   }
 
-  .side-menu{
+  .side-menu {
     width: 22.5px;
   }
 
   .modebutton {
     all: unset;
     padding: 0;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.3s ease-in-out, scale 0.3s ease-in-out;
+    }
+    img.active {
+      opacity: 1;
+      scale: 1;
+    }
   }
 
   img {
     display: block;
   }
 
-  nav{
+  nav {
     display: flex;
     align-items: center;
 
-    .title{
+    .title {
       margin-left: 7px;
       font-weight: 600;
       opacity: 0.9;
       font-size: 24px;
       text-decoration: none;
       color: rgb(255, 252, 252);
-    }
-  
-    .pp{
-      width: 35px;
-      border-radius: 50%;
-      /* margin-right: 10px; */
       cursor: pointer;
     }
-      
-  
-    .options {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-  
+
     .extraOptions {
       display: flex;
       align-items: center;
@@ -66,7 +73,7 @@
       gap: 20px;
       list-style: none;
 
-      a{
+      a {
         position: relative;
         text-decoration: none;
         color: rgb(255, 252, 252);
@@ -89,47 +96,59 @@
         left: 3.5%;
         right: 3.5%;
       }
-    } 
-  
+    }
+
     .notif {
       width: 30px;
       cursor: pointer;
       transition: 0.3s;
     }
   }
-  
+
   .deactive {
     display: none;
   }
 
-  .options{
+  .options {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    
     img.pp.active {
       transform: scale(1.1);
     }
 
     img.pp {
-      transition: transform 0.2s ease;
+      width: 35px;
+      border-radius: 50%;
+      /* margin-right: 10px; */
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
     img.pp:hover {
-      transform: scale(1.1);
+      transform: scale(var(--icon-hover-scale));
     }
 
     img.notif:hover {
-      transform: scale(1.1);
+      transform: scale(var(--icon-hover-scale));
     }
+  }
+
+  .side-menu {
+    margin-right: 1.4%;
   }
 
   .SideMenuBar {
     color: black;
     font-size: 28px;
-    margin-right: 3%;
+    cursor: pointer;
   }
   .sidemenuDark {
     color: white;
     font-size: 28px;
-    margin-right: 3%;
+    cursor: pointer;
   }
 }
 
@@ -140,26 +159,26 @@
       cursor: url('../../icons/leafPointer.svg'), pointer;
   } */
 
-
 @media (max-width: 768px) {
-  .navWraper header{
+  .navWraper header {
     min-height: 50px;
     top: 5.5px;
     border-radius: 20px;
-    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844), 0px -3px 15px rgba(64, 75, 64, 0.484);
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844),
+      0px -3px 15px rgba(64, 75, 64, 0.484);
   }
-  nav{
+  nav {
     margin-top: 3.5px;
   }
 }
 
 @media (max-width: 470px) {
-  .navWraper nav{
+  .navWraper nav {
     .title {
       font-size: 20px;
     }
 
-    .extraOptions{
+    .extraOptions {
       gap: 18px;
     }
 
@@ -171,27 +190,27 @@
       width: 33px;
     }
 
-    .modebutton img{
+    .modebutton img {
       width: 30px;
     }
   }
 }
 
 @media (max-width: 420px) {
-  .navWraper{
-    nav{
+  .navWraper {
+    nav {
       .title {
         font-size: 19.5px;
       }
-  
-      .modebutton img{
+
+      .modebutton img {
         width: 26px;
       }
-  
+
       .notif {
         width: 26px;
       }
-  
+
       .pp {
         width: 33px;
       }
@@ -200,7 +219,10 @@
     .SideMenuBar {
       color: black;
       font-size: 24px;
-      margin-right: 3%;
+      /* margin-right: 3%; */
+    }
+    .side-menu {
+      width: 20px;
     }
   }
 }

@@ -12,7 +12,7 @@ import "./globals.css";
 import Diagnosis from './components/Diagnosis.jsx';
 import Blog from './components/Blogs/Blog.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
-import BlogDetails from './components/Blogs/blogDetails.jsx';
+import BlogDetails from './components/Blogs/BlogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
 const Layout = () => (
   <>
