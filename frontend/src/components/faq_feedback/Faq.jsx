@@ -8,6 +8,7 @@ export default function Faq() {
     const [activeQuestionId, setActiveQuestionId] = useState(null);
     const [feedbackData,setfeedbackData] = useState("");
     const{isDarkMode,setDarkmode}=useDarkMode();
+    console.log(feedbackData)
     const questions = [
         {
             id: '1',

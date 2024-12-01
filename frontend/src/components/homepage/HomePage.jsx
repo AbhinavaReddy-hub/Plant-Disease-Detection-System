@@ -4,6 +4,10 @@ import Carousel from "./Carousel.jsx";
 import { useState, useEffect } from "react";
 import Valid from "../login_signup/WelcomeMessage.jsx";
 import Weather from "../Weather.jsx";
+import '../../styles/homePage.css';
+import WelcomeMessage from '../login_signup/WelcomeMessage.jsx'
+import ChatBotImage from '../ChatBot/ChatBotImage.jsx';
+
 
 function HomePage() {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
@@ -24,6 +28,7 @@ function HomePage() {
       {showWelcomeMessage && userDetails && <Valid uname={userDetails.username} />}
       <div className="contentWrapper" style={{ display: "grid", gap: "43px" }}>
         <AboutUs />
+        <ChatBotImage/>
         <Carousel />
         <Weather />
       </div>

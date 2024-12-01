@@ -9,6 +9,7 @@ import Signup from "./components/login_signup/SignUp.jsx";
 import Faq from "./components/faq_feedback/Faq.jsx";
 import { DarkModeProvider } from "./components/DarkModeContext.jsx"; // Import the provider
 import "./globals.css";
+import SendHistory from "./components/History/SendHistory.jsx";
 import Diagnosis from './components/Diagnosis.jsx';
 import Blog from './components/Blogs/Blog.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
@@ -90,6 +91,16 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Faq />
+      }
+    ]
+  },
+  {
+    path: '/History',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <SendHistory />
       }
     ]
   }
