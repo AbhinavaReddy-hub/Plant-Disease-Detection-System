@@ -51,10 +51,10 @@ export default function SendHistory(){
                 <h2>History</h2>
                 <Link to="/insights" className="button">Check out Your Insights</Link>
             </section>
-            <section className="containingDetails"style={isDarkMode?{color:"white",backgroundColor:"#2e302f"}:{color:"black"}}>
-                <div className="monthSectioinAndCount">
-                    <h3 style={{fontSize:"24px"}}>October</h3>
-                    <button className="button" onClick={()=>setCountClick((cur)=>!cur)}>Count Total Diagnosis : <span style={{color:"blue",fontWeight:"bolder", fontSize:"18px"}}>{countClicked && history.length}</span></button>
+            <section className="containingDetails"style={isDarkMode?{color:"white"}:{color:"black"}}>
+                <div className="monthSectioinAndCount" style={{color:isDarkMode?"white":"black"}}>
+                    <h3 style={{fontSize:"20px"}}>October</h3>
+                    <button >Diagnosis Count : <span style={{color:"blue",fontWeight:"bolder", fontSize:"18px"}}>{history.length}</span></button>
                 </div>
                 {history.map(({id,disease,percentage,date,leaf})=>(
                     <div key={id}>

@@ -7,7 +7,7 @@ export default function History({disease,percentage,date,leaf}){
     const[viewClicked,setViewClicked]=useState(false);
     return (
         <div className="Historywrapper">
-            <section className="HistoryContainerwithDetails" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
+            <section className="HistoryContainerwithDetails" style={isDarkMode?{color:"white",backgroundColor:"#2e302f"}:{color:"black"}}>
                 <div className="leftsideHistoryDetails">
                     <h5>Disease Name: <span>{disease}</span></h5>
                     <h5>Confidence Level: <span>{percentage}</span></h5>

@@ -4,7 +4,7 @@ import Carousel from './Carousel.jsx';
 import EndComps from './EndComps.jsx';
 import { useState, useEffect } from 'react';
 import LoadingScreen from '../LoadingScreen.jsx';
-// import Valid from '../../Login/validations/valid/Valid.jsx';
+import WelcomeMessage from '../login_signup/WelcomeMessage.jsx'
 import ChatBotImage from '../ChatBot/ChatBotImage.jsx';
 
 
@@ -36,7 +36,7 @@ function HomePage() {
 
   return (
     <div className='homePageContainer'>
-      {showWelcomeMessage && userDetails && <Valid uname={userDetails.username} />}
+      {showWelcomeMessage && userDetails && <WelcomeMessage uname={userDetails.username} />}
       {isLoading && <LoadingScreen />}
       <div className="contentWrapper" style={{ display: isLoading ? 'none' : 'grid', gap:"43px" }}>
         <AboutUs />

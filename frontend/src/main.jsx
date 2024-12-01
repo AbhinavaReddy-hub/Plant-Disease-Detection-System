@@ -11,6 +11,7 @@ import { DarkModeProvider } from "./components/DarkModeContext.jsx"; // Import t
 import "./globals.css";
 import SendHistory from "./components/History/SendHistory.jsx";
 import Diagnosis from './components/Diagnosis.jsx';
+import Blog from './components/Blogs/Blog.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
 import BlogDetails from './components/Blogs/blogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element:<NewBlog/>
+        element:<Blog/>
       }
     ]
   },
