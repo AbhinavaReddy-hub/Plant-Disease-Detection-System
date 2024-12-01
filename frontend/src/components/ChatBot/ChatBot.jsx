@@ -49,7 +49,7 @@ export default function ChatBot({onclose}){
             <div className="ChatbotContainer" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
                 <header className="HeaderSection" style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} onClick={onclose}><RxCross1 className="cross"/></header>
                 <div className="ChatSection" >
-                    {isSubmitted && <div className="userMessage" >{UserChat}</div>}
+                    {isSubmitted && <div style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} className="userMessage" >{UserChat}</div>}
                     {botChat && <div  style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} className="botMessage">{botChat}</div>}
                 </div>
 

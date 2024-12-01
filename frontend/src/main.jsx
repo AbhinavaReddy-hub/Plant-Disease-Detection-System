@@ -15,6 +15,7 @@ import Blog from './components/Blogs/Blog.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
 import BlogDetails from './components/Blogs/BlogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword.jsx";
 const Layout = () => (
   <>
     <NavBar />
@@ -103,7 +104,11 @@ const router = createBrowserRouter([
         element: <SendHistory />
       }
     ]
-  }
+  },
+  {
+    path: '/forgotPassword',
+    element: <ForgotPassword />
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(

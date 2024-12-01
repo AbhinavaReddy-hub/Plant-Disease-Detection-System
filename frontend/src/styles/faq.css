@@ -1,7 +1,6 @@
 .faqFeedbackContainer {
   width: 100vw;
   position: relative;
-  top: calc(50vh - 284.375px);
 
   .toplevelContainer {
     width: 100vw;
@@ -127,7 +126,7 @@
 @media (max-width: 1150px) {
   .faqFeedbackContainer {
     .faqLeftSide {
-      margin-top: 100px;
+      margin-top: 30px;
       height: fit-content;
     }
     .toplevelContainer {
