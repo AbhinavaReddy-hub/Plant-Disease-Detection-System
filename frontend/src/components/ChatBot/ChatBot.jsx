@@ -3,7 +3,9 @@ import '../../styles/ChatBot.css';
 import { RxCross1 } from "react-icons/rx";
 import { IoMdSend } from "react-icons/io";
 import { useEffect, useState } from "react";
+import {useDarkMode} from "../DarkModeContext";
 export default function ChatBot({onclose}){
+    const {isDarkMode, setDarkMode}=useDarkMode();
     const[botChat,setBotChat]=useState("");
     const[inputFiled,setinputField]=useState("");
     const[UserChat,setUserChat]=useState("");
@@ -44,15 +46,15 @@ export default function ChatBot({onclose}){
     
     return ReactDOM.createPortal(
         <div className="OuterContainer">
-            <div className="ChatbotContainer">
-                <header className="HeaderSection" onClick={onclose}><RxCross1 className="cross"/></header>
-                <div className="ChatSection">
-                    {isSubmitted && <div className="userMessage">{UserChat}</div>}
-                    {botChat && <div className="botMessage">{botChat}</div>}
+            <div className="ChatbotContainer" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
+                <header className="HeaderSection" style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} onClick={onclose}><RxCross1 className="cross"/></header>
+                <div className="ChatSection" >
+                    {isSubmitted && <div className="userMessage" >{UserChat}</div>}
+                    {botChat && <div  style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} className="botMessage">{botChat}</div>}
                 </div>
 
-                <div className="userSection">
-                    <form onSubmit={(e)=>{
+                <div className="userSection" >
+                    <form  style={{backgroundColor:isDarkMode?"rgb(28, 46, 23)":""}} onSubmit={(e)=>{
                         e.preventDefault();
                         const f =new FormData(e.target);
                         setUserChat(f.get("user"));

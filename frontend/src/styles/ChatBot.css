@@ -58,6 +58,7 @@
     justify-content: flex-end;
     background-color: rgb(222, 222, 222);
     border-radius: 0.8em;
+    box-shadow: 2px 2px 5px white;
 }
 .HeaderSection .cross{
     margin-top:3px;
