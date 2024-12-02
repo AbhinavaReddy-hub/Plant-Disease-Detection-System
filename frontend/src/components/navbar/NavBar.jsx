@@ -98,22 +98,31 @@ export default function NavBar() {
         <nav>
           {screenSize <= 1200 && (
             <button
-              className=""
+              className="menu"
             >
-              <img src="" alt="" />
-              <RxCross2
-                className={`side-menu ${
-                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
-                }`}
-                onClick={handleMenubarClick}
-              />
+              {isDarkMode ? (
+                <img src={cross_light}
+                className={`side-menu ${isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick} />
+              ) : (
+                <img src = {cross_dark} 
+                className={`side-menu ${isMenuClicked ? "active" : ""}`}
+                alt = "side-menu"
+                onClick={handleMenubarClick} />
+              )}
 
-              <RiMenu2Fill
-                className={`side-menu ${
-                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
-                }`}
-                onClick={handleMenubarClick}
-              />
+              {isDarkMode ? (
+                <img src={ham_light}
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick} />
+              ) : (
+                <img src = {ham_dark} 
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`} 
+                alt = "side-menu"
+                onClick={handleMenubarClick} />
+              )}
             </button>
           )}
           <Link className="title" to="/home">
