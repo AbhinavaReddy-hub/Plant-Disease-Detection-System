@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/History.css";
+import "../../styles/history.css";
 import HistoryModal from "./HistoryModal";
 import { useDarkMode } from "../DarkModeContext";
 export default function History({disease,percentage,date,leaf}){

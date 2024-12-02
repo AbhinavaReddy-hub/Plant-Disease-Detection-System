@@ -2,7 +2,6 @@ import "../../styles/homePage.css";
 import AboutUs from "./AboutUs.jsx";
 import Carousel from "./Carousel.jsx";
 import { useState, useEffect } from "react";
-import Valid from "../login_signup/WelcomeMessage.jsx";
 import Weather from "../Weather.jsx";
 import '../../styles/homePage.css';
 import WelcomeMessage from '../login_signup/WelcomeMessage.jsx'
@@ -25,7 +24,7 @@ function HomePage() {
 
   return (
     <div className="homePageContainer">
-      {showWelcomeMessage && userDetails && <Valid uname={userDetails.username} />}
+      {showWelcomeMessage && userDetails && <WelcomeMessage uname={userDetails.username} />}
       <div className="contentWrapper" style={{ display: "grid", gap: "43px" }}>
         <AboutUs />
         <ChatBotImage/>
