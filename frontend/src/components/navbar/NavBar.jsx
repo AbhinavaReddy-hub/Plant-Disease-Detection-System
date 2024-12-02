@@ -6,8 +6,6 @@ import notifOff from "../../images/notification/notifOff.svg";
 import notifOn from "../../images/notification/notifOn.svg";
 import { useDarkMode } from "../DarkModeContext";
 import SideMenu from "./SideMenu";
-import { RiMenu2Fill } from "react-icons/ri";
-import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./NotifDetails";
 import darkmode from "../../images/icons/modes/darkmode2.svg";
 import lightmode from "../../images/icons/modes/lightmode.svg";

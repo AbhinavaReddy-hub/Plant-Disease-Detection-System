@@ -1,8 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import NavBar from "./components/navbar/NavBar.jsx";
-import Footer from "./components/Footer.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./components/homepage/HomePage.jsx";
 import Login from "./components/login_signup/Login.jsx";
 import Signup from "./components/login_signup/SignUp.jsx";
@@ -15,19 +13,13 @@ import Blog from './components/Blogs/Blog.jsx';
 import NewBlog from './components/Blogs/NewBlog.jsx';
 import BlogDetails from './components/Blogs/BlogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
-const Layout = () => (
-  <>
-    <NavBar />
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <div style={{ flex: 1, marginTop: '60px' }}>
-        <Outlet />
-      </div>
-      <Footer />
-    </div>
-  </>
-);
+import Layout from './Layout.jsx';
 
 const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Login />,
+  },
   {
     path: '/home',
     element: <Layout />,
@@ -66,10 +58,7 @@ const router = createBrowserRouter([
       }
     ]
   },
-  {
-    path: '/',
-    element: <Login />,
-  },
+  
   {
     path: '/signup',
     element: <Signup />
