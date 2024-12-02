@@ -11,6 +11,10 @@ import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./NotifDetails";
 import darkmode from "../../images/icons/modes/darkmode2.svg";
 import lightmode from "../../images/icons/modes/lightmode.svg";
+import ham_dark from '../../images/icons/hamburgerIcon/dark.svg';
+import ham_light from '../../images/icons/hamburgerIcon/light.svg';
+import cross_dark from '../../images/icons/cross/dark.svg';
+import cross_light from '../../images/icons/cross/light.svg';
 import "../../styles/navBar.css";
 
 export default function NavBar() {
@@ -92,22 +96,26 @@ export default function NavBar() {
     <div className="navWraper">
       <header style={isDarkMode ? { backgroundColor: "#1e251e" } : {}}>
         <nav>
-          {screenSize <= 1200 &&
-            (isMenuClicked ? (
+          {screenSize <= 1200 && (
+            <button
+              className=""
+            >
+              <img src="" alt="" />
               <RxCross2
                 className={`side-menu ${
                   isDarkMode ? "sidemenuDark" : "SideMenuBar"
                 }`}
                 onClick={handleMenubarClick}
               />
-            ) : (
+
               <RiMenu2Fill
                 className={`side-menu ${
                   isDarkMode ? "sidemenuDark" : "SideMenuBar"
                 }`}
                 onClick={handleMenubarClick}
               />
-            ))}
+            </button>
+          )}
           <Link className="title" to="/home">
             Vriksha Rakshak
           </Link>
