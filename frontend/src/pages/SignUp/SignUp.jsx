@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 // import PhoneInput from "react-phone-input-2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./SignUp.css";
+import { useAuthStore } from "../store/authStore";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
