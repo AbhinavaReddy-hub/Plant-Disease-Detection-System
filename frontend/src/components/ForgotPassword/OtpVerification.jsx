@@ -41,7 +41,7 @@ export default function OtpVerification({ email }) {
 
     const handleOtpChange = (e, index) => {
         let newOtp = [...otp];
-        newOtp[index] = e.target.value.slice(0, 1); 
+        newOtp[index] = e.target.value.slice(0, 1);
         setOtp(newOtp);
         if (e.target.value && index < otp.length - 1) {
             document.getElementById(`otp-input-${index + 1}`).focus();
@@ -74,8 +74,8 @@ export default function OtpVerification({ email }) {
                 </div>
             ) : (
                 <div className="newPasswordFunction">
-                     <img src={reset} alt="" />
-                     <h3>Reset Your Password</h3>
+                    <img src={reset} alt="" />
+                    <h3>Reset Your Password</h3>
                     <form>
                         <input
                             type="password"
