@@ -2,7 +2,7 @@
   --main-bg-color: #f9fef9;
   --main-font: "Poppins", serif;
   --text-color: rgb(10, 10, 10);
-  --cursor-url: url("./images/icons/leafCursor.svg");
+  /* --cursor-url: url("./images/icons/leafCursor.svg"); */
 }
 
 * {

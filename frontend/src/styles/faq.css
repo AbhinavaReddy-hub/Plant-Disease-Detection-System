@@ -126,6 +126,8 @@
 
 @media (max-width: 1150px) {
   .faqFeedbackContainer {
+    position: static;
+    margin: 20px 0px 50px 0px;
     .faqLeftSide {
       margin-top: 100px;
       height: fit-content;
@@ -145,6 +147,9 @@
       gap: 1em;
       border-radius: 2em;
       background-color: rgb(237, 235, 235);
+    }
+    .toplevelContainer .faqLeftSide{
+      margin-top: 20px;
     }
   }
 }

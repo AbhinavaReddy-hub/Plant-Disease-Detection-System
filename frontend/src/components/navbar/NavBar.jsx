@@ -92,7 +92,7 @@ export default function NavBar() {
   };
   return (
     <div className="navWraper">
-      <header style={isDarkMode ? { backgroundColor: "#1e251e" } : {}}>
+      <header className={`${isDarkMode ? 'dmode' : ''}`}>
         <nav>
           {screenSize <= 1200 && (
             <button
@@ -190,8 +190,8 @@ export default function NavBar() {
         />
         <ProfileSection isVisible={isProfileClick} />
       </header>
-      {screenSize <= 1200 && isMenuClicked && (
-        <SideMenu darkMode={isDarkMode} />
+      {screenSize <= 1200  && (
+        <SideMenu darkMode={isDarkMode} isVisible = {isMenuClicked} />
       )}
     </div>
   );

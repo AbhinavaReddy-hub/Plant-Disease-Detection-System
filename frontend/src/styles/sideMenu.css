@@ -1,9 +1,9 @@
 .SideMenu {
+    display: none;
     width: 95%;
     margin-top: 59px;
     position: fixed;
     left: 50%;
-    transform: translateX(-50%);
     z-index: 50;
     font-weight: 600;
     color: rgb(255, 252, 252);
@@ -12,6 +12,15 @@
     box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
     padding: 16px 5%;
     border-radius: 20px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+    transform-origin: top center;
+    transition: opacity 0.25s ease-out, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+}
+
+.SideMenu.visible{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
 }
 
 .SideMenu .SideOptions {
@@ -48,11 +57,6 @@
 .SideMenu .SideOptions a:hover::after {
     left: 3.5%;
     right: 3.5%;
-}
-
-.dmode {
-    background-color: rgba(22, 37, 22, 0.758);
-    color: white;
 }
 
 @media (max-width: 768px) {
