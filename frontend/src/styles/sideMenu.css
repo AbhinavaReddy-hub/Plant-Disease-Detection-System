@@ -1,40 +1,101 @@
-.SideMenu{
-    width: 100%;
-    z-index: 500;
-    margin-top: 61px;
-    display: block;
+.SideMenu {
+    display: none;
+    width: 95%;
+    margin-top: 59px;
     position: fixed;
-    text-decoration: underline;
-    font-size: 18px;
-    font-weight: 900;
-    background-color: rgba(68, 226, 57, 0.558);
-    box-shadow: 0 10px 5px rgba(0, 0, 0, 0.2);
-    padding: 5% 0% 5% 10%;
+    left: 50%;
+    z-index: 50;
+    font-weight: 600;
+    color: rgb(255, 252, 252);
+    background-color: rgba(14, 98, 14, 0.66);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
+    padding: 16px 5%;
+    border-radius: 20px;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+    transform-origin: top center;
+    transition: opacity 0.25s ease-out, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)
+}
 
-    .SideOptions a{
-        all:unset;
-        width: 100%;
-    }
+.SideMenu.visible{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0px);
+}
 
-    .SideOptions a:hover{
-        scale:1.1;
-    }
+.SideMenu .SideOptions {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
-    .SideOptions{
-        list-style:none;
-        display: flex;
-        flex-direction: column;
-        gap:0.5em;
+.SideMenu .SideOptions a {
+    all: unset;
+    width: 100%;
+    position: relative;
+}
+
+.SideMenu .SideOptions a::after{
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    right: 50%;
+    height: 1.52px;
+    background-color: white;
+    pointer-events: none;
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+.SideMenu .SideOptions a:hover {
+    cursor: pointer;
+}
+
+.SideMenu .SideOptions a:hover::after {
+    left: 3.5%;
+    right: 3.5%;
+}
+
+@media (max-width: 768px) {
+    .SideMenu {
+        margin-top: 68px;
     }
 }
 
-.dmode{
-    background-color: rgba(22, 37, 22, 0.758);
-    color: white;
+@media (max-width: 748px) {
+    .SideMenu .SideOptions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .SideMenu .SideOptions{
+        list-style:disc;
+        list-style-position: inside;
+    }
 }
 
-@media (max-width:390px) {
-    .SideMenu{
+@media (max-width:575px) {
+    .SideMenu .SideOptions{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 390px) {
+    .SideMenu {
         font-size: 15px;
+    }
+}
+
+@media (max-width: 383px) {
+    .SideMenu {
+        margin-top: 92px;
+    }
+}
+
+@media (max-width:360px) {
+    .SideMenu .SideOptions{
+        grid-template-columns: repeat(1, 1fr);
     }
 }

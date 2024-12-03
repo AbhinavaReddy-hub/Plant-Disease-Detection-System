@@ -5,7 +5,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(54, 54, 54, 0.19);
     position: absolute;
-    right: calc(5.13% + 33px + 20px + 22px - 70px);
+    right: calc(5vw + 32px + 22px + 19.25px - 70px);
     top: 60px;
     padding: 16px;
     z-index: 1000;
@@ -43,15 +43,15 @@
 .signout:hover{
     background-color: rgba(255, 0, 0, 0.4);
 }
-@media (max-width:460px) {
+@media (max-width:470px) {
     .profileSection{
-        /* right: calc(8% + 20px - 70px);; */
+        right: calc(5vw + 30px + 18px + 18.15px - 70px);
         top: 60px;
     }    
 }
-@media (max-width:390px) {
+@media (max-width:377px) {
     .profileSection{
-        /* right: calc(8% + 20px - 70px);; */
-        /* top: 70px; */
+        right: calc(5vw + 27.5px + 18px + 16.775px - 70px);
+        top: 83px;
     }    
 }

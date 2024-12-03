@@ -6,8 +6,6 @@ import notifOff from "../../images/notification/notifOff.svg";
 import notifOn from "../../images/notification/notifOn.svg";
 import { useDarkMode } from "../DarkModeContext";
 import SideMenu from "./SideMenu";
-import { RiMenu2Fill } from "react-icons/ri";
-import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./NotifDetails";
 import darkmode from "../../images/icons/modes/darkmode2.svg";
 import lightmode from "../../images/icons/modes/lightmode.svg";
@@ -94,26 +92,35 @@ export default function NavBar() {
   };
   return (
     <div className="navWraper">
-      <header style={isDarkMode ? { backgroundColor: "#1e251e" } : {}}>
+      <header className={`${isDarkMode ? 'dmode' : ''}`}>
         <nav>
           {screenSize <= 1200 && (
             <button
-              className=""
+              className="menu"
             >
-              <img src="" alt="" />
-              <RxCross2
-                className={`side-menu ${
-                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
-                }`}
-                onClick={handleMenubarClick}
-              />
+              {isDarkMode ? (
+                <img src={cross_light}
+                className={`side-menu ${isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick} />
+              ) : (
+                <img src = {cross_dark} 
+                className={`side-menu ${isMenuClicked ? "active" : ""}`}
+                alt = "side-menu"
+                onClick={handleMenubarClick} />
+              )}
 
-              <RiMenu2Fill
-                className={`side-menu ${
-                  isDarkMode ? "sidemenuDark" : "SideMenuBar"
-                }`}
-                onClick={handleMenubarClick}
-              />
+              {isDarkMode ? (
+                <img src={ham_light}
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick} />
+              ) : (
+                <img src = {ham_dark} 
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`} 
+                alt = "side-menu"
+                onClick={handleMenubarClick} />
+              )}
             </button>
           )}
           <Link className="title" to="/home">
@@ -183,8 +190,8 @@ export default function NavBar() {
         />
         <ProfileSection isVisible={isProfileClick} />
       </header>
-      {screenSize <= 1200 && isMenuClicked && (
-        <SideMenu darkMode={isDarkMode} />
+      {screenSize <= 1200  && (
+        <SideMenu darkMode={isDarkMode} isVisible = {isMenuClicked} />
       )}
     </div>
   );

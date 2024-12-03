@@ -142,3 +142,9 @@
         transform: translate(10px ,35px);
     }
 }
+
+@media (max-width: 378px) {
+    .notifDetails{
+        top: 85px;
+    }
+}

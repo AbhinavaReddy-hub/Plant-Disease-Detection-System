@@ -1,30 +1,53 @@
-import { Link } from 'react-router-dom';
-import '../../styles/sideMenu.css';
+import { Link } from "react-router-dom";
+import "../../styles/sideMenu.css";
+import { useEffect, useRef } from "react";
 
-export default function SideMenu({darkMode}){
+export default function SideMenu({ darkMode, isVisible }) {
+  const containerRef = useRef(null);
 
-    return (
-        <div className={darkMode?"SideMenu dmode":"SideMenu"}>
-            <ul className="SideOptions">
-            <li>
-                <Link to="/diagnose">Daignose Page</Link>
-              </li>
-                <li>
-                <Link to="/history">History</Link>
-                </li>
-                <li>
-                <Link to="/blogs">Blogs</Link>
-                </li>
-                <li>
-                <Link to="/intdb">Interactive DB</Link>
-                </li>
-                <li>
-                <Link to="/insights">Insights</Link>
-                </li>
-                <li>
-                <Link to="/faq">FAQ & Feedback</Link>
-                </li>
-            </ul>
-        </div>
-    );
+  useEffect(() => {
+    if (containerRef.current) {
+      if (isVisible) {
+        containerRef.current.style.display = 'block';
+        containerRef.current.offsetHeight;
+        containerRef.current.classList.add('visible');
+      } else {
+        containerRef.current.classList.remove("visible");
+        const timer = setTimeout(() => {
+          if (!isVisible && containerRef.current) {
+            containerRef.current.style.display = "none";
+          }
+        }, 250); // Match with CSS transition duration
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [isVisible]);
+
+  return (
+    <div
+      className={`${darkMode ? "SideMenu dmode" : "SideMenu"}`}
+      ref={containerRef}
+    >
+      <ul className="SideOptions">
+        <li>
+          <Link to="/diagnose">Daignose Page</Link>
+        </li>
+        <li>
+          <Link to="/history">History</Link>
+        </li>
+        <li>
+          <Link to="/blogs">Blogs</Link>
+        </li>
+        <li>
+          <Link to="/intdb">Interactive DB</Link>
+        </li>
+        <li>
+          <Link to="/insights">Insights</Link>
+        </li>
+        <li>
+          <Link to="/faq">FAQ & Feedback</Link>
+        </li>
+      </ul>
+    </div>
+  );
 }
