@@ -20,7 +20,7 @@ export default function Diagnosis() {
   };
 
   // async function handleResponse(){
-    
+
   //   return response;
   // }
 
@@ -33,15 +33,15 @@ export default function Diagnosis() {
       // const response = handleResponse();
       const response = await fetch(
         "https://api-inference.huggingface.co/models/ozair23/mobilenet_v2_1.0_224-finetuned-plantdisease",
-      {
-        headers: {
-          Authorization: "Bearer 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",
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({ inputs: base64data }),
-      }
-    );
+        {
+          headers: {
+            Authorization: "Bearer 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",
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify({ inputs: base64data }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -60,7 +60,7 @@ export default function Diagnosis() {
 
   return (
     <div className="diagnosisContainer">
-      <h3>Vriksha Rakshak Diagnosis Page</h3>
+      <h3>Diagnose Your Plant</h3>
       <form
         className="uploadOptions"
         onSubmit={(e) => {
@@ -68,10 +68,7 @@ export default function Diagnosis() {
         }}
       >
         {/* Label as custom button */}
-        <label
-          className="button"
-          htmlFor="file-upload-button"
-        >
+        <label className="button" htmlFor="file-upload-button">
           Choose Image
         </label>
         <input
@@ -102,16 +99,16 @@ export default function Diagnosis() {
       {predictions && (
         <div className="predictions">
           <h4>Predictions:</h4>
-          <table>
-            <tr>
-              <td><strong>Label:</strong></td>
-              <td>{predictions[0].label}</td>
-            </tr>
-            <tr>
-              <td><strong>Confidence:</strong>{" "}</td>
-              <td>{(predictions[0].score * 100).toFixed(1)}%</td>
-            </tr>
-          </table>
+          <div className="diseaseInfoContainer">
+            <p className="metaDname">
+              <strong>Disease Name:</strong>
+            </p>
+            <p className="dname">{predictions[0].label.split("_").join(" ")}</p>
+            <p className="metaConf">
+              <strong>Confidence:</strong>{" "}
+            </p>
+            <p className="conf">{(predictions[0].score * 100).toFixed(1)}%</p>
+          </div>
         </div>
       )}
     </div>

@@ -4,7 +4,8 @@
   header {
     position: fixed;
     border-radius: 5px 5px 20px 20px;
-    left: calc(50vw - 47.5vw);
+    left: 2.5vw;
+    right: 2.5vw;
     top: 0px;
     width: 95vw;
     z-index: 20;
@@ -150,6 +151,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    margin-right: 1%;
 
     img {
       /* margin-right: 1.4%; */
