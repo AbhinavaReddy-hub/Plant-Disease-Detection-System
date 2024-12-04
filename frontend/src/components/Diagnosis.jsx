@@ -108,6 +108,9 @@ export default function Diagnosis() {
               <strong>Confidence:</strong>{" "}
             </p>
             <p className="conf">{(predictions[0].score * 100).toFixed(1)}%</p>
+            <div className="confidenceParent" style={{gridColumn:"1/3",justifySelf:"center",width:"200px", backgroundColor:"grey" , borderRadius:"20px"}}>
+                  <div className="confidenceindicator" style={{borderRadius:"20px", width: `${(parseFloat((predictions[0].score * 100).toFixed(0)) / 100) * 200}px`,border:(predictions[0].score * 100).toFixed(0)>90?"3px solid green":(predictions[0].score * 100).toFixed(0)>70?"3px solid rgb(252, 211, 3)":"3px solid red"}}></div>
+            </div>
           </div>
         </div>
       )}

@@ -68,6 +68,47 @@ body {
 
 
 
+/* style for tranlator */
+#translate{
+  right: 7vw;
+  top:60px;
+  position: fixed;
+
+}
+.skiptranslate iframe{
+  display: none !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO {
+  display: none !important;
+}
+#goog-gt-tt{
+  display: none !important;
+}
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+  box-shadow: none;
+  background:none;
+}
+.goog-te-gadget{
+ all:unset;
+}
+.goog-te-gadget-simple{
+  all:unset;
+  border: 1px solid black;
+  padding: 2px 5px;
+  background: white;
+  border-radius: 1em;
+  font-size: 20px;
+}
+.goog-te-gadget-simple img{
+ display: none !important;
+}
+
+
+
+
+
+
 /* Tips before use:
 1. Make sure to add the class tool-tip
 2. Make sure to add the attrib = data-tooltip */
@@ -75,7 +116,7 @@ body {
   position: relative !important;
   --tip-size: 10px;
   --tooltip-color: #515151;
-  z-index: 55;
+  z-index: 6;
 }
 
 .tooltip::before, .tooltip::after {
@@ -83,7 +124,7 @@ body {
   left: 50%;
   opacity: 0;
   pointer-events: none;
-  z-index: 55;
+  z-index: 6;
   bottom: calc(-25%);
   transform: translateX(-50%) translateY(var(--translate-y,0)) scale(0);
   transition: opacity 0.3s ease, transform 0.3s ease;

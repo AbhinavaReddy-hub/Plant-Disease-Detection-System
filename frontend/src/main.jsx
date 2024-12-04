@@ -14,6 +14,7 @@ import NewBlog from './components/Blogs/NewBlog.jsx';
 import BlogDetails from './components/Blogs/BlogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
 import Layout from './Layout.jsx';
+import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx';
 
 const router = createBrowserRouter([
   {
