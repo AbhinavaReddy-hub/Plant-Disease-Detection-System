@@ -10,7 +10,7 @@ export default function ProfileSection({ isVisible }) {
     if (containerRef.current) {
       if (isVisible) {
         containerRef.current.style.display = 'flex';
-        containerRef.current.offsetHeight; // Force reflow
+        containerRef.current.offsetHeight;
         containerRef.current.classList.add('visible');
       } else {
         containerRef.current.classList.remove('visible');
@@ -18,7 +18,7 @@ export default function ProfileSection({ isVisible }) {
           if (!isVisible && containerRef.current) {
             containerRef.current.style.display = 'none';
           }
-        }, 300); // Match with CSS transition duration
+        }, 250);
         return () => clearTimeout(timer);
       }
     }
