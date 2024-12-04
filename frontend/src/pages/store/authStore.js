@@ -13,36 +13,55 @@ export const useAuthStore = create((set) => ({
 	isCheckingAuth: true,
 	message: null,
 
-	signup: async (email, password, name) => {
+	signup: async (email, password, name, selectedDistrict) => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axios.post(`${API_URL}/signup`, { email, password, name });
+			const response = await axios.post(`http://localhost:5000/api/auth/signup`, {
+				email,
+				password,
+				name,
+				location: selectedDistrict
+			},
+				{
+					withCredentials: true  // Send cookies and credentials with the request
+				});
+
 			set({ user: response.data.user, isAuthenticated: true, isLoading: false });
 		} catch (error) {
-			set({ error: error.response.data.message || "Error signing up", isLoading: false });
-			throw error;
+			// Log full error details for better debugging
+			console.error("Error signing up:", error);
+			set({ error: error.response ? error.response.data.message : "Error signing up", isLoading: false });
+			throw error; // Re-throw to allow frontend to catch and show the error
 		}
-	},
-	login: async (email, password) => {
+	}
+	,
+	login: async (username, password) => {
 		set({ isLoading: true, error: null });
 		try {
-			const response = await axios.post(`${API_URL}/login`, { email, password });
-			set({
-				isAuthenticated: true,
-				user: response.data.user,
-				error: null,
-				isLoading: false,
-			});
+			const response = await axios.post("http://localhost:5000/api/auth/login", { username, password }, { withCredentials: true });
+			if (response.data.success) {
+				set({
+					user: response.data.user,
+					isAuthenticated: true,
+					isLoading: false,
+					error: null,
+				});
+			} else {
+				throw new Error(response.data.message);
+			}
+
 		} catch (error) {
-			set({ error: error.response?.data?.message || "Error logging in", isLoading: false });
+			set({ isLoading: false, error: error.message || "Error logging in" });
 			throw error;
 		}
 	},
+
+
 	googlelogin: async () => {
 		set({ isLoading: true, error: null });
 		try {
 			set({
-				isAuthenticated: true,	
+				isAuthenticated: true,
 				error: null,
 				isLoading: false,
 			});
@@ -75,15 +94,29 @@ export const useAuthStore = create((set) => ({
 			throw error;
 		}
 	},
+	// checkAuth: async () => {
+	// 	set({ isCheckingAuth: true, error: null });
+	// 	try {
+	// 	  const response = await axios.get(`http://localhost:5000/api/auth/check-auth`);
+	// 	  console.log("Auth check response:", response); // Debugging line
+	// 	  set({ user: response.data.user, isAuthenticated: true, isCheckingAuth: false });
+	// 	} catch (error) {
+	// 	  console.error("Auth check error:", error); // Debugging line
+	// 	  set({ isCheckingAuth: false, isAuthenticated: false, error: null });
+	// 	}
+	//   },
 	checkAuth: async () => {
-		set({ isCheckingAuth: true, error: null });
 		try {
-			const response = await axios.get(`${API_URL}/check-auth`);
-			set({ user: response.data.user, isAuthenticated: true, isCheckingAuth: false });
+			const response = await axios.get("http://localhost:5000/api/auth/check-auth", { withCredentials: true });
+			set({ user: response.data.user, isAuthenticated: true });
 		} catch (error) {
-			set({ error: null, isCheckingAuth: false, isAuthenticated: false });
+			set({ isAuthenticated: false });
+		} finally {
+			set({ isCheckingAuth: false });
 		}
 	},
+
+
 	forgotPassword: async (email) => {
 		set({ isLoading: true, error: null });
 		try {
