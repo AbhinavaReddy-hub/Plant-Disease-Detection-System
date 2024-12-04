@@ -63,7 +63,8 @@
     display: grid;
     grid-template-areas:
       "metaDname dname"
-      "metaConf conf";
+      "metaConf conf"
+      "confidenceParent confidenceindicator";
     gap: 10px;
   }
 
@@ -71,7 +72,7 @@
   .metaConf {
     white-space: nowrap; /* Prevents wrapping for these elements */
   }
-
+  
   .diagnosisContainer .dname {
     word-break: break-word;
   }  

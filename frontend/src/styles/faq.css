@@ -1,7 +1,6 @@
 .faqFeedbackContainer {
   width: 100vw;
   position: relative;
-  top: calc(50vh - 284.375px);
 
   .toplevelContainer {
     width: 100vw;
@@ -129,7 +128,7 @@
     position: static;
     margin: 20px 0px 50px 0px;
     .faqLeftSide {
-      margin-top: 100px;
+      margin-top: 30px;
       height: fit-content;
     }
     .toplevelContainer {

@@ -94,7 +94,7 @@ export default function Login() {
                   name="password"
                   placeholder="Password"
                   value={password}
-                  onFocus={() => !isPasswordFocus && setPasswordFocus(true)}
+                  onFocus={() => !isPasswordFocus && setPasswordFocus(false)}
                   onBlur={() => isPasswordFocus && setPasswordFocus(false)}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -103,9 +103,9 @@ export default function Login() {
                 </button>
               </div>
 
-              <a href="#">
+              <Link to="/forgotPassword">
                 <p>Forgot Password?</p>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="loginbutton">
