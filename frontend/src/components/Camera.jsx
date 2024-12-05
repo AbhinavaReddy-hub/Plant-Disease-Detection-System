@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactDOM from "react-dom";
 import Webcam from "react-webcam";
 import '../styles/camera.css';
+import goBack from '../images/icons/cross/light.svg';
 
-const Camera = ({ webcamRef, onCapture }) => {
+const Camera = ({ webcamRef, onCapture, turnOffCam }) => {
   const [mounted, setMounted] = useState(false);
   const localWebcamRef = useRef(null);
 
@@ -70,6 +71,7 @@ const Camera = ({ webcamRef, onCapture }) => {
 
   return ReactDOM.createPortal(
     <div className="camera-container">
+      <button className='goBack' onClick={turnOffCam}><img src={goBack} alt="Go Back" /></button>
       <Webcam
         audio={false}
         ref={webcamRef || localWebcamRef}

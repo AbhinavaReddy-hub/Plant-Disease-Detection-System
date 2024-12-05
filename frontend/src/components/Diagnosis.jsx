@@ -13,6 +13,10 @@ export default function Diagnosis() {
 
   const webcamRef = React.useRef(null);
 
+  const turnOffCam = () => {
+    setTakePhotoClicked((curr) => !curr)
+  }
+
   const checkCameraPermission = async () => {
     if (!navigator.permissions) {
       console.warn("Permissions API not supported");
@@ -147,7 +151,8 @@ export default function Diagnosis() {
                   {takePhotoClicked && (
                     <Camera 
                       webcamRef={webcamRef} 
-                      onCapture={handleCapturedImage} 
+                      onCapture={handleCapturedImage}
+                      turnOffCam = {turnOffCam}
                     />
                   )}
                 </>
