@@ -7,13 +7,13 @@
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: absolute;
-    right: calc(6.1% + 40px + 33px + 17px - 150px);;
     top: 60px;
+    right: calc(6.1% + 40px + 33px + 17px - 150px);;
     padding: 16px;
-    z-index: 1000;
+    z-index: 10;
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 0.25s ease-out, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.23s ease-out, transform 0.23s cubic-bezier(0.4, 0, 0.2, 1), all 0.23s ease-in-out;
 
     .messageContainer{
         opacity: 1;
@@ -40,11 +40,15 @@
         }
     }
 
+    .no-dismiss{
+        justify-content: center;
+    }
+
     .notif-list {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        max-height: 400px;
+        max-height: 47vh;
         overflow-y: auto;
         padding-right: 4px;
         opacity: 1;
@@ -88,10 +92,12 @@
         color: black;
         font-weight: 500;
         cursor: pointer;
+        opacity: 1;
+        transition: opacity 0.25s ease-in-out;
     }
 
-    .topDetails .dismiss:disabled{
-        display: none;
+    .topDetails .dismiss.hidden{
+        opacity: 0;
     }
 
     .topDetails .dismiss::after{
@@ -100,13 +106,14 @@
         left: 50%;
         right: 50%;
         bottom: -1.5%;
-        height: 1.5px;
+        height: 1.52px;
+        pointer-events: none;
         background-color: white;
-        transition: 0.25s ease-in-out;
+        transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
     }
-    .topDetails .dismiss:not(:disabled):hover::after{
-        left: 2.8%;
-        right: 2.8%;
+    .topDetails .dismiss:hover::after{
+        left: 3.8%;
+        right: 3.8%;
 
     }
 }

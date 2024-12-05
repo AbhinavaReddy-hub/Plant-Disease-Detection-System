@@ -8,7 +8,7 @@
     right: calc(5vw + 32px + 22px + 19.25px - 70px);
     top: 60px;
     padding: 16px;
-    z-index: 1000;
+    z-index: 50;
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.25s ease-out, transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -50,7 +50,7 @@
         top: 60px;
     }    
 }
-@media (max-width:377px) {
+@media (max-width:382px) {
     .profileSection{
         right: calc(5vw + 27.5px + 18px + 16.775px - 70px);
         top: 83px;

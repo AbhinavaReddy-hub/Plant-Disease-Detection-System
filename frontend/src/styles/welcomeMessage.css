@@ -1,11 +1,11 @@
 .valid-container {
-    z-index: 50;
+    z-index: 9;
     height: 35px;
     width: 140px;
     background-color: rgb(1, 91, 1);
     color: black;
     position: fixed;
-    top: 4px;
+    top: 54px;
     left: calc(50% - 70px);
     display: flex;
     justify-content: center;
@@ -35,5 +35,23 @@
     100% {
         opacity: 0;
         transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .valid-container{
+        top: 60px;
+    }
+}
+
+@media (max-width: 470px) {
+    .valid-container{
+        top: 59px;
+    }
+}
+
+@media (max-width: 383px) {
+    .valid-container{
+        top: 84px;
     }
 }

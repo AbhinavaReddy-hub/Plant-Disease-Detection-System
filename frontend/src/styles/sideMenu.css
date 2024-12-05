@@ -4,7 +4,7 @@
     margin-top: 59px;
     position: fixed;
     left: 50%;
-    z-index:2;
+    z-index:10;
     font-weight: 600;
     color: rgb(255, 252, 252);
     background-color: rgba(14, 98, 14, 0.66);
