@@ -1,0 +1,60 @@
+.analysisContainer{
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.analysisContainer header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.analysisContainer .analysisType {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.analysisContainer .analysisType button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+}
+
+.analysisContainer .analysisType button.active {
+  background-color: #45a049;
+}
+
+.analysisContainer .analysisSection {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.analysisContainer .chartContainer {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Adjust as needed */
+  height: 400px;
+  margin: 0 auto;
+  background-color: white; /* Optional for better visibility */
+  border-radius: 5px; /* Optional for styling */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional for styling */
+  padding: 20px;
+}
+
+.analysisContainer canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.analysisContainer select {
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 20px;
+}

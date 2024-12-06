@@ -5,6 +5,7 @@ footer {
   background-color: #185d1a;
   font-size: 14px;
   color: white;
+  z-index: 20;
 
   .contact span:nth-child(2) {
     user-select: text;

@@ -16,6 +16,8 @@ import MyBlogs from "./components/Blogs/MyBlogs.jsx";
 import Layout from './Layout.jsx';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx';
 import Setting from "./components/Settings/Setting.jsx";
+import Analysis from "./components/Analysis.jsx";
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -98,6 +100,16 @@ const router = createBrowserRouter([
     path: '/forgotPassword',
     element: <ForgotPassword />
   },
+  {
+    path: '/insights',
+    element: <Layout />,
+    children: [
+      {
+        path: '',
+        element: <Analysis />
+      }
+    ]
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

@@ -7,7 +7,7 @@ export default function Footer(){
             <div className="mainFooter">
                 <div className='contact'>
                     <span>Contact Us: </span>
-                    <span>abhinav@gmail.com</span>
+                    <span>jashwanth@gmail.com</span>
                 </div>
                 <div className='version'>
                     Version 1.0

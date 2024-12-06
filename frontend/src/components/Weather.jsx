@@ -11,7 +11,7 @@ export default function Weather() {
 
   useEffect(() => {
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=hyderabad&limit=1&appid=fda78748a814b69515ca24c4df99e5c2`
+      `https://api.openweathermap.org/geo/1.0/direct?q=hyderabad&limit=1&appid=fda78748a814b69515ca24c4df99e5c2`
     )
       .then((response) => response.json())
       .then((data) => {
