@@ -21,7 +21,7 @@ export default function NavBar() {
   const [isNotifClick, setIsNotifClick] = useState(false);
   const [notif, setNotif] = useState(false);
   const [isMenuClicked, setMenuClicked] = useState(false);
-  const [isSettingClicked,setSettingClicked] = useState(false);
+  const [isSettingClicked, setSettingClicked] = useState(false);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const [allViewed, setAllViewed] = useState(false);
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function NavBar() {
     setIsNotifClick(false);
     setMenuClicked(false);
     // setIsProfileClick(!isSettingClicked);
-    setIsProfileClick((cur)=>!cur)
+    setIsProfileClick((cur) => !cur);
   };
   const handleMenubarClick = (e) => {
     e.stopPropagation();
@@ -96,41 +96,43 @@ export default function NavBar() {
     <div className="navWraper">
       <header className={`${isDarkMode ? "dmode" : ""}`}>
         <nav>
-          {screenSize <= 1200 && (
-            <button
-              className="menu"
-           
-            >
-              {isDarkMode ? (
-                <img src={cross_light}
+          <button className="menu">
+            {isDarkMode ? (
+              <img
+                src={cross_light}
                 draggable="false"
                 className={`side-menu ${isMenuClicked ? "active" : ""}`}
                 alt="side-menu"
-                onClick={handleMenubarClick} />
-              ) : (
-                <img src = {cross_dark} 
-                draggable="false" 
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <img
+                src={cross_dark}
+                draggable="false"
                 className={`side-menu ${isMenuClicked ? "active" : ""}`}
                 alt="side-menu"
                 onClick={handleMenubarClick}
               />
             )}
 
-              {isDarkMode ? (
-                <img src={ham_light}
+            {isDarkMode ? (
+              <img
+                src={ham_light}
                 draggable="false"
                 className={`side-menu ${!isMenuClicked ? "active" : ""}`}
                 alt="side-menu"
-                onClick={handleMenubarClick} />
-              ) : (
-                <img src = {ham_dark} 
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <img
+                src={ham_dark}
                 draggable="false"
-                className={`side-menu ${!isMenuClicked ? "active" : ""}`} 
-                alt = "side-menu"
-                onClick={handleMenubarClick} />
-              )}
-            </button>
-          )}
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick}
+              />
+            )}
+          </button>
           <Link className="title" to="/home">
             Vriksha Rakshak
           </Link>
@@ -154,7 +156,7 @@ export default function NavBar() {
 
             <div className="extraOptions">
               <img
-              draggable="false"
+                draggable="false"
                 className={`notif ${isNotifClick ? "active" : ""}`}
                 src={!allViewed ? notifOn : notifOff}
                 alt={!allViewed ? "New Notifications" : "No notifications"}
@@ -162,14 +164,14 @@ export default function NavBar() {
               />
 
               <img
-              draggable="false"
+                draggable="false"
                 className={`pp ${isProfileClick ? "active" : ""}`}
                 src={profilePic}
                 alt="profile"
                 onClick={handleProfileClick}
               />
               <button
-              draggable="false"
+                draggable="false"
                 className="modebutton tooltip"
                 data-tooltip={isDarkMode ? "Dark Mode" : "Light Mode"}
                 onClick={() => {
@@ -177,13 +179,13 @@ export default function NavBar() {
                 }}
               >
                 <img
-                draggable="false"
+                  draggable="false"
                   src={darkmode}
                   alt="Dark Mode"
                   className={isDarkMode ? "active" : ""}
                 />
                 <img
-                draggable="false"
+                  draggable="false"
                   src={lightmode}
                   alt="Light Mode"
                   className={!isDarkMode ? "active" : ""}
@@ -194,12 +196,17 @@ export default function NavBar() {
         </nav>
         <NotifDetails
           allViewed={allViewed}
-          setAllViewed={()=>setAllViewed(true)}
+          setAllViewed={() => setAllViewed(true)}
           notifications={notifications}
           setNotifications={setNotifications}
           isVisible={isNotifClick}
         />
-        <ProfileSection  isVisible={isProfileClick} isSettingClicked={isSettingClicked} onclose={()=>setIsProfileClick(false)} setSettingClicked={setSettingClicked}/>
+        <ProfileSection
+          isVisible={isProfileClick}
+          isSettingClicked={isSettingClicked}
+          onclose={() => setIsProfileClick(false)}
+          setSettingClicked={setSettingClicked}
+        />
       </header>
       <SideMenu darkMode={isDarkMode} isVisible={isMenuClicked} />
     </div>

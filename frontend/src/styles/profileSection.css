@@ -47,7 +47,7 @@
 
 @media (min-width:1500px) {
     .profileSection{
-        right: calc(3.5vw + 32px + 19.25px + 22px - 70px);
+        right: calc(5vw + 32px + 19.25px + 22px - 70px);
     }
 }
 

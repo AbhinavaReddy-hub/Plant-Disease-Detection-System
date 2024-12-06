@@ -3,6 +3,7 @@
   position: relative;
 
   .toplevelContainer {
+    height: 80vh;
     width: 100vw;
     display: flex;
     align-items: center;
