@@ -9,10 +9,10 @@ import SideMenu from "./SideMenu";
 import NotifDetails from "./NotifDetails";
 import darkmode from "../../images/icons/modes/darkmode2.svg";
 import lightmode from "../../images/icons/modes/lightmode.svg";
-import ham_dark from '../../images/icons/hamburgerIcon/dark.svg';
-import ham_light from '../../images/icons/hamburgerIcon/light.svg';
-import cross_dark from '../../images/icons/cross/dark.svg';
-import cross_light from '../../images/icons/cross/light.svg';
+import ham_dark from "../../images/icons/hamburgerIcon/dark.svg";
+import ham_light from "../../images/icons/hamburgerIcon/light.svg";
+import cross_dark from "../../images/icons/cross/dark.svg";
+import cross_light from "../../images/icons/cross/light.svg";
 import "../../styles/navBar.css";
 
 export default function NavBar() {
@@ -92,61 +92,61 @@ export default function NavBar() {
   };
   return (
     <div className="navWraper">
-      <header className={`${isDarkMode ? 'dmode' : ''}`}>
+      <header className={`${isDarkMode ? "dmode" : ""}`}>
         <nav>
-          {screenSize <= 1200 && (
-            <button
-              className="menu"
-            >
-              {isDarkMode ? (
-                <img src={cross_light}
+          <button className="menu">
+            {isDarkMode ? (
+              <img
+                src={cross_light}
                 className={`side-menu ${isMenuClicked ? "active" : ""}`}
                 alt="side-menu"
-                onClick={handleMenubarClick} />
-              ) : (
-                <img src = {cross_dark} 
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <img
+                src={cross_dark}
                 className={`side-menu ${isMenuClicked ? "active" : ""}`}
-                alt = "side-menu"
-                onClick={handleMenubarClick} />
-              )}
+                alt="side-menu"
+                onClick={handleMenubarClick}
+              />
+            )}
 
-              {isDarkMode ? (
-                <img src={ham_light}
+            {isDarkMode ? (
+              <img
+                src={ham_light}
                 className={`side-menu ${!isMenuClicked ? "active" : ""}`}
                 alt="side-menu"
-                onClick={handleMenubarClick} />
-              ) : (
-                <img src = {ham_dark} 
-                className={`side-menu ${!isMenuClicked ? "active" : ""}`} 
-                alt = "side-menu"
-                onClick={handleMenubarClick} />
-              )}
-            </button>
-          )}
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <img
+                src={ham_dark}
+                className={`side-menu ${!isMenuClicked ? "active" : ""}`}
+                alt="side-menu"
+                onClick={handleMenubarClick}
+              />
+            )}
+          </button>
           <Link className="title" to="/home">
             Vriksha Rakshak
           </Link>
           <div className="options">
-            <ul className={screenSize <= 1200 ? "deactive" : " "}>
-              <li>
-                <Link to="/diagnose">Diagnose</Link>
-              </li>
-              <li>
-                <Link to="/history">History</Link>
-              </li>
-              <li>
-                <Link to="/blogs">Blogs</Link>
-              </li>
-              <li>
-                <Link to="/intdb">Interactive DB</Link>
-              </li>
-              <li>
-                <Link to="/insights">Insights</Link>
-              </li>
-              <li>
-                <Link to="/Faq">FAQ & Feedback</Link>
-              </li>
-            </ul>
+            {screenSize >= 960 && (
+              <ul>
+                <li>
+                  <Link to="/diagnose">Diagnose</Link>
+                </li>
+                <li>
+                  <Link to="/history">History</Link>
+                </li>
+                <li>
+                  <Link to="/blogs">Blogs</Link>
+                </li>
+                <li>
+                  <Link to="/insights">Insights</Link>
+                </li>
+              </ul>
+            )}
 
             <div className="extraOptions">
               <img
@@ -190,9 +190,7 @@ export default function NavBar() {
         />
         <ProfileSection isVisible={isProfileClick} />
       </header>
-      {screenSize <= 1200  && (
-        <SideMenu darkMode={isDarkMode} isVisible = {isMenuClicked} />
-      )}
+      <SideMenu darkMode={isDarkMode} isVisible={isMenuClicked} />
     </div>
   );
 }
