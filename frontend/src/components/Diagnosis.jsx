@@ -1,8 +1,10 @@
-import "../styles/diagnosis.css";
+import {useDarkMode} from './DarkModeContext';
 import React, { useEffect, useState } from "react";
 import Camera from "./Camera";
+import "../styles/diagnosis.css";
 
 export default function Diagnosis() {
+  const{isDarkMode,setDarkMode}=useDarkMode();
   const [image, setImage] = useState(null);
   const [base64data, setBase64data] = useState(null);
   const [predictions, setPredictions] = useState(null);
@@ -119,7 +121,7 @@ export default function Diagnosis() {
   }, []);
 
   return (
-    <div className="diagnosisContainer">
+    <div className="diagnosisContainer" style={isDarkMode?{color:"white",backgroundColor:"#2e302f"}:{color:"black"}}>
       <h3>Diagnose Your Plant</h3>
       <form
         className="uploadOptions"
@@ -185,9 +187,9 @@ export default function Diagnosis() {
       </form>
 
       {predictions && (
-        <div className="predictions">
+        <div className="predictions" style={isDarkMode ? { color: "white", backgroundColor: "#242a23" } : { color: "black" }}>
           <h4>Predictions:</h4>
-          <div className="diseaseInfoContainer">
+          <div className="diseaseInfoContainer" >
             <p className="metaDname">
               <strong>Disease Name:</strong>
             </p>
@@ -195,31 +197,12 @@ export default function Diagnosis() {
             <p className="metaConf">
               <strong>Confidence:</strong>{" "}
             </p>
-            <p className="conf">{(predictions[0].score * 100).toFixed(1)}%</p>
-            <div
-              className="confidenceParent"
-              style={{
-                gridColumn: "1/3",
-                justifySelf: "center",
-                width: "200px",
-                backgroundColor: "grey",
-                borderRadius: "20px",
-              }}
-            >
-              <div
-                className="confidenceindicator"
-                style={{
-                  borderRadius: "20px",
-                  width: `${(parseFloat((predictions[0].score * 100).toFixed(0)) / 100) * 200}px`,
-                  border:
-                    (predictions[0].score * 100).toFixed(0) > 90
-                      ? "3px solid green"
-                      : (predictions[0].score * 100).toFixed(0) > 70
-                      ? "3px solid rgb(252, 211, 3)"
-                      : "3px solid red",
-                }}
-              ></div>
+            <p className="conf">
+            <div className="confidenceParent" style={{width:"200px", backgroundColor:"grey" , borderRadius:"20px"}}>
+                  <div className="confidenceindicator" style={{borderRadius:"20px 6px 6px 20px", width: `${(parseFloat((predictions[0].score * 100).toFixed(0)) / 100) * 200}px`,backgroundColor:(predictions[0].score * 100).toFixed(0)>90?" green":(predictions[0].score * 100).toFixed(0)>70?" rgb(252, 211, 3)":" red",textAlign:"center"}}>{(predictions[0].score * 100).toFixed(1)}%</div>
             </div>
+            </p>
+            
           </div>
         </div>
       )}

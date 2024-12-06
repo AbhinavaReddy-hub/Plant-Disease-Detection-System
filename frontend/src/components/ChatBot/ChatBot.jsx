@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
-import '../../styles/ChatBot.css';
 import { RxCross1 } from "react-icons/rx";
 import { IoMdSend } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useDarkMode } from "../DarkModeContext";
+import '../../styles/ChatBot.css';
 export default function ChatBot({ onclose }) {
     const { isDarkMode, setDarkMode } = useDarkMode();
     const [botChat, setBotChat] = useState("");

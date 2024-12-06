@@ -1,5 +1,4 @@
   import { useEffect, useState } from "react";
-import "../../styles/carousel.css";
 import tomato from "../../images/cropsImages/tomato.svg";
 import potato from "../../images/cropsImages/potato.svg";
 import bellPepper from "../../images/cropsImages/bellpepper.svg";
@@ -7,7 +6,7 @@ import paddy from "../../images/cropsImages/paddy.svg";
 import cotton from "../../images/cropsImages/cotton.png";
 import leftArrow from "../../images/homepage/carousel/leftArrow.svg";
 import rightArrow from "../../images/homepage/carousel/rightArrow.svg";
-
+import "../../styles/carousel.css";
 export default function Carousel() {
   const images = [
     { id: 1, src: tomato },
@@ -44,11 +43,12 @@ export default function Carousel() {
       <div className="context">Crops Available for Diagnosis:</div>
       <div className="carouselContainer">
         <button
+        draggable="false"
           className="l arrow"
           onClick={handlePrevious}
           disabled={startIndex === 0}
         >
-          <img src={leftArrow} width={30} alt="Left Arrow" />
+          <img draggable="false" src={leftArrow} width={30} alt="Left Arrow" />
         </button>
         <div className="carouselWrapper">
           <div
@@ -69,11 +69,12 @@ export default function Carousel() {
           </div>
         </div>
         <button
+        draggable="false"
           className="r arrow"
           onClick={handleNext}
           disabled={startIndex + imagesToShow >= images.length}
         >
-          <img src={rightArrow} width={30} alt="Right Arrow" />
+          <img draggable="false" src={rightArrow} width={30} alt="Right Arrow" />
         </button>
       </div>
     </div>

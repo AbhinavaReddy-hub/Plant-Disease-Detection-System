@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
 import "../../styles/sideMenu.css";
-import { useEffect, useRef, useState } from "react";
-
 export default function SideMenu({ darkMode, isVisible }) {
   const containerRef = useRef(null);
   const [width, setWidth] = useState(window.innerWidth);

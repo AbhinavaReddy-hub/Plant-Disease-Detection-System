@@ -1,7 +1,7 @@
-import "../../styles/notifDetails.css";
 import trash from "../../images/icons/trash.svg";
 import { MdDelete } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
+import "../../styles/notifDetails.css";
 
 export default function NotifDetails({
   notifications,

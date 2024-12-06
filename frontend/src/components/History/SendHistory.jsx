@@ -1,10 +1,9 @@
-import "../../styles/History.css";
 import leaf from "../../images/History/download.jpeg";
 import { Link } from "react-router-dom";
 import History from "./History";
 import { useState } from "react";
 import {useDarkMode} from "../DarkModeContext";
-
+import "../../styles/History.css";
 export default function SendHistory(){
     const{isDarkMode,setDarkMode}=useDarkMode();
     const [countClicked,setCountClick]=useState(false)

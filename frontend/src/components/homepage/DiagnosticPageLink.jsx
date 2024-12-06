@@ -1,10 +1,9 @@
-import '../../styles/diagnosticPageLink.css';
 import takePhoto from '../../images/diagnosis/takePhoto.png';
 import seeDiagnosis from '../../images/diagnosis/seeDiagnosis.png';
 import remedies from '../../images/diagnosis/remedies.png';
 import { useDarkMode } from "../DarkModeContext" ;
 import { Link } from "react-router-dom";
-
+import '../../styles/diagnosticPageLink.css';
 export default function DiagnosticPageLink(){
     const {isDarkMode,setdarkmode}=useDarkMode();
     return (
@@ -12,17 +11,17 @@ export default function DiagnosticPageLink(){
             <p className='title' style={isDarkMode?{color:"white"}:{color:"black"}}>Heal Your Crop</p>
             <div className="heal-your-crop" style={isDarkMode?{color:"white"}:{color:"black"}}>
                 <div className="step">
-                    <img src={takePhoto} alt="Take a picture" />
+                    <img draggable="false" src={takePhoto} alt="Take a picture" />
                     <p>Take a picture</p>
                 </div>
-                <div className="arrow" style={isDarkMode?{color:"white"}:{color:"black"}}>➜</div>
+                <div draggable="false" className="arrow" style={isDarkMode?{color:"white"}:{color:"black"}}>➜</div>
                 <div className="step">
-                    <img src={seeDiagnosis} alt="See diagnosis" />
+                    <img draggable="false" src={seeDiagnosis} alt="See diagnosis" />
                     <p>See diagnosis</p>
                 </div>
                 <div className="arrow" style={isDarkMode?{color:"white"}:{color:"black"}}>➜</div>
                 <div className="step">
-                    <img src={remedies} alt="Remedies" />
+                    <img draggable='false' src={remedies} alt="Remedies" />
                     <p>Get medicine</p>
                 </div>
             </div>

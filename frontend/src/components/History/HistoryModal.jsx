@@ -11,7 +11,7 @@ export default function HistoryModal({ onclose, disease, percentage, leaf }) {
                     <RxCross1 />
                 </div>
                 <div className="HistoryimageContainer">
-                    <img src={leaf} alt="" />
+                    <img draggable="false" src={leaf} alt="" />
                 </div>
                 <div className="HistoryDiseaseContainer">
                     <h5>Disease Name: <span>{disease}</span></h5>

@@ -13,6 +13,7 @@ export default function ChatBotImage() {
                 style={{ cursor: "pointer" }}
                             >
                 {!chatbotClicked && <img
+                draggable="false"
                     src={chatbotpic}
                     alt="Open Chatbot"
                     width={60}

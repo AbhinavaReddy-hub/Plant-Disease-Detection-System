@@ -13,6 +13,7 @@
   user-select: none;
 }
 
+
 /* body {
     background-color: var(--main-bg-color);
     font-family: var(--main-font);
@@ -25,6 +26,14 @@ body {
   color: rgb(10, 10, 10);
   height: fit-content;
 }
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  /* background: inherit !important; */
+}
+
 .darkmode {
   background-color: #042004;
   color: white;
@@ -70,9 +79,11 @@ body {
 
 /* style for tranlator */
 #translate{
-  right: 7vw;
-  top:60px;
+  right: 3vw;
+  top:90px;
   position: fixed;
+  z-index: 0;
+
 
 }
 .skiptranslate iframe{
@@ -85,9 +96,10 @@ body {
 #goog-gt-tt{
   display: none !important;
 }
+
 .VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
-  box-shadow: none;
-  background:none;
+  box-shadow: none !important;
+  background:none !important;
 }
 .goog-te-gadget{
  all:unset;

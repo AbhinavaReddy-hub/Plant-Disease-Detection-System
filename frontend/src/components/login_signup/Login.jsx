@@ -3,6 +3,7 @@ import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import InvalidCredentials from "./InvalidCredentials";
 import { useNavigate } from "react-router-dom";
+import vide from "./bg.mp4";
 import "../../styles/login.css";
 
 export default function Login() {
@@ -29,6 +30,22 @@ export default function Login() {
 
   return (
     <div className="loginWrapper">
+       <video 
+    src={vide} 
+    autoPlay 
+    loop 
+    muted 
+    playsInline 
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      zIndex: -1,
+    }}
+  ></video>
       {isNotValid && <InvalidCredentials />}
       <form action="#" onSubmit={(e) => {
         e.preventDefault();
