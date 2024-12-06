@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../../styles/history.css";
 import HistoryModal from "./HistoryModal";
 import { useDarkMode } from "../DarkModeContext";
+import "../../styles/history.css";
 export default function History({disease,percentage,date,leaf}){
     const{isDarkMode,setDarkMode}=useDarkMode();
     const[viewClicked,setViewClicked]=useState(false);
@@ -21,7 +21,7 @@ export default function History({disease,percentage,date,leaf}){
                 </div>
                 </div>
                 <div className="rigthsideHistoryDetails">
-                    <img src={leaf} alt=""/>
+                    <img draggable="false" src={leaf} alt=""/>
                 </div>
             </section>
         </div>

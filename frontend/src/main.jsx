@@ -15,7 +15,7 @@ import BlogDetails from './components/Blogs/BlogDetails.jsx';
 import MyBlogs from "./components/Blogs/MyBlogs.jsx";
 import Layout from './Layout.jsx';
 import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx';
-
+import Setting from "./components/Settings/Setting.jsx";
 const router = createBrowserRouter([
   {
     path: '/',
@@ -101,9 +101,9 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+
     <DarkModeProvider>
       <RouterProvider router={router} />
     </DarkModeProvider>
-  </StrictMode>
+ 
 );

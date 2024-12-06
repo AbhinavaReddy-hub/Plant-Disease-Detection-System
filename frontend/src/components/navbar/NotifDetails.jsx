@@ -1,10 +1,11 @@
-import '../../styles/notifDetails.css';
 import { MdDelete } from "react-icons/md";
 import { useEffect, useRef, useState } from 'react';
+import '../../styles/notifDetails.css';
 
-export default function NotifDetails({ notifications,setNotifications, isVisible }) {
+export default function NotifDetails({allViewed,setAllViewed, notifications,setNotifications, isVisible }) {
 
     const containerRef = useRef(null);
+    const notifListRef = useRef(null);
 
     useEffect(() => {
         if (containerRef.current) {
@@ -25,11 +26,26 @@ export default function NotifDetails({ notifications,setNotifications, isVisible
             }
         }
     }, [isVisible]);
+    const handleScroll = () => {
+        if (notifListRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = notifListRef.current;
+            if (Math.ceil(scrollTop + clientHeight) >= scrollHeight) {
+                setAllViewed(); 
+            }
+        }
+    };
+    useEffect(() => {
+        const notifList = notifListRef.current;
+        if (notifList) {
+            notifList.addEventListener('scroll', handleScroll);
+            return () => notifList.removeEventListener('scroll', handleScroll);
+        }
+    }, []);
 
     return (
         <div className="notifDetails" ref={containerRef}>
             <h3>Notifications</h3>
-            <div className="notif-list">
+            <div className="notif-list" ref={notifListRef}>
                 {notifications && notifications.length > 0 ? (
                     notifications.map(notification => (
                         <div className='messagecontainer' key={notification.id}>

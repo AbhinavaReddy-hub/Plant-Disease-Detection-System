@@ -1,6 +1,9 @@
+import { useDarkMode } from './DarkModeContext';
 import '../styles/loadingScreen.css';
 
+
 export default function LoadingScreen(){
+    const {isDarkMode,setDarkMode}=useDarkMode();
     return (
         <div className='loadingContainer'>    
             <svg className='loading' viewBox="25 25 50 50">

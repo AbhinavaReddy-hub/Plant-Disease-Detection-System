@@ -1,6 +1,5 @@
-import '../styles/footer.css'
 import { useDarkMode } from './DarkModeContext';
-
+import '../styles/footer.css'
 export default function Footer(){
     const {isDarkMode,setDarkmode}=useDarkMode();
     return (

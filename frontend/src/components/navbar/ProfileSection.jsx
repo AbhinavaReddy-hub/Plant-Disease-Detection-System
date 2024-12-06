@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import '../../styles/profileSection.css';
 import PropTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
-
-export default function ProfileSection({ isVisible }) {
+import { useState,useEffect, useRef } from 'react';
+import Setting from "../Settings/Setting";
+import '../../styles/profileSection.css';
+export default function ProfileSection({isVisible ,isSettingClicked,onclose,setSettingClicked}) {
+  useEffect(()=>{
+    if(isSettingClicked){
+      onclose();
+    }
+  },[isSettingClicked]);
   const containerRef = useRef(null);
-
   useEffect(() => {
     if (containerRef.current) {
       if (isVisible) {
@@ -25,14 +29,21 @@ export default function ProfileSection({ isVisible }) {
   }, [isVisible]);
 
   return (
+   
+   
     <div className="profileSection dropdown-menu" ref={containerRef}>
-      <Link className="profile-link setting" to="/setting">Setting</Link>
+      
+      <div className="profile-link setting" onClick={()=>{return(setSettingClicked(true))}}>Setting</div>
       <Link onClick={() => {
         sessionStorage.removeItem('user');
         sessionStorage.setItem('welcomeMessageShown', JSON.stringify(false));
       }
       } className="profile-link signout" to="/">Sign Out</Link>
+      {isSettingClicked &&  <Setting onclose={()=>setSettingClicked(false)}/>}
+    
     </div>
+  
+    
   );
 }
 

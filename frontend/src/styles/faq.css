@@ -10,6 +10,7 @@
     user-select: none;
     cursor: pointer;
     filter: none;
+    -webkit-tap-highlight-color: transparent;
   }
   .toplevelContainer .faqLeftSide {
     display: flex;

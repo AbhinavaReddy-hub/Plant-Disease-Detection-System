@@ -46,7 +46,7 @@ export default function Weather() {
 
   if (isLoading) {
     return (
-      <section className="weatherContainer">
+      <section className="weatherContainer" style={isDarkMode ? { color: "white", backgroundColor: "#242a23" } : { color: "black" }}>
         <LoadingScreen />
       </section>
     );
