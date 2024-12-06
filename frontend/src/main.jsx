@@ -14,6 +14,7 @@ import Blog from './pages/Blogs/Blog.jsx';
 import NewPost from './pages/Blogs/NewPost.jsx';
 import PostDetails from './pages/Blogs/PostDetails.jsx';
 import Myblog from "./pages/Blogs/myposts.jsx";
+import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute.jsx";
 const Layout = () => (
   <>
     <NavBar />
@@ -26,10 +27,35 @@ const Layout = () => (
   </>
 );
 
+import { useEffect, useState } from "react";
+import { useAuthStore } from './pages/store/authStore';
+
+const App = () => {
+  const checkAuth = useAuthStore((state) => state.checkAuth);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const checkUserAuth = async () => {
+      await checkAuth();
+      setIsAuthChecked(true);
+    };
+    checkUserAuth();
+  }, [checkAuth]);
+
+  if (!isAuthChecked) {
+    return <div>Loading...</div>; // Show loading until authentication is checked
+  }
+
+  return <RouterProvider router={router} />;
+};
 const router = createBrowserRouter([
   {
     path: '/home',
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
@@ -38,30 +64,46 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/blogs",
-    element:<Layout />,
+    path: "/blogs",
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
-        element:<Blog/>
+        element: <Blog />
       }
     ]
   },
   {
-    path:"/blogs/new",
-    element:<NewPost/>
+    path: "/blogs/new",
+    element: (
+      <ProtectedRoute>
+        <NewPost />
+      </ProtectedRoute>
+    )
   },
   {
-    path:"/blogs/:id",
-    element:<PostDetails/>
+    path: "/blogs/:id",
+    element: (
+      <ProtectedRoute>
+        <PostDetails />
+      </ProtectedRoute>
+    )
   },
   {
-    path:"/blogs/my",
-    element:<Layout />,
+    path: "/blogs/my",
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
-        element:<Myblog/>
+        element: <Myblog />
       }
     ]
   },
@@ -75,7 +117,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/diagnose',
-    element: <Layout />,
+    element: (
+      <ProtectedRoute>
+        <Layout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         path: '',
@@ -98,7 +144,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <DarkModeProvider>
-      <RouterProvider router={router} />
+      <App />
     </DarkModeProvider>
   </StrictMode>
 );
