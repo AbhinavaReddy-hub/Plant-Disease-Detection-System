@@ -7,8 +7,8 @@ export default function SideMenu({ darkMode, isVisible }) {
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    let timer; 
-  
+    let timer;
+
     if (containerRef.current) {
       if (isVisible) {
         containerRef.current.style.display = "block";
@@ -34,7 +34,6 @@ export default function SideMenu({ darkMode, isVisible }) {
 
     return () => clearTimeout(timer);
   }, [isVisible, width]);
-  
 
   useEffect(() => {
     const handleResize = () => {
@@ -72,14 +71,11 @@ export default function SideMenu({ darkMode, isVisible }) {
         <li>
           <Link to="/insights">Insights</Link>
         </li>
-
-        {width < 960 && (
-          <li>
-            <Link to="/faq" className={width > 960 ? "deactive" : ""}>
-              FAQ & Feedback
-            </Link>
-          </li>
-        )}
+        <li>
+          <Link to="/faq" className={width > 960 ? "deactive" : ""}>
+            FAQ & Feedback
+          </Link>
+        </li>
       </ul>
     </div>
   );

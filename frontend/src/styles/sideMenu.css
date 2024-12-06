@@ -55,6 +55,8 @@
     right: 3.5%;
 }
 
+
+
 @media (min-width: 767px) {
     .SideMenu{
         height: calc(100vh - 48px);
@@ -99,6 +101,19 @@
     }
 }
 
+@media (min-width:1500px) {
+    .SideMenu{
+        height: calc(100vh - 52px);
+        margin-top: 53.5px;
+    }
+    .SideMenu .SideOptions{
+        gap: 14px;
+    }
+    .SideMenu .SideOptions a{
+        font-size: 17px;
+    }
+}
+
 @media (max-width: 768px) {
     .SideMenu {
         --ty:-50%;
@@ -118,16 +133,17 @@
     .SideMenu .SideOptions{
         list-style:disc;
         list-style-position: inside;
+        padding: 27px 10px 27px 10px;
     }
 }
 
-@media (max-width:575px) {
+@media (max-width:612px) {
     .SideMenu .SideOptions{
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 408px) {
     .SideMenu {
         font-size: 15px;
     }
@@ -139,7 +155,7 @@
     }
 }
 
-@media (max-width:360px) {
+@media (max-width:371px) {
     .SideMenu .SideOptions{
         grid-template-columns: repeat(1, 1fr);
     }

@@ -53,10 +53,17 @@ export default function NotifDetails({
 
   return (
     <div className={`notifDetails`} ref={containerRef}>
-      <div className={`topDetails  ${notifications.length === 0 ? 'no-dismiss' : ''}`}>
+      <div
+        className={`topDetails  ${
+          notifications.length === 0 ? "no-dismiss" : ""
+        }`}
+      >
         <h3>Notifications</h3>
         {notifications.length > 0 && (
-          <button className={`dismiss ${removingAll ? 'hidden' : ''}`} onClick={handleRemoveAll}>
+          <button
+            className={`dismiss ${removingAll ? "hidden" : ""}`}
+            onClick={handleRemoveAll}
+          >
             Dismiss All
           </button>
         )}
@@ -70,15 +77,17 @@ export default function NotifDetails({
               }`}
               key={notification.id}
             >
-              <button
-                className="deletebut"
-                onClick={() => handleNotifDelete(notification.id)}
-              >
-                <img src={trash} alt="delete" />
-              </button>
-              <div key={notification.id} className="notif-item">
-                <h4>{notification.title}</h4>
-                <p>{notification.desc}</p>
+              <div key={notification.id} className="notifItem">
+                <div className="mainContent">
+                  <h4>{notification.title}</h4>
+                  <p>{notification.desc}</p>
+                </div>
+                <button
+                  className="deletebut"
+                  onClick={() => handleNotifDelete(notification.id)}
+                >
+                  <img src={trash} alt="delete" />
+                </button>
               </div>
             </div>
           ))

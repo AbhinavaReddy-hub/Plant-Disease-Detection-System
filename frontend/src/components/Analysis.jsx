@@ -1,4 +1,3 @@
-// export default Insights;
 import React, { useState, useEffect, useRef } from 'react';
 import '../styles/analysis.css';
 import Chart from 'chart.js/auto';
@@ -10,7 +9,6 @@ const Analysis = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // References for user inputs
   const personalTimeFrameRef = useRef('month');
   const locationTimeFrameRef = useRef('month');
   const personalChartTypeRef = useRef('bar');
@@ -18,32 +16,17 @@ const Analysis = () => {
   const userIdRef = useRef('1');
   const locationRef = useRef('');
 
-  // Canvas element refs
   const personalChartRef = useRef(null);
   const locationChartRef = useRef(null);
 
   useEffect(() => {
-    // Load initial personal analysis chart
     updatePersonalChart();
 
     return () => {
-      // Cleanup on component unmount
       if (personalChart) personalChart.destroy();
       if (locationChart) locationChart.destroy();
     };
-  }, []); // Run only once when the component mounts
-  // useEffect(() => {
-  //   // Initial render to load the personal analysis
-  //   updatePersonalChart();
-  // }, []);
-
-  // useEffect(() => {
-  //   // Cleanup on component unmount
-  //   return () => {
-  //     if (personalChart) personalChart.destroy();
-  //     if (locationChart) locationChart.destroy();
-  //   };
-  // }, [personalChart, locationChart]);
+  }, []);
 
   const fetchData = async (url, callback) => {
     try {
@@ -104,13 +87,13 @@ const Analysis = () => {
   };
 
   return (
-    <div className="container">
+    <div className="analysisContainer">
       <header>
         <h1>Plant Disease Analysis</h1>
         <p>Analyze the occurrence of diseases by month or season.</p>
       </header>
 
-      <div className="analysis-type">
+      <div className="analysisType">
         <button
           className={activeAnalysis === 'personal' ? 'active' : ''}
           onClick={() => {
@@ -134,9 +117,9 @@ const Analysis = () => {
       {loading && <p>Loading...</p>}
       {error && <p className="error">{error}</p>}
 
-      <div id="analysis-content">
+      <div id="analysisContent">
         {activeAnalysis === 'personal' && (
-          <div id="personal-analysis" className="analysis-section">
+          <div id="personal-analysis" className="analysisSection">
             <h2>Personal Analysis</h2>
             <label htmlFor="user-id">Select User:</label>
             <select ref={userIdRef} onChange={updatePersonalChart}>
@@ -156,14 +139,14 @@ const Analysis = () => {
               <option value="month">Month</option>
               <option value="season">Season</option>
             </select>
-            <div className="chart-container">
+            <div className="chartContainer">
               <canvas ref={personalChartRef}></canvas>
             </div>
           </div>
         )}
 
         {activeAnalysis === 'location' && (
-          <div id="location-analysis" className="analysis-section">
+          <div id="location-analysis" className="analysisSection">
             <h2>Location Analysis</h2>
             <label htmlFor="location-select">Select Location:</label>
             <select ref={locationRef} onChange={updateLocationChart}>
@@ -184,7 +167,7 @@ const Analysis = () => {
               <option value="month">Month</option>
               <option value="season">Season</option>
             </select>
-            <div className="chart-container">
+            <div className="chartContainer">
               <canvas ref={locationChartRef}></canvas>
             </div>
           </div>
