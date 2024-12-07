@@ -11,6 +11,7 @@
   box-sizing: border-box;
   cursor: var(--cursor-url), auto;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
