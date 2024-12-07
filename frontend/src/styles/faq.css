@@ -4,9 +4,11 @@
 
   .toplevelContainer {
     width: 100vw;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    align-items: center;
     user-select: none;
     cursor: pointer;
     filter: none;

@@ -51,6 +51,26 @@ export default function NotifDetails({
     }
   }, [isVisible]);
 
+
+
+
+  const handleScroll = () => {
+    if (notifListRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = notifListRef.current;
+        if (scrollTop + clientHeight >= scrollHeight) {
+            setAllViewed(true); 
+        }
+    }
+};
+
+useEffect(() => {
+    const notifList = notifListRef.current;
+    if (notifList) {
+        notifList.addEventListener('scroll', handleScroll);
+        return () => notifList.removeEventListener('scroll', handleScroll);
+    }
+}, []);
+
   return (
     <div className={`notifDetails`} ref={containerRef}>
       <div
