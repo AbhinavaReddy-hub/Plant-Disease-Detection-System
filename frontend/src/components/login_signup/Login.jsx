@@ -90,7 +90,7 @@ export default function Login() {
           </div>
           <div className="fieldContainer">
             <div className="username">
-              <h5 className={isUserFocus ? "userText active" : "userText"}>Username:</h5>
+              <h5 className={`userText ${isUserFocus ? "active" : ""}`}>Username:</h5>
               <input
               className="login-userName-input login-input"
                 type="text"
@@ -103,7 +103,7 @@ export default function Login() {
               />
             </div>
             <div className="password">
-              <h5 className={isPasswordFocus ? "passText active" : "passText"}>Password:</h5>
+              <h5 className={`passText ${isPasswordFocus ? "active" : ""}`}>Password:</h5>
               <div className="passwordField">
                 <input
                 className="login-password-input login-input"
@@ -111,7 +111,7 @@ export default function Login() {
                   name="password"
                   placeholder="Password"
                   value={password}
-                  onFocus={() => !isPasswordFocus && setPasswordFocus(false)}
+                  onFocus={() => !isPasswordFocus && setPasswordFocus(true)}
                   onBlur={() => isPasswordFocus && setPasswordFocus(false)}
                   onChange={(e) => setPassword(e.target.value)}
                 />

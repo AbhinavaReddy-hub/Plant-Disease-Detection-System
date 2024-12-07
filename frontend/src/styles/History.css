@@ -1,5 +1,6 @@
 .SendHistoryWrapper{
-    width: 87vw;
+    width: 80%;
+    box-sizing: border-box;
     height: fit-content;
     display: flex;
     flex-direction: column;

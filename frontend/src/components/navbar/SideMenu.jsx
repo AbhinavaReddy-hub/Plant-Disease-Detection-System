@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import {useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../styles/sideMenu.css";
 export default function SideMenu({ darkMode, isVisible }) {
   const containerRef = useRef(null);
@@ -67,13 +67,14 @@ export default function SideMenu({ darkMode, isVisible }) {
         <li>
           <Link to="/intdb">Interactive DB</Link>
         </li>
+        {width < 960 && (
+          <li>
+            <Link to="/insights">Insights</Link>
+          </li>
+        )}
+
         <li>
-          <Link to="/insights">Insights</Link>
-        </li>
-        <li>
-          <Link to="/faq" className={width > 960 ? "deactive" : ""}>
-            FAQ & Feedback
-          </Link>
+          <Link to="/faq">FAQ & Feedback</Link>
         </li>
       </ul>
     </div>

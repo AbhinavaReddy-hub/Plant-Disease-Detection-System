@@ -56,8 +56,7 @@
 }
 
 
-
-@media (min-width: 767px) {
+@media (min-width: 769px) and (min-height: 550px) {
     .SideMenu{
         height: calc(100vh - 48px);
         width: 255px;
@@ -93,7 +92,7 @@
 
     .SideMenu.visible{
         opacity: 1;
-        transform: translateX(0%) translateY(0);
+        transform: translateX(var(--ty)) translateY(0px);
     }
 
     .SideMenu .SideOptions a::after{
@@ -101,7 +100,7 @@
     }
 }
 
-@media (min-width:1500px) {
+@media (min-width: 1800px) and (min-height: 550px){
     .SideMenu{
         height: calc(100vh - 52px);
         margin-top: 53.5px;
@@ -114,6 +113,24 @@
     }
 }
 
+@media (max-height: 550px) {
+    .SideMenu{
+        --ty:-50%;
+        width: 95%;
+        left: 50%;
+        border-radius: 20px;
+        margin-top: 60px;
+        box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
+        padding: 14px 16px 14px 16px;
+    }
+    .SideMenu .SideOptions{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+
 @media (max-width: 768px) {
     .SideMenu {
         --ty:-50%;
@@ -122,18 +139,15 @@
         border-radius: 20px;
         margin-top: 68px;
         box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
+        padding: 14px 10px 14px 14px;
     }
-}
 
-@media (max-width: 748px) {
-    .SideMenu .SideOptions {
+    .SideMenu .SideOptions{
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-    }
-    .SideMenu .SideOptions{
+        padding: 12px 10px 12px 10px;
         list-style:disc;
         list-style-position: inside;
-        padding: 27px 10px 27px 10px;
     }
 }
 
@@ -160,3 +174,5 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+
