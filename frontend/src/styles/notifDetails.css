@@ -10,7 +10,7 @@
   top: 60px;
   right: calc(6.1% + 40px + 33px + 17px - 165px);
   padding: 16px;
-  z-index: 10;
+  z-index: 3;
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.23s ease-out,

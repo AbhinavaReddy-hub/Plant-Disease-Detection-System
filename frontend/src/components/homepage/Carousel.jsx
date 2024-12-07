@@ -40,7 +40,7 @@ export default function Carousel() {
 
   return (
     <div className="cropsForDiagnoseContainer">
-      <div className="context">Crops Available for Diagnosis:</div>
+      <div className="context" style={{color:"rgb(22, 152, 5)"}}><marquee>Crops Available for Diagnosis</marquee></div>
       <div className="carouselContainer">
         <button
         draggable="false"

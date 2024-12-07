@@ -17,6 +17,7 @@
     flex-direction: column;
     gap: 1em;
     align-items: center;
+    justify-content:center;
     padding: 2em;
     background-image: url("../images/background/signup/1.JPG");
     background-repeat: no-repeat;
@@ -177,8 +178,8 @@
   }
 }
 @media (max-width: 500px) {
-  .singupWrapper {
-    scale: 0.8;
+  .singupWrapper .signupContainer {
+    scale: 0.6;
     margin: auto;
   }
 }

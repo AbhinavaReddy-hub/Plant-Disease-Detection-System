@@ -54,6 +54,7 @@
     font-style: normal;
     display: flex;
     left: 10%;
+    width: max-content;
   }
 }
 

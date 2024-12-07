@@ -83,7 +83,7 @@ body {
   right: 3vw;
   top:90px;
   position: fixed;
-  z-index: 0;
+  z-index: 1;
 
 
 }

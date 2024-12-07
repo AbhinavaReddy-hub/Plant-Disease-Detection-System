@@ -45,7 +45,7 @@ export default function SendHistory(){
         },
     ]
     return(
-        <div className="SendHistoryWrapper" style={isDarkMode?{color:"white",backgroundColor:"#242a23"}:{color:"black"}}>
+        <div className="SendHistoryWrapper" style={isDarkMode?{color:"rgb(22, 152, 5)",backgroundColor:"#242a23"}:{color:"rgb(22, 152, 5)"}}>
              <section className="headerAndGotoInsights">
                 <h2>History</h2>
                 <Link to="/insights" className="button">Check out Your Insights</Link>

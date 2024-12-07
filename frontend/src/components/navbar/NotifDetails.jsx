@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import "../../styles/notifDetails.css";
 
 export default function NotifDetails({
+  allViewed,
+  setAllViewed,
   notifications,
   setNotifications,
   isVisible,
@@ -12,6 +14,7 @@ export default function NotifDetails({
   const [removingAll, setRemovingAll] = useState();
 
   const containerRef = useRef(null);
+  const notifListRef = useRef(null);
 
   function handleNotifDelete(id) {
     setRemoving((prev) => [...prev, id]);
@@ -57,7 +60,7 @@ export default function NotifDetails({
   const handleScroll = () => {
     if (notifListRef.current) {
         const { scrollTop, scrollHeight, clientHeight } = notifListRef.current;
-        if (scrollTop + clientHeight >= scrollHeight) {
+        if (Math.ceil(scrollTop + clientHeight) >= scrollHeight) {
             setAllViewed(true); 
         }
     }
@@ -88,7 +91,7 @@ useEffect(() => {
           </button>
         )}
       </div>
-      <div className={`notif-list ${removingAll ? "removing" : ""}`}>
+      <div className={`notif-list ${removingAll ? "removing" : ""}`} ref={notifListRef}> 
         {notifications && notifications.length > 0 ? (
           notifications.map((notification) => (
             <div

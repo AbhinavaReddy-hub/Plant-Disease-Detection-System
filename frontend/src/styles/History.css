@@ -133,6 +133,7 @@
 }
 @media (max-width:1000px) {
     .SendHistoryWrapper{
+        width: 100vw;
         margin-top: 10px;
     }
     .headerAndGotoInsights{

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 // import PhoneInput from "react-phone-input-2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import "../../styles/signUp.css";
 import { Link } from "react-router-dom";
-
+import vid from "./bg2.mp4";
+import vide from "./bg4.mp4";
+import "../../styles/signUp.css";
 const SignUp = () => {
   const passwordPattern = {
     lowerCase: /(?=.*[a-z])/,
@@ -24,6 +25,14 @@ const SignUp = () => {
   const [districts, setDistricts] = useState([]);
   const [selectedState, setSelectedState] = useState(32);
   const [selectedDistrict, setSelectedDistrict] = useState("");
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [screenSize]);
 
   // Fetch states when the component mounts
   useEffect(() => {
@@ -57,6 +66,20 @@ const SignUp = () => {
 
   return (
     <div className="singupWrapper">
+       <video 
+    src={screenSize<=850 ? vide: vid} 
+    autoPlay 
+    loop 
+    muted 
+    playsInline 
+    style={{
+      position: "absolute",
+      width: "100vw",
+      height: "100vh",
+      objectFit: "cover",
+      zIndex: -1,
+    }}
+  ></video>
       <div className="signupContainer">
         <div className="header">
           <h2>Sign Up to VrikshaRakshak</h2>

@@ -3,7 +3,8 @@ import { FaUser, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import InvalidCredentials from "./InvalidCredentials";
 import { useNavigate } from "react-router-dom";
-import vide from "./bg.mp4";
+import vid from "./bg2.mp4";
+import vide from "./bg4.mp4";
 import "../../styles/login.css";
 
 export default function Login() {
@@ -15,6 +16,14 @@ export default function Login() {
   const [isValid, setIsValid] = useState(false);
   const [isNotValid, setIsNotValid] = useState(false);
   const [timeOutWorking, setTimeOutWorking] = useState(false);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, [screenSize]);
 
   const navigate = useNavigate()
 
@@ -31,17 +40,15 @@ export default function Login() {
   return (
     <div className="loginWrapper">
        <video 
-    src={vide} 
+    src={screenSize<=850 ? vide: vid} 
     autoPlay 
     loop 
     muted 
     playsInline 
     style={{
       position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
+      width: "100vw",
+      height: "100vh",
       objectFit: "cover",
       zIndex: -1,
     }}
