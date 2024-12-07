@@ -49,7 +49,7 @@
     font-size: 16px;
     color: rgb(8, 8, 8);
     opacity: 0;
-    transition: all 0.4s;
+    transition: all 0.35s ease;
   }
 
   .fieldContainer .login-input {
@@ -61,7 +61,7 @@
     width: 100%;
     height: 2.5em;
     padding-left: 15px;
-    transition: all 0.4s;
+    transition: all 0.35s ease;
     /* cursor: pointer; */
   }
 
@@ -72,11 +72,11 @@
   .fieldContainer .login-input::placeholder {
     color: rgba(73, 72, 72, 0.742);
     font-style: italic;
+    transition: all 0.35s ease;
   }
 
   .fieldContainer .login-input:focus::placeholder {
     opacity: 0;
-    transition: all 0.4s;
   }
 
   .active {
@@ -128,7 +128,7 @@
     border: 2px solid black;
     border-radius: 20px;
     cursor: pointer;
-    transition: all 0.4s;
+    transition: all 0.35s ease;
   }
 
   .loginbutton button:hover {
@@ -171,6 +171,161 @@
 
     .dontAccount{
       font-size: 13px;
+    }
+
+    .loginbutton button{
+      padding: 2px 13px;
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-height:525px) {
+  .loginWrapper{
+    /* width: 90%; */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .loginContainer{
+      padding: 16px;
+      gap: 10px;
+    }
+
+    .header #logo{
+      font-size: 36px;
+    }
+
+    .header h3{
+      font-size: 18px;
+    }
+
+    .userText, .passText{
+      font-size: 14px;
+    }
+
+    .fieldContainer{
+      width: 80%;
+    }
+
+    .loginbutton button{
+      padding: 2px 13px;
+      font-size: 18px;
+    }
+
+    .dontAccount{
+      font-size: 13px;
+    }
+
+    .fieldContainer .login-input{
+      height: 2.2em;
+    }
+  }
+}
+
+@media (max-height: 420px) {
+  .loginWrapper{
+    .loginContainer{
+      padding: 16px;
+      gap: 8px;
+    }
+
+    .header #logo{
+      font-size: 32px;
+    }
+
+    .header h3{
+      font-size: 17px;
+    }
+
+    .userText, .passText{
+      font-size: 12.8px;
+    }
+
+    .fieldContainer{
+      width: 80%;
+    }
+
+    .dontAccount{
+      font-size: 12px;
+    }
+
+    .password a{
+      font-size: 13.5px;
+    }
+
+    .showbutton {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-height: 390px) {
+  .loginWrapper{
+    .loginContainer{
+      padding: 16px;
+      gap: 6px;
+    }
+
+    .fieldContainer{
+      gap: 0.5em;
+    }
+
+    .header #logo{
+      font-size: 30px;
+    }
+
+    .header h3{
+      font-size: 16px;
+    }
+
+    .userText, .passText{
+      font-size: 12.5px;
+    }
+
+    .dontAccount{
+      font-size: 12px;
+    }
+
+    .loginbutton button{
+      padding: 2px 11px;
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-height: 355px) {
+  .loginWrapper{
+    .fieldContainer .login-input{
+      height: 2em;
+      width: 90%;
+    }
+
+    .showbutton {
+      font-size: 23.5px;
+      right: 5.3%;
+      top: 14%;
+    }
+
+    .header #logo{
+      font-size: 30px;
+    }
+
+    .header h3{
+      font-size: 16px;
+    }
+
+    .userText, .passText{
+      font-size: 12.5px;
+    }
+
+    .dontAccount{
+      font-size: 12px;
+    }
+
+    .loginbutton button{
+      padding: 2px 11px;
+      font-size: 16px;
     }
   }
 }
