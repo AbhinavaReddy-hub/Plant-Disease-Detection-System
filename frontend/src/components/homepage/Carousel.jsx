@@ -17,31 +17,21 @@ import "../../styles/carousel.css";
 
 export default function Carousel() {
   const images = [
-    { id: 1, src: tomato },
-    { id: 2, src: potato },
-    { id: 3, src: bellPepper },
-    { id: 4, src: paddy },
-    { id: 5, src: cotton },
-    { id: 6, src: apple },
-    { id: 7, src: blueberry },
-    { id: 8, src: cherry },
-    { id: 9, src: corn },
-    { id: 10, src: grapes },
-    { id: 11, src: orange },
-    { id: 12, src: peach },
-    { id: 13, src: rasberry },
-    { id: 14, src: strawberry },
+    { id: 1, src: tomato, name: "Tomato" },
+    { id: 2, src: potato, name: "Potato" },
+    { id: 3, src: bellPepper, name: "Bell Pepper" },
+    { id: 4, src: paddy, name: "Paddy" },
+    { id: 5, src: cotton, name: "Cotton" },
+    { id: 6, src: apple, name: "Apple" },
+    { id: 7, src: blueberry, name: "Blueberry" },
+    { id: 8, src: cherry, name: "Cherry" },
+    { id: 9, src: corn, name: "Corn" },
+    { id: 10, src: grapes, name: "Grapes" },
+    { id: 11, src: orange, name: "Orange" },
+    { id: 12, src: peach, name: "Peach" },
+    { id: 13, src: rasberry, name: "Raspberry" },
+    { id: 14, src: strawberry, name: "Strawberry" },
   ];
-  const [ScreenSize, setScreenSize] = useState(window.innerWidth);
-  useEffect(() => {
-    const handleScreen = () => {
-      setScreenSize(window.innerWidth);
-    };
-    window.addEventListener("resize", handleScreen);
-    return () => {
-      window.removeEventListener("resize", handleScreen);
-    };
-  }, [ScreenSize]);
 
   return (
     <div className="cropsForDiagnoseContainer">
@@ -49,19 +39,17 @@ export default function Carousel() {
         Crops Available for Diagnosis
       </div>
       <div className="carouselWrapper">
-        {images.map(({ id, src }, index) => {
-          return (
-            <img
-              key={id}
-              data-tooltip="Tooltip text here"
-              className="crops tooltip"
-              style={{ "--n": index + 1 }}
-              draggable={false}
-              src={src}
-              alt={`Slide ${index + 1}`}
-            />
-          );
-        })}
+        {images.map(({ id, src, name }, index) => (
+          <img
+            key={id}
+            src={src}
+            alt={`Slide ${index + 1}`}
+            className="crops tooltip"
+            data-tooltip={name}
+            style={{ "--n": index + 1 }}
+            draggable={false}
+          />
+        ))}
       </div>
     </div>
   );
