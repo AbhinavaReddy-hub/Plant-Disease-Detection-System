@@ -43,7 +43,7 @@ export default function AboutUs() {
           <h2
         className="slogan notranslate" 
         style={ { color: "rgb(22, 152, 5)" }}
-      >
+      > 
         {displayText}
         {displayText && 
           <span className="GradientCircle" style={isDarkMode ? { borderRightColor: "white" } : { borderRightColor: "black" }}></span>

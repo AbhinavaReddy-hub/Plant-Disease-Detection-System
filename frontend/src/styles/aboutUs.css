@@ -13,7 +13,8 @@
     position: relative;
   }
   .slogan{
-    height: max-content;
+    min-height: 35px;
+    max-height: max-content;
   }
 
   .GradientCircle {

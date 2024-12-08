@@ -40,7 +40,7 @@ export default function Carousel() {
 
   return (
     <div className="cropsForDiagnoseContainer">
-      <div className="context" style={{color:"rgb(22, 152, 5)"}}><marquee>Crops Available for Diagnosis</marquee></div>
+      <div className="context" style={{color:"rgb(22, 152, 5)"}}>Crops Available for Diagnosis</div>
       <div className="carouselContainer">
         <button
         draggable="false"
@@ -53,8 +53,10 @@ export default function Carousel() {
         <div className="carouselWrapper">
           <div
             className="images"
-            style={ScreenSize<=390?{transform:`translateX(-${startIndex * 70}px)`}:{transform: `translateX(-${startIndex * 90}px)` }}
+            // style={ScreenSize<=390?{transform:`translateX(-${startIndex * 70}px)`}:{transform: `translateX(-${startIndex * 90}px)` }}
           >
+            <div className="marquee" 
+            >
             {images.map(({ id, src }, index) => {
               return (
                 <img
@@ -66,6 +68,7 @@ export default function Carousel() {
                 />
               );
             })}
+            </div>
           </div>
         </div>
         <button
