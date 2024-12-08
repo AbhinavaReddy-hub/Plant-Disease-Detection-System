@@ -33,7 +33,7 @@ export default function ProfileSection({isVisible ,isSettingClicked,onclose,setS
    
     <div className="profileSection dropdown-menu" ref={containerRef}>
       
-      <div className="profile-link setting" onClick={()=>{return(setSettingClicked(true))}}>Setting</div>
+      <div className="profile-link setting" onClick={()=>{return(setSettingClicked(true))}}>Change Password</div>
       <Link onClick={() => {
         sessionStorage.removeItem('user');
         sessionStorage.setItem('welcomeMessageShown', JSON.stringify(false));
