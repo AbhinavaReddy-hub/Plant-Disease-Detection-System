@@ -1,79 +1,54 @@
 .cropsForDiagnoseContainer {
-  display: flex;
   height: 150px;
+  margin-inline: auto;
+  display: flex;
   flex-direction: column;
-  justify-content: space-around;  
-  align-items:center;
-
-  .carouselContainer {
-    width: fit-content;
-    display: flex;
-    user-select: none;
-    overflow: hidden;
-    border-radius: 10px;
-  }
-
-  .arrow {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    border: none;
-    background-color: rgb(180, 235, 203);
-    transition: 0.4s;
-    display: none;
-  }
-
-  .arrow:hover {
-    background-color: rgba(180, 235, 203, 0.83);
-  }
-
-  .arrow:active {
-    background-color: rgba(180, 235, 203, 0.7);
-  }
-
-  .arrow:disabled {
-    background-color: rgba(180, 235, 203, 0.25);
-  }
-
-  .crops {
-    width: 70px;
-    height: 90px;
-    margin: 0px 20px;
-  }
-  .carouselWrapper {
-    width: 50vw;
-    overflow: hidden;
-  }
-
-  .images {
-    display: flex;
-    white-space: nowrap;
-  }
-  
-  .context {
-    font-family: "Itim", cursive;
-    font-weight: 500;
-    font-size: 23px;
-    font-style: normal;
-    display: flex;
-    left: 10%;
-  }
+  justify-content: space-around;
+  align-items: center;
 }
-.marquee {
+
+.cropsForDiagnoseContainer .context {
+  font-family: "Itim", cursive;
+  font-weight: 500;
+  font-size: 23px;
+  font-style: normal;
+  display: flex;
+  left: 10%;
+}
+
+.cropsForDiagnoseContainer .carouselWrapper {
   display: inline-block;
-  white-space: nowrap;
-  font-size: 24px;
-  animation: scroll-left 10s linear infinite;
-}
-@keyframes scroll-left {
-  0% {
-    transform: translateX(50vw);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  width: 50vw;
+  height: 90px;
+  display: flex;
+  user-select: none;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
+.cropsForDiagnoseContainer .carouselWrapper:hover .crops{
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+.cropsForDiagnoseContainer .crops {
+  width: 70px;
+  height: 90px;
+  position: absolute;
+  left: 100%;
+  animation-name: scroll-left;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-delay: calc(20s/14 * (14 - var(--n)) * -1);
+}
+
+@keyframes scroll-left {
+  to{
+    left: -70px;
+  }
+}
 
 @media (max-width: 1200px) {
   .cropsForDiagnoseContainer {
@@ -85,25 +60,25 @@
 }
 
 @media (max-width: 950px) {
-  .carouselContainer .carouselWrapper {
+  .carouselWrapper {
     width: 270px;
     overflow: hidden;
   }
 }
 
 @media (max-width: 530px) {
-  .carouselContainer {
+  .carouselWrapper {
     width: 70vw;
   }
 }
 
 @media (max-width: 390px) {
-  .carouselContainer .carouselWrapper {
+  .carouselWrapper {
     width: 210px;
     overflow: hidden;
   }
 
-  .carouselContainer .crops {
+  .carouselWrapper .crops {
     width: 50px;
     height: 50px;
     margin: 0px 10px;

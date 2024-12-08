@@ -127,7 +127,7 @@ export default function Weather() {
                     id="secondary"
                     d="M20.76,12.65,14.46,20l-3-2.6L14.34,14H4a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H14.34L11.42,6.6l3-2.6,6.3,7.35A1,1,0,0,1,20.76,12.65Z"
                     style={{
-                      fill: "#7deb34",
+                      fill: "#ffff",
                       strokeWidth: 2,
                     }}
                   />
