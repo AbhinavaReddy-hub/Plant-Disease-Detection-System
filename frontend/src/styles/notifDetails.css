@@ -7,7 +7,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: absolute;
-  top: 60px;
+  top: 58px;
   right: calc(6.1% + 40px + 33px + 17px - 165px);
   padding: 16px;
   z-index: 3;
@@ -195,7 +195,13 @@
 @media (min-width: 1500px) {
   .notifDetails {
     width: 345px;
-    right: calc(3.5vw + 40px + 35px + 20.5px - 172.5px + 2vw);
+    right: calc(3.5vw + 40px + 35px + 20.5px - 172.5px + 1.5vw);
+  }
+}
+
+@media (min-width: 1800px) {
+  .notifDetails{
+    top: 66px;
   }
 }
 
@@ -205,7 +211,7 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 760px) {
   .notifDetails {
     width: 310px;
     top: 65px;
@@ -243,7 +249,7 @@
   } */
 }
 
-@media (max-width: 378px) {
+@media (max-width: 380px) {
   .notifDetails {
     top: 85px;
   }

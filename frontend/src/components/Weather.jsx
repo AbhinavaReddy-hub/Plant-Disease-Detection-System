@@ -46,7 +46,14 @@ export default function Weather() {
 
   if (isLoading) {
     return (
-      <section className="weatherContainer" style={isDarkMode ? { color: "white", backgroundColor: "#242a23" } : { color: "black" }}>
+      <section
+        className="weatherContainer"
+        style={
+          isDarkMode
+            ? { color: "white", backgroundColor: "#242a23" }
+            : { color: "black" }
+        }
+      >
         <LoadingScreen />
       </section>
     );
@@ -79,37 +86,75 @@ export default function Weather() {
           />
           <div className="sideDetails">
             <p className="temp">{`${Math.floor(weatherData.main.temp)}°C`}</p>
-            <p className="realFeel">RealFeel:</p>
+            <p className="realFeel">Feels like:</p>
             <p className="realFeel">{`${Math.floor(
               weatherData.main.feels_like
             )}°C`}</p>
           </div>
         </div>
       </div>
-      <table className="extraContent">
-        <tbody>
-          <tr className="c wind">
-            <td className="title">Wind</td>
-            <td className="data f">
-              <p>{weatherData.wind.speed || "No Data"} m/s</p>
-              <p>{weatherData.wind.deg || "No Data"}°</p>
-              <p>
-                {weatherData.wind.gust
-                  ? `${weatherData.wind.gust} m/s (gust)`
-                  : "No Data"}
-              </p>
-            </td>
-          </tr>
-          <tr className="c humidity">
-            <td className="title">Humidity</td>
-            <td className="data">{weatherData.main.humidity}%</td>
-          </tr>
-          <tr className="c pressure">
-            <td className="title">Pressure</td>
-            <td className="data">{weatherData.main.pressure} hPa</td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="extraContent">
+        <div className="meta metaWind">Wind:</div>
+        <div className="meta metaHumidity">Humidity:</div>
+        <div className="meta metaPressure">Pressure:</div>
+
+        <div className="data wind">
+          <div>
+            {weatherData.wind.speed || "No Data"} m/s {/* <img */}
+            <span className="direction">
+              <svg
+                fill="#000000"
+                width="16px"
+                height="16px"
+                viewBox="0 0 24 24"
+                id="right-direction"
+                xmlns="http://www.w3.org/2000/svg"
+                className=""
+                alt="Direction"
+                style={{
+                  transition: "transform 0.3s ease",
+                  transform: `rotate(${(weatherData.wind.deg || 30) + 270}deg)`, // Ensure this is the only place the rotation happens
+                }}
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth={0} />
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    id="secondary"
+                    d="M20.76,12.65,14.46,20l-3-2.6L14.34,14H4a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H14.34L11.42,6.6l3-2.6,6.3,7.35A1,1,0,0,1,20.76,12.65Z"
+                    style={{
+                      fill: "#7deb34",
+                      strokeWidth: 2,
+                    }}
+                  />
+                  <path
+                    id="primary"
+                    d="M20.76,12.65,14.46,20l-3-2.6L14.34,14H4a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H14.34L11.42,6.6l3-2.6,6.3,7.35A1,1,0,0,1,20.76,12.65Z"
+                    style={{
+                      fill: "none",
+                      stroke: "#000000",
+                      strokeLinecap: "round",
+                      strokeLinejoin: "round",
+                      strokeWidth: 2,
+                    }}
+                  />
+                </g>
+              </svg>
+            </span>
+          </div>
+          <div>
+            {weatherData.wind.gust
+              ? `${weatherData.wind.gust} m/s (gust)`
+              : "No Data"}
+          </div>
+        </div>
+        <div className="data humidity">{weatherData.main.humidity}%</div>
+        <div className="data pressure">{weatherData.main.pressure} hPa</div>
+      </div>
     </section>
   );
 }
