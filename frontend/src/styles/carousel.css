@@ -25,6 +25,13 @@
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .cropsForDiagnoseContainer .carouselWrapper:hover .crops{
@@ -35,18 +42,20 @@
 .cropsForDiagnoseContainer .crops {
   width: 70px;
   height: 90px;
+  margin-inline: 30px;
   position: absolute;
-  left: 100%;
+  left: max(calc((70px + 30px) * 14), 100%);
   animation-name: scroll-left;
   animation-timing-function: linear;
-  animation-duration: 20s;
+  animation-duration: 30s;
   animation-iteration-count: infinite;
-  animation-delay: calc(20s/14 * (14 - var(--n)) * -1);
+  animation-delay: calc(30s/14 * (14 - var(--n)) * -1);
+  transition: 0.5s ease;
 }
 
 @keyframes scroll-left {
   to{
-    left: -70px;
+    left: calc(-70px - 30px);
   }
 }
 

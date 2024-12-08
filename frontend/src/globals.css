@@ -133,7 +133,6 @@ body {
 1. Make sure to add the class tool-tip
 2. Make sure to add the attrib = data-tooltip */
 .tooltip {
-  position: relative !important;
   --tip-size: 10px;
   --tooltip-color: #515151;
   z-index: 6;

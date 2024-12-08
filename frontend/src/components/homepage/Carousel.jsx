@@ -53,8 +53,9 @@ export default function Carousel() {
           return (
             <img
               key={id}
-              className={`crops`}
-              style={{"--n":index+1}}
+              data-tooltip="Tooltip text here"
+              className="crops tooltip"
+              style={{ "--n": index + 1 }}
               draggable={false}
               src={src}
               alt={`Slide ${index + 1}`}
