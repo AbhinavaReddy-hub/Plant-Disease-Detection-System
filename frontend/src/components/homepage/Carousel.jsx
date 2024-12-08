@@ -4,7 +4,7 @@ import potato from "../../images/cropsImages/potato.svg";
 import bellPepper from "../../images/cropsImages/bellpepper.svg";
 import paddy from "../../images/cropsImages/paddy.svg";
 import cotton from "../../images/cropsImages/cotton.png";
-import apple from "../../images/cropsImages/apple.svg";
+import apple from "../../images/cropsImages/apple.png";
 import blueberry from "../../images/cropsImages/blueberry.png";
 import cherry from "../../images/cropsImages/cherry.png";
 import corn from "../../images/cropsImages/corn.png";
@@ -88,7 +88,7 @@ export default function Carousel() {
               );
             })}
             </div>
-          </div>
+           </div>
         </div>
         <button
         draggable="false"

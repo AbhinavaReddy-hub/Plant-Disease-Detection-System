@@ -37,17 +37,16 @@
 
   .crops {
     width: 70px;
-    height: 70px;
-    margin: 0px 10px;
+    height: 90px;
+    margin: 0px 20px;
   }
   .carouselWrapper {
-    width: 40vw;
+    width: 50vw;
     overflow: hidden;
   }
 
   .images {
     display: flex;
-    animation: scroll-left 6s linear 0s infinite;
     white-space: nowrap;
   }
   
@@ -64,14 +63,14 @@
   display: inline-block;
   white-space: nowrap;
   font-size: 24px;
-  /* animation: scroll-left 6s linear 0s infinite; */
+  animation: scroll-left 10s linear infinite;
 }
 @keyframes scroll-left {
   0% {
-    transform: translateX(40vw);
+    transform: translateX(50vw);
   }
   100% {
-    transform: translateX(-40vw);
+    transform: translateX(-100%);
   }
 }
 
