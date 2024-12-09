@@ -166,9 +166,6 @@
   }
   .extraContent .direction{
     width: 24px;
-    position: absolute;
-    right: 14px;
-    top: 0.5px;
   }
 }
 
@@ -178,5 +175,17 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+  }
+}
+
+@media (max-width: 340px) {
+  .extraContent .direction{
+    width: 21px;
+  }
+  .weatherContainer .extraContent{
+    width: 170px;
+  }
+  .extraContent .data, .extraContent .meta{
+    font-size: 13px;
   }
 }
