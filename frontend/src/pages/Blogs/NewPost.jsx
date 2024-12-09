@@ -14,9 +14,9 @@ const NewPost = () => {
 
   // Retrieve the username from sessionStorage
   useEffect(() => {
-    const storedUser = JSON.parse(sessionStorage.getItem("user"));
-    if (storedUser && storedUser.username) {
-      setUsername(storedUser.username);
+    const storedUser = JSON.parse(sessionStorage.getItem('user'));
+    if (storedUser) {
+      setUsername(storedUser);
     } else {
       setMessage("Error: No user logged in.");
       // Optional: Redirect to login if no user is found
@@ -50,11 +50,11 @@ const NewPost = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5770/new-post", {
+      const response = await fetch("http://localhost:5000/posts/new-post", {
         method: "POST",
-        body: form,
+        body: form, 
       });
-
+      console.log(response.status);
       if (response.ok) {
         setMessage("Post created successfully!");
         setFormData({

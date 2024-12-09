@@ -1,23 +1,22 @@
 import "./AboutUs.css";
 import clickPhoto from "./aboutUs.png";
-import { useDarkMode } from "../homepage/DarkModeContext";
+// import { Link } from "react-router-dom";
 import DiagnosticPageLink from "../diagnosticpagelink/DiagnosticPageLink";
 
 export default function AboutUs() {
-  const{isDarkMode,setDarkMode}=useDarkMode();
   return (
     <div className="aboutUs">
       <div className="c lc">
-        <div className="text" >
+        <div className="text">
           <div className="leftContent">
-            <h2 className="slogan"style={isDarkMode?{color:"white"}:{color:"black"}} >
+            <h2 className="slogan">
               {" "}
               Discover <span className="GradientCircle"></span>
               <br />
               Plant Health <br />
               Instantly
             </h2>
-            <p style={isDarkMode?{color:"white"}:{color:"black"}}>
+            <p>
               AI-powered diagnostics to identify and manage crop diseases
               effortlessly.
               <br />

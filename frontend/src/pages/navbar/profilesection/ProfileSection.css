@@ -46,12 +46,12 @@
 @media (max-width:460px) {
     .profileSection{
         /* right: calc(8% + 20px - 70px);; */
-        top: 60px;
+        top: 90px;
     }    
 }
 @media (max-width:390px) {
     .profileSection{
         /* right: calc(8% + 20px - 70px);; */
-        /* top: 70px; */
+        top: 70px;
     }    
 }

@@ -1,26 +1,11 @@
-import express from "express";
-import {
-	login,
-	logout,
-	signup,
-	verifyEmail,
-	forgotPassword,
-	resetPassword,
-	checkAuth,
-} from "../controllers/userController.js";
-import { verifyToken } from "../middlewares/verifyToken.js";
-
-
+const express = require("express");
 const router = express.Router();
+const { registerUser, loginUser } = require("../controllers/userController");
 
-router.get("/check-auth", verifyToken, checkAuth);
+// Route for user registration
+router.post("/register", registerUser);
 
-router.post("/signup", signup);
-router.post("/login", login);
-router.post("/logout", logout);
+// Route for user login
+router.post("/login", loginUser);
 
-
-
-
-
-export default router;
+module.exports = router;

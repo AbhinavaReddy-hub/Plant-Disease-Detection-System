@@ -1,119 +1,226 @@
-import "./Diagnosis.css";
-import React, { useState } from "react";
+// import React, { useState } from 'react';
+// import './Diagnosis.css';
 
-export default function Diagnosis() {
+// const Diagnosis = () => {
+//   const [image, setImage] = useState(null);
+//   const [result, setResult] = useState('');
+//   const [diseaseInfo, setDiseaseInfo] = useState(null);
+//   const [preview, setPreview] = useState('');
+//   const [showReportModal, setShowReportModal] = useState(false);
+//   const [comment, setComment] = useState('');
+
+//   const handleImageUpload = (e) => {
+//     const file = e.target.files[0];
+//     setImage(file);
+//     setPreview(URL.createObjectURL(file));
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     if (!image) {
+//       alert('Please upload an image.');
+//       return;
+//     }
+
+//     const formData = new FormData();
+//     formData.append('image', image);
+
+//     try {
+//       const response = await fetch('http://localhost:5000/api/diagnosis/upload', {
+//         method: 'POST',
+//         body: formData,
+//       });
+
+//       const data = await response.json();
+//       if (data.disease_info) {
+//         setResult(`Disease Name: ${data.diagnosis.disease_name}, Confidence Score: ${data.diagnosis.confidence_score}`);
+//         setDiseaseInfo(data.disease_info);
+//       } else if (data.output) {
+//         setResult(data.output);
+//       } else {
+//         setResult('Failed to classify the image.');
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//       alert('An error occurred while uploading the image.');
+//     }
+//   };
+  
+//   const handleReportSubmit = async () => {
+//     if (!comment.trim()) {
+//       alert('Please enter a comment.');
+//       return;
+//     }
+
+//     try {
+//       await fetch('http://localhost:5000/api/diagnosis/report', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//           diagnosis: diseaseInfo,
+//           comment,
+//         }),
+//       });
+//       alert('Report submitted successfully.');
+//       setShowReportModal(false);
+//     } catch (error) {
+//       alert('Failed to submit report.');
+//     }
+//   };
+
+//   return (
+//     <div className="diagnosis-container">
+//       <h1>Diagnose Plant Disease</h1>
+//       <form onSubmit={handleSubmit}>
+//         <input type="file" onChange={handleImageUpload} accept="image/*" required />
+//         <button type="submit">Upload and Diagnose</button>
+//       </form>
+//       {preview && <img src={preview} alt="Uploaded Preview" className="preview-image" />}
+//       {result && <div className="result-text">{result}</div>}
+//       {diseaseInfo && (
+//         <div className="disease-info">
+//           <h2>Disease Information</h2>
+//           <p><strong>Symptoms:</strong> {diseaseInfo.disease_symptoms}</p>
+//           <p><strong>Organic Treatment:</strong> {diseaseInfo.organic_treatment}</p>
+//           <p><strong>Inorganic Treatment:</strong> {diseaseInfo.inorganic_treatment}</p>
+//           <p><strong>Preventive Measures:</strong> {diseaseInfo.preventive_measure}</p>
+//           <p><strong>Conclusion:</strong> {diseaseInfo.conclusion}</p>
+//           <button onClick={() => setShowReportModal(true)}>Not satisfied? Report</button>
+//         </div>
+//       )}
+//        {showReportModal && (
+//         <div className="modal">
+//           <textarea
+//             placeholder="Write your comments here..."
+//             value={comment}
+//             onChange={(e) => setComment(e.target.value)}
+//           />
+//           <button onClick={handleReportSubmit}>Submit Report</button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default Diagnosis;
+import React, { useState } from 'react';
+import './Diagnosis.css';
+
+const Diagnosis = () => {
   const [image, setImage] = useState(null);
-  const [base64data, setBase64data] = useState(null);
-  const [predictions, setPredictions] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState('');
+  const [diseaseInfo, setDiseaseInfo] = useState(null);
+  const [preview, setPreview] = useState('');
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [comment, setComment] = useState('');
+  const [diagnosisId, setDiagnosisId] = useState(null); // Store diagnosis ID
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result); // Set image preview
-        setBase64data(reader.result.split(",")[1]); // Extract Base64 data
-      };
-      reader.readAsDataURL(file);
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+    setPreview(URL.createObjectURL(file));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!image) {
+      alert('Please upload an image.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', image);
+
+    try {
+      const response = await fetch('http://localhost:5000/api/diagnosis/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.diagnosisId) {
+        setDiagnosisId(data.diagnosisId); // Capture diagnosis ID
+      }
+      if (data.disease_info) {
+        setResult(
+          `Disease Name: ${data.diagnosis.disease_name}, Confidence Score: ${data.diagnosis.confidence_score}`
+        );
+        setDiseaseInfo(data.disease_info);
+      } else if (data.output) {
+        setResult(data.output);
+      } else {
+        setResult('Failed to classify the image.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while uploading the image.');
     }
   };
 
-  // async function handleResponse(){
-    
-  //   return response;
-  // }
+  const handleReportSubmit = async () => {
+    if (!comment.trim()) {
+      alert('Please enter a comment.');
+      return;
+    }
 
-  const handleDetectDisease = async () => {
-    if (!base64data) return;
-    setLoading(true);
-    setPredictions(null);
+    if (!diagnosisId) {
+      alert('Diagnosis ID is missing.');
+      return;
+    }
 
     try {
-      // const response = handleResponse();
-      const response = await fetch(
-        "https://api-inference.huggingface.co/models/ozair23/mobilenet_v2_1.0_224-finetuned-plantdisease",
-      {
-        headers: {
-          Authorization: "Bearer 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",
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({ inputs: base64data }),
-      }
-    );
+      const response = await fetch('http://localhost:5000/api/diagnosis/report', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          diagnosisId,
+          comment,
+        }),
+      });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+      if (response.ok) {
+        alert('Report submitted successfully.');
+        setShowReportModal(false);
+      } else {
+        alert('Failed to submit report.');
       }
-
-      const result = await response.json();
-      setPredictions(result);
     } catch (error) {
-      console.error("Error:", error);
-      // handleResponse();
-      setPredictions([{ label: "Error detecting disease", confidence: 0 }]);
-    } finally {
-      setLoading(false);
+      alert('Failed to submit report.');
     }
   };
 
   return (
-    <div className="diagnosisContainer">
-      <h3>Vriksha Rakshak Diagnosis Page</h3>
-      <form
-        className="uploadOptions"
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
-        {/* Label as custom button */}
-        <label
-          className="button"
-          htmlFor="file-upload-button"
-        >
-          Choose Image
-        </label>
-        <input
-          id="file-upload-button"
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-        />
-        {image && (
-          <div className="finalUpload">
-            <img
-              src={image}
-              alt="Preview"
-              style={{ maxHeight: "22vh", marginTop: "10px" }}
-            />
-            <button
-              type="button"
-              className="button custom-upload-button"
-              onClick={handleDetectDisease}
-              disabled={loading}
-            >
-              {loading ? "Detecting..." : "Detect Disease"}
-            </button>
-          </div>
-        )}
+    <div className="diagnosis-container">
+      <h1>Diagnose Plant Disease</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="file" onChange={handleImageUpload} accept="image/*" required />
+        <button type="submit">Upload and Diagnose</button>
       </form>
-
-      {predictions && (
-        <div className="predictions">
-          <h4>Predictions:</h4>
-          <table>
-            <tr>
-              <td><strong>Label:</strong></td>
-              <td>{predictions[0].label}</td>
-            </tr>
-            <tr>
-              <td><strong>Confidence:</strong>{" "}</td>
-              <td>{(predictions[0].score * 100).toFixed(1)}%</td>
-            </tr>
-          </table>
+      {preview && <img src={preview} alt="Uploaded Preview" className="preview-image" />}
+      {result && <div className="result-text">{result}</div>}
+      {diseaseInfo && (
+        <div className="disease-info">
+          <h2>Disease Information</h2>
+          <p><strong>Symptoms:</strong> {diseaseInfo.disease_symptoms}</p>
+          <p><strong>Organic Treatment:</strong> {diseaseInfo.organic_treatment}</p>
+          <p><strong>Inorganic Treatment:</strong> {diseaseInfo.inorganic_treatment}</p>
+          <p><strong>Preventive Measures:</strong> {diseaseInfo.preventive_measure}</p>
+          <p><strong>Conclusion:</strong> {diseaseInfo.conclusion}</p>
+          <button onClick={() => setShowReportModal(true)}>Not satisfied? Report</button>
+        </div>
+      )}
+      {showReportModal && (
+        <div className="modal">
+          <textarea
+            placeholder="Write your comments here..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <button onClick={handleReportSubmit}>Submit Report</button>
         </div>
       )}
     </div>
   );
-}
+};
+
+export default Diagnosis;

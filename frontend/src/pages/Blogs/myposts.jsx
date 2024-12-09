@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Blogs.css"; // Import the CSS file for styling
+import { redirect, useNavigate } from "react-router-dom";
+import "./Blogs.css";
 
 const Myblog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -10,18 +10,22 @@ const Myblog = () => {
   useEffect(() => {
     const storedUser = sessionStorage.getItem("user");
     if (storedUser) {
-      const user = JSON.parse(storedUser);
-      setUsername(user.username);
+      setUsername(storedUser);
     }
   }, []);
 
   const fetchUserBlogs = async () => {
     try {
-      const response = await fetch(`http://localhost:5770/posts/${username}`);
+      const viewer = username.trim().replace(/^"|"$/g, ''); // Trim any whitespace
+      const apiUrl = `http://localhost:5000/posts/user/${viewer}?`;
+      console.log(`API URL: ${apiUrl}`); 
+      const response = await fetch(apiUrl);
+      
+      // const response = await fetch(`http://localhost:5000/posts/user/${"abhi"}?`);
       const data = await response.json();
       setBlogs(data);
-    } catch (error) {
-      console.error("Error fetching user blogs:", error);
+    } catch (er) {
+      console.error("Error fetching user blogs:", er);
     }
   };
 
@@ -31,9 +35,38 @@ const Myblog = () => {
     }
   }, [username]);
 
+  const toggleLike = async (id) => {
+    try {
+      const response = await fetch(`http://localhost:5000/posts/${id}/like`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username }),
+      });
+
+      if (response.ok) {
+        const updatedPost = await response.json();
+
+        // Update likes and userLiked locally
+        setBlogs((prevBlogs) =>
+          prevBlogs.map((blog) =>
+            blog.id === id
+              ? { ...blog, likesCount: updatedPost.likesCount, userLiked: !blog.userLiked }
+              : blog
+          )
+        );
+      } else {
+        console.error("Failed to update likes");
+      }
+    } catch (error) {
+      console.error("Error toggling like:", error);
+    }
+  };
+
   const deleteBlog = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5770/posts/${id}`, {
+      const response = await fetch(`http://localhost:5000/posts/${id}`, {
         method: "DELETE",
       });
 
@@ -68,37 +101,51 @@ const Myblog = () => {
                 style={{ width: "100%", height: "auto", borderRadius: "8px" }}
               />
             )}
-            <p className="content">{blog.contentPreview}</p>
+            <p className="content">{blog.contentPreview}<a href={`/blogs/${blog.id}`} className="readMore">
+            ....Read More
+          </a></p>
 
-            {/* Link to the detailed blog post page */}
-            <a href={`/blogs/${blog.id}`} className="readMore">
-              Read More
-            </a>
+            
+            
+            <div>
+              <button
+                className="editBlogButton"
+                onClick={() => redirect("/blogs")}
+              >
+                Edit Post
+              </button>
+            </div>
 
-            <p className="date">{new Date(blog.createdAt).toLocaleDateString()}</p>
-
-            {/* Delete button */}
             <button
               className="deleteBlogButton"
               onClick={() => deleteBlog(blog.id)}
             >
               Delete Blog
             </button>
+            {/* Likes Section */}
+            <div className="likes-section">
+              <button
+                className={`likeButton ${blog.userLiked ? "liked" : "not-liked"}`}
+                onClick={() => toggleLike(blog.id)}
+              >
+                👍 Like
+              </button>
+              <span>{blog.likesCount || 0} Likes</span>
+            </div>
+            <p className="date">{new Date(blog.createdAt).toLocaleDateString()}</p>
           </div>
         ))}
-
-        {/* Add New Blog Button */}
-        <button
-          className="createBlogButton"
+      </div>
+      <div className="footer-buttons">
+        <img
+          src="https://www.svgrepo.com/show/161075/add-round-button.svg"
+          alt="Create New Post"
+          className="create-new-post-image"
           onClick={() => navigate("/blogs/new")}
-        >
-          Create New Blog
-        </button>
-
-        {/* Show All Posts Button */}
+        />
         <button
-          onClick={() => navigate("/blogs")} // Redirect to /blogs
-          className="showAllPostsButton"
+          onClick={() => navigate("/blogs")}
+          className="showUserPostsButton"
         >
           Show All Posts
         </button>

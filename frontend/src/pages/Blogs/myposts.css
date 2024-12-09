@@ -80,4 +80,16 @@
   .deletePostButton:hover {
     background-color: #c82333;
   }
+
+  .editBlogButton{
+    padding: 5px 10px;
+    background-color:yellowgreen;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .editBlogButton:hover{
+    background-color: rgb(145, 211, 12);
+  }
   

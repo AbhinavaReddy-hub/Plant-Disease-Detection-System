@@ -36,7 +36,7 @@ function HomePage() {
     <div className='homePage'>
       {showWelcomeMessage && userDetails && <Valid uname={userDetails.username} />}
       {isLoading && <LoadingScreen />}
-      <div className="contentWrapper" style={{ display: isLoading ? 'none' : 'grid', gap:"43px" }}>
+      <div className="contentWrapper" style={{ display: isLoading ? 'none' : 'grid' }}>
         <AboutUs />
         <Carousel />
         <EndComps onWeatherLoaded={handleWeatherLoaded} />

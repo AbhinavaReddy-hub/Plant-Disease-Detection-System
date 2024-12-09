@@ -4,31 +4,65 @@ import profilePic from "../../icons/pp.png";
 import ProfileSection from "./profilesection/ProfileSection";
 import notifOff from "./notifOff.svg";
 import notifOn from "./notifOn.svg";
-import { useDarkMode } from "../homepage/homepage/DarkModeContext" ;
 import SideMenu from "./SideMenu/SideMenu";
 import { RiMenu2Fill } from "react-icons/ri";
 import { RxCross2 } from "react-icons/rx";
 import NotifDetails from "./notifDetails/NotifDetails";
-import darkmode from "../../icons/modes/darkmode2.svg";
-import lightmode from "../../icons/modes/lightmode.svg";
 import "./NavBar.css";
-
+// import darkmode from "../../icons/modes/darkmode.svg";
+import lightmode from "../../icons/modes/lightmode.svg";
+// import { DarkModeProvider } from './pages/history/DarkModeContext.jsx';
 export default function NavBar() {
-  const{isDarkMode,setDarkMode}=useDarkMode();
+  // JSON.parse(JSON.parse(localStorage.getItem('isDark'))
+  const [username, setUsername] = useState(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).user_type : "");
+  const [isDarkMode, setDarkMode] = useState(false);
   const [isProfileClick, setIsProfileClick] = useState(false);
   const [isNotifClick, setIsNotifClick] = useState(false);
   const [notif, setNotif] = useState(true);
-  const[isMenuClicked,setMenuClicked]=useState(false);
-  const[screenSize,setScreenSize]=useState(window.innerWidth);
-
+  const [isMenuClicked, setMenuClicked] = useState(false);
+  const [screenSize, setScreenSize] = useState(window.innerWidth);
+  useEffect(() => {
+    if (document.readyState === "complete") {
+      if (isDarkMode === true) {
+        document.body.style.backgroundColor = ' #242c24';
+        document.body.style.color='white';
+        document.querySelector(".navWraper header").style.backgroundColor  ='#1e251e';
+        document.querySelector(".aboutUs .lc").style.color='white';
+        document.querySelectorAll(".diagnosisPageLink .arrow")[0].style.color="white";
+        document.querySelectorAll(".diagnosisPageLink .arrow")[1].style.color="white";
+        document.querySelector(".weatherContainer").style.backgroundColor="#242a23";
+        document.querySelector(".weatherContainer .weatherDetail").style.color="white";
+        document.querySelector("footer").style.backgroundColor="#1e251e";
+      } else {
+        document.body.style.backgroundColor = "#f9fef9";
+        document.body.style.color = "black";
+        document.querySelector(".navWraper header").style.backgroundColor =
+          "rgb(14,188,14)";
+        document.querySelector(".aboutUs .lc").style.color = "black";
+        document.querySelectorAll(".diagnosisPageLink .arrow")[0].style.color =
+          "black";
+        document.querySelectorAll(".diagnosisPageLink .arrow")[1].style.color =
+          "black";
+        if (document.querySelector(".weatherContainer")) {
+          document.querySelector(".weatherContainer").style.backgroundColor =
+            "rgb(212, 206, 206)";
+          document.querySelector(
+            ".weatherContainer .weatherDetail"
+          ).style.color = "black";
+        }
+        document.querySelector("footer").style.backgroundColor = "#185d1a";
+      }
+      // localStorage.setItem("isDarkMode", JSON.stringify(isDarkMode));
+    }
+  }, [isDarkMode]);
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
-  
+
     window.addEventListener("resize", handleResize);
-  
+
     return () => window.removeEventListener("resize", handleResize);
   }, [screenSize]);
-  const [notifications,setNotifications] = useState([
+  const [notifications, setNotifications] = useState([
     {
       id: 1,
       title: "New disease spreading in your area",
@@ -45,7 +79,7 @@ export default function NavBar() {
       desc: "7 new tomato leaf blight diseases have been diagnosed in Warangal",
     },
     {
-      id:4,
+      id: 4,
       title: "New disease spreading in your area",
       desc: "7 new tomato leaf blight diseases have been diagnosed in Warangal",
     },
@@ -82,20 +116,28 @@ export default function NavBar() {
     setMenuClicked(false);
     setIsProfileClick((prev) => !prev);
   };
-  const handleMenubarClick=(e)=>{
+  const handleMenubarClick = (e) => {
     e.stopPropagation();
     setIsNotifClick(false);
-    setIsProfileClick(false)
-    setMenuClicked((cur)=>!cur);
-  }
+    setIsProfileClick(false);
+    setMenuClicked((cur) => !cur);
+  };
   return (
-    <div className="navWraper" style={{cursor:"pointer"}}>
-
-      <header style={isDarkMode?{backgroundColor:"#1e251e"}:{}}>
+    <div className="navWraper">
+      <header>
         <nav>
-          {
-            screenSize<=1200 && (isMenuClicked?<RxCross2 className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>:<RiMenu2Fill className={`side-menu ${isDarkMode?"sidemenuDark":"SideMenuBar"}`} onClick={handleMenubarClick}/>)
-          }
+          {screenSize <= 1200 &&
+            (isMenuClicked ? (
+              <RxCross2
+                className={isDarkMode ? "sidemenuDark" : "SideMenuBar"}
+                onClick={handleMenubarClick}
+              />
+            ) : (
+              <RiMenu2Fill
+                className={isDarkMode ? "sidemenuDark" : "SideMenuBar"}
+                onClick={handleMenubarClick}
+              />
+            ))}
           <Link className="title" to="/home">
             Vriksha Rakshak
           </Link>
@@ -117,7 +159,16 @@ export default function NavBar() {
                 <Link to="/insights">Insights</Link>
               </li>
               <li>
-                <Link to="/Faq">FAQ & Feedback</Link>
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li> {username==="admin" && (
+                <li>
+                  <Link to="/workspace">WorkSpace</Link>
+                </li>
+              )}       
+            </li>
+              <li>
+                <Link to="/feedback">Feedback</Link>
               </li>
             </ul>
 

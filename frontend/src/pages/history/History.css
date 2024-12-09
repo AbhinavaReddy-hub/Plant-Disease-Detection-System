@@ -1,0 +1,203 @@
+.SendHistoryWrapper{
+    width: 100vw;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+}
+.containingDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+.monthSectioinAndCount{
+   max-width:50vw;
+   min-width: 500px;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+    position: relative;
+}
+.monthSectioinAndCount::after{
+    content: "";
+    position:absolute;
+    left:-5%;
+    right:-5%;
+    bottom:-8px;
+    color: black;
+    background:black;
+    height: 1.2px;
+}
+.monthSectioinAndCount .button{    
+    padding:0.3em;
+}
+.headerAndGotoInsights{
+    width: 80vw;
+    margin-left: 40vw;
+    margin-right: 0;
+    display: flex;
+    justify-content:space-around;
+
+}
+.containingDetails button{
+    all:unset
+}
+.headerAndGotoInsights h2{
+    font-size:30px;
+}
+.headerAndGotoInsights .button{
+    scale:0.9;
+}
+.HistoryContainerwithDetails{
+    align-self: flex-end;
+    max-width: 30vw;
+    min-width: 500px;
+    padding:1em;
+    display: flex;
+    gap:3vw;
+    justify-content: space-around;
+    border-radius: 1em;
+    background-color: rgb(241, 241, 241);
+}
+.leftsideHistoryDetails{
+    display: flex;
+    flex-direction: column;
+    gap:0.2em;
+}
+.leftsideHistoryDetails span{
+    font-style: italic;
+    margin-left: 0.5em;
+}
+.rigthsideHistoryDetails img{
+    display: block;
+    height: 100px;
+    width: auto;
+    border-radius: 1em;
+}
+.viewMoreHistoryButton{
+    align-self: flex-end;
+    scale:0.8;
+}
+
+/* HistoryModaStyles */
+.HistoryModalWrapper{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    top:0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.HistoryModalContainer{
+    max-width:70vw;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:2em;
+    background-color: rgb(214, 212, 212);
+    box-shadow: 2px 2px 5px solid black;
+    border-radius: 1em;
+    padding:2em;
+
+}
+.HistoryModalContainer .crossMarkicon{
+    align-self: flex-end;
+    font-size: 25px;
+}
+.HistoryimageContainer img{
+    display: block;
+    height: 150px;
+    width: auto;
+    border-radius: 1em;
+}
+.HistoryDiseaseContainer{
+    display: flex;
+    flex-direction: column;
+    gap:0.6em;
+}
+.HistoryLine{
+    width:40vw;
+    border: 1px solid rgb(43, 43, 43);
+}
+
+.HistoryDiseaseContainer span{
+    font-style: italic;
+    margin-left: 0.5em;
+}
+@media (max-width:1000px) {
+    .SendHistoryWrapper{
+        margin-top: 10px;
+    }
+    .headerAndGotoInsights{
+        margin-left: 0px;
+        width: inherit;
+        display: flex;
+        justify-content:space-around;
+        
+    }
+    
+}
+@media (max-width:600px) {
+    .headerAndGotoInsights{
+        max-width: 90vw;
+        min-width: 0;
+    }
+    .monthSectioinAndCount{
+        max-width:0;
+        min-width: 85vw;
+    }
+    .headerAndGotoInsights{
+        scale:0.88;
+    }
+    .containingDetails{
+       width:70vw;
+    }
+    .HistoryContainerwithDetails{
+        max-width:400px;
+        min-width: 70vw;
+    }
+    .rigthsideHistoryDetails img{
+        height: 60px;
+    }
+    .leftsideHistoryDetails{
+        gap:0.1em;
+    }
+}
+@media (max-width:400px) {
+    .headerAndGotoInsights{
+        max-width: 90vw;
+        min-width: 0;
+    }
+    .SendHistoryWrapper{
+      margin-top: 40px;
+    }
+    .HistoryContainerwithDetails{
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .viewMoreHistoryButton{
+        align-self: center;
+    }
+    .monthSectioinAndCount{
+        display: flex;
+        justify-content: space-between;
+    }
+    .monthSectioinAndCount .button{
+        font-size: 14px;
+        scale: 0.89;
+    }
+    .rigthsideHistoryDetails img{
+        width: 120px;
+        height: 80px;
+    }
+}

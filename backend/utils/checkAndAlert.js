@@ -1,7 +1,10 @@
 const User = require('../models/User');
 const LocationAnalysis = require('../models/LocationAnalysis');
+const Notification = require('../models/NotificationModel');
+const Post = require("../models/Post"); // Assuming this is your posts collection model
 const { queueEmails } = require('../utils/queueHelper');
-const THRESHOLD = 2;
+const { v4: uuidv4 } = require('uuid'); // For unique notification IDs
+const THRESHOLD = 13;
 
 exports.checkAndAlert = async (diseaseName, location) => {
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
@@ -18,20 +21,54 @@ exports.checkAndAlert = async (diseaseName, location) => {
         summary.disease_counts.disease_name === diseaseName
       );
 
-      // Check if the disease count exceeds the threshold
       if (monthData && monthData.disease_counts.count > THRESHOLD) {
-        const totalCount = monthData.disease_counts.count; // Store the count for readability
+        const totalCount = monthData.disease_counts.count;
         console.log(`ALERT: Disease ${diseaseName} cases in ${location} have exceeded the threshold. Total count: ${totalCount}`);
 
-        // Fetch users in the specified location
-        // const users = await User.find({ location });
-        // // Fetch users in the location and queue email alerts
-        const users = await User.find({ location })
-        // Extract emails from users
+        const users = await User.find({ location });
         const emails = users.map(user => user.email);
-        // Queue email alerts to users
         await queueEmails(users, diseaseName, location, totalCount);
-        console.log(`Alert queued for ${totalCount} cases of ${diseaseName} in ${location} for emails: ${emails.join(', ')}`);
+
+        const alertMessage = `Disease Alert: ${diseaseName} cases in ${location} have exceeded ${THRESHOLD} with a total of ${totalCount} cases.`;
+
+        // // Fetch the blog associated with the disease
+        // const blog = await Post.findOne({ title: diseaseName });
+        // const blogUrl = blog ? blog.url : null;
+        // Find related blog post by matching `note` with blog title
+        const blogPost = await Post.findOne({ title: diseaseName });
+        console.log(blogPost);
+        const blogUrl = blogPost ? `/blogs/${blogPost._id}` : null;
+
+
+        for (const user of users) {
+          const notification = {
+            id: uuidv4(),
+            note: diseaseName,
+            title: 'Disease Alert',
+            desc: alertMessage,
+            createdAt: new Date(),
+            read: false,
+            blogUrl, // Add the blog URL to the notification
+          };
+
+          const userNotification = await Notification.findOne({ user_id: user.user_id });
+          if (userNotification) {
+            const isDuplicate = userNotification.notifications.some(n => n.desc === alertMessage);
+            if (!isDuplicate) {
+              userNotification.notifications.push(notification);
+              await userNotification.save();
+            }
+          } else {
+            const newNotification = new Notification({
+              user_id: user.user_id,
+              notifications: [notification],
+            });
+            await newNotification.save();
+          }
+        }
+
+        console.log(`Alert notifications sent for ${totalCount} cases of ${diseaseName} in ${location}.`);
+        console.log(`Alert queued for emails: ${emails.join(', ')}`);
       }
     }
   } catch (error) {

@@ -1,6 +1,5 @@
  import { useEffect, useState } from 'react';
 import LoadingScreen from '../../loadingscreen/LoadingScreen';
-import { useDarkMode } from '../homepage/DarkModeContext';
 import "./Weather.css";
 
 export default function Weather({ onWeatherLoaded }) {
@@ -9,7 +8,7 @@ export default function Weather({ onWeatherLoaded }) {
     lat: null,
     lon: null,
   });
-  const{isDarkMode,setDarkmode}=useDarkMode();
+
   // Fetch location data
   useEffect(() => {
     fetch(
@@ -54,11 +53,11 @@ export default function Weather({ onWeatherLoaded }) {
   }
 
   return (
-    <section className="weatherContainer" style={isDarkMode?{backgroundColor:"#242a23"}:{}}>
-      <div className="mainContent" >
+    <section className="weatherContainer">
+      <div className="mainContent">
         <div className="details">
           <p className="cityDetail">{weatherData.name}</p>
-          <p className="weatherDetail" style={isDarkMode?{color:"white"}:{color:"black"}}>{weatherData.weather[0].main}</p>
+          <p className="weatherDetail">{weatherData.weather[0].main}</p>
         </div>
         <div className="mainDetails">
           <img

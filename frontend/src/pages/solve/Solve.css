@@ -1,0 +1,132 @@
+.container {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .case-section {
+    text-align: center;
+    margin-bottom: 40px; /* Ensure space between image and card */
+  }
+  
+  .case-section h1 {
+    font-size: 3rem;
+    color: #333;
+  }
+  
+  .case-section h2 {
+    font-size: 1.8rem;
+    color: #555;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px; /* Space below image section */
+  }
+  
+  .leaf-image {
+    max-width: 100%;
+    border: 3px solid #ddd;
+    box-shadow: 2px 2px 5px black ,-2px -2px 5px black;
+    border-radius: 12px;
+  }
+  .nameWrapper{
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    justify-content: space-around;
+
+  }
+  
+  .bottom-left,
+  .bottom-right {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+  }
+  
+  /* .bottom-left {
+    bottom: 15px;
+    left: 15px;
+  }
+  
+  .bottom-right {
+    bottom: 15px;
+    right: 15px;
+  } */
+  
+  .card {
+    background:url(bg.jpg);
+    background-repeat: no-repeat;
+    background-position-x:center;
+    background-size: cover;
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px; /* Ensure card is below image section */
+    box-shadow: 2px 4px 8px rgba(0, 0, 0);
+  }
+  
+  .section-heading {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: rgba(0, 239, 84, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom: 2px solid black;
+  }
+  .card form{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    min-width: 200px;
+    width:60%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #38bdf8;
+    outline: none;
+    scale:1.1;
+  }
+  
+  .submit-button {
+    width: fit-content;
+    align-self: center;
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: #1d4ed8;
+  }

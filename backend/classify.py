@@ -11,7 +11,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 tf.get_logger().setLevel('ERROR')
 
 # Define the model path
-model_path = r"C:\Users\Gunavardhan\OneDrive\PlantDiseaseDetection\Plant-Disease-Detection-System\backend\models\leaf_classifier_model.keras"
+model_path = "C:\\Users\\avana\\OneDrive\\Desktop\\plant_disease_detection\\server\\models\\leaf_classifier_model.keras"
 
 # Load the model (without a success message)
 try:

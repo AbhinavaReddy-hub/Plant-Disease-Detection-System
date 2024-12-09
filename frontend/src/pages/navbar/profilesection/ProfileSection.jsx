@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './ProfileSection.css';
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
 export default function ProfileSection({ isVisible }) {
   const containerRef = useRef(null);
+  const navigate = useNavigate();  // Initialize useNavigate for redirection
 
   useEffect(() => {
     if (containerRef.current) {
@@ -24,14 +25,29 @@ export default function ProfileSection({ isVisible }) {
     }
   }, [isVisible]);
 
+  const handleSignOut = () => {
+    // Remove authToken and user from localStorage
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+
+    // Optionally, clear any session storage if needed
+    sessionStorage.removeItem('user');
+    sessionStorage.setItem('welcomeMessageShown', JSON.stringify(false));
+
+    // Redirect to the login page
+    navigate('/login');
+  };
+
   return (
     <div className="profileSection dropdown-menu" ref={containerRef}>
       <Link className="profile-link setting" to="/setting">Setting</Link>
-      <Link onClick={() => {
-        sessionStorage.removeItem('user');
-        sessionStorage.setItem('welcomeMessageShown', JSON.stringify(false));
-      }
-      } className="profile-link signout" to="/">Sign Out</Link>
+      <Link
+        onClick={handleSignOut}
+        className="profile-link signout"
+        to="/"
+      >
+        Sign Out
+      </Link>
     </div>
   );
 }

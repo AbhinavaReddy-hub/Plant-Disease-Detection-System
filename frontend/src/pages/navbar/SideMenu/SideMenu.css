@@ -30,6 +30,7 @@
 }
 @media (max-width:390px) {
     .SideMenu{
+        margin-top: 76px;
         font-size: 15px;
     }
 }

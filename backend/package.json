@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,21 +10,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@bull-board/api": "^6.5.2",
+    "@bull-board/express": "^6.5.2",
+    "@tensorflow/tfjs-node": "^4.22.0",
     "axios": "^1.7.7",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
-    "cookie-parser": "^1.4.7",
+    "bull": "^4.16.4",
+    "cloudinary": "^2.5.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "form-data": "^4.0.1",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.11.0",
+    "mongodb": "^6.10.0",
     "mongoose": "^8.8.3",
-    "mongoose-sequence": "^6.0.1",
     "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.7",
+    "nodemailer": "^6.9.16",
     "python-shell": "^5.0.0",
-    "uuid": "^11.0.3"
+    "redis": "^4.7.0"
   }
 }
