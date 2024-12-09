@@ -19,10 +19,13 @@ export default function AboutUs() {
         if (index < fullText.length) {
           setDisplayText((prev) => prev + fullText[index]);
           setIndex((prev) => prev + 1);
-        } else {
-          setIsTyping(false); 
+        } else {setTimeout(() => {
+                    setIsTyping(false); 
+
+        }, 1000);
         }
       } else {
+        
        
         if (index > 0) {
           setDisplayText((prev) => prev.slice(0, -1));
