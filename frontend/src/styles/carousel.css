@@ -10,7 +10,8 @@
 .cropsForDiagnoseContainer .context {
   font-family: "Itim", cursive;
   font-weight: 500;
-  font-size: 23px;
+  font-size: 26px;
+  margin: 2px 0px 20px 0px;
   font-style: normal;
   display: flex;
   left: 10%;
@@ -19,7 +20,7 @@
 .cropsForDiagnoseContainer .carouselWrapper {
   display: inline-block;
   width: 50vw;
-  height: 90px;
+  height: 110px;
   display: flex;
   user-select: none;
   border-radius: 10px;
@@ -51,6 +52,18 @@
   animation-iteration-count: infinite;
   animation-delay: calc(30s/14 * (14 - var(--n)) * -1);
   transition: 0.5s ease;
+}
+
+.cropsForDiagnoseContainer .crops img{
+  width: 100%;
+  height: 100%;
+}
+
+.cropsForDiagnoseContainer .crops p{
+  font-size: 10px;
+  text-align: center;
+  position: relative;
+  bottom: 10px;
 }
 
 @keyframes scroll-left {

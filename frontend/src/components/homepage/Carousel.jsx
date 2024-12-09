@@ -40,15 +40,15 @@ export default function Carousel() {
       </div>
       <div className="carouselWrapper">
         {images.map(({ id, src, name }, index) => (
-          <img
+          <span
             key={id}
-            src={src}
-            alt={`Slide ${index + 1}`}
-            className="crops tooltip"
-            data-tooltip={name}
+            className="crops"
             style={{ "--n": index + 1 }}
-            draggable={false}
-          />
+            alt={`Slide ${index + 1}`}
+          >
+            <img src={src} draggable={false} />
+            <p>{name}</p>
+          </span>
         ))}
       </div>
     </div>
