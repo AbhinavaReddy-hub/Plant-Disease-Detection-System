@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import LoadingScreen from "./LoadingScreen";
 import { useDarkMode } from "./DarkModeContext";
+import dirnCircle from '../images/icons/dirnCircle.png';
 import "../styles/weather.css";
 
 export default function Weather() {
@@ -94,14 +95,11 @@ export default function Weather() {
         </div>
       </div>
       <div className="extraContent">
-        <div className="meta metaWind">Wind:</div>
-        <div className="meta metaHumidity">Humidity:</div>
-        <div className="meta metaPressure">Pressure:</div>
-
-        <div className="data wind">
-          <div>
-            {weatherData.wind.speed || "No Data"} m/s {/* <img */}
-            <span className="direction">
+        <div className="meta metaWind">Wind:
+          <span className="direction">
+            <img className="circle" src={dirnCircle} alt="circle" style={{
+              position:'relative',
+            }} />
               <svg
                 fill="#000000"
                 width="16px"
@@ -113,7 +111,7 @@ export default function Weather() {
                 alt="Direction"
                 style={{
                   transition: "transform 0.3s ease",
-                  transform: `rotate(${(weatherData.wind.deg || 30) + 270}deg)`, // Ensure this is the only place the rotation happens
+                  transform: `rotate(${-1 * (weatherData.wind.deg || 30) + 270}deg)`, // Ensure this is the only place the rotation happens
                 }}
               >
                 <g id="SVGRepo_bgCarrier" strokeWidth={0} />
@@ -145,6 +143,14 @@ export default function Weather() {
                 </g>
               </svg>
             </span>
+        </div>
+        <div className="meta metaHumidity">Humidity:</div>
+        <div className="meta metaPressure">Pressure:</div>
+
+        <div className="data wind">
+          <div>
+            {weatherData.wind.speed || "No Data"} m/s {/* <img */}
+            
           </div>
           <div>
             {weatherData.wind.gust
