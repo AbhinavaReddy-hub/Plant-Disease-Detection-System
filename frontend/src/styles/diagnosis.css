@@ -20,7 +20,7 @@
 
   form {
     input#file-upload-button {
-      border-radius: 5px;
+      /* border-radius: 5px; */
     }
   }
 

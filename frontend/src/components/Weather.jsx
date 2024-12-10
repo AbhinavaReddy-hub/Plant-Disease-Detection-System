@@ -155,7 +155,7 @@ export default function Weather() {
             {weatherData.wind.gust
               ? (
                 <>
-                {weatherData.wind.gust * (3600/1000)}` <p className="kmph">kmph (gust)</p>
+                {weatherData.wind.gust * (3600/1000)} <p className="kmph">kmph (gust)</p>
                 </>
               ) 
               : (
