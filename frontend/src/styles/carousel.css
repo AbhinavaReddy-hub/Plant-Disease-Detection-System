@@ -37,7 +37,6 @@
 
 .cropsForDiagnoseContainer .carouselWrapper:hover .crops{
   animation-play-state: paused;
-  cursor: pointer;
 }
 
 .cropsForDiagnoseContainer .crops {
