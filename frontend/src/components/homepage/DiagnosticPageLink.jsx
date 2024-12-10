@@ -4,6 +4,7 @@ import remedies from '../../images/diagnosis/remedies.png';
 import { useDarkMode } from "../DarkModeContext" ;
 import { Link } from "react-router-dom";
 import '../../styles/diagnosticPageLink.css';
+
 export default function DiagnosticPageLink(){
     const {isDarkMode,setdarkmode}=useDarkMode();
     return (

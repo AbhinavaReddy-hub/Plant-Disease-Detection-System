@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import tomato from "../../images/cropsImages/tomato.svg";
 import potato from "../../images/cropsImages/potato.svg";
 import bellPepper from "../../images/cropsImages/bellpepper.svg";

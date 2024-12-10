@@ -113,9 +113,7 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
-
     <DarkModeProvider>
       <RouterProvider router={router} />
     </DarkModeProvider>
- 
 );

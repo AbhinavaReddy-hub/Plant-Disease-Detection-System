@@ -1,4 +1,3 @@
-import "../../styles/homePage.css";
 import AboutUs from "./AboutUs.jsx";
 import Carousel from "./Carousel.jsx";
 import { useState, useEffect } from "react";

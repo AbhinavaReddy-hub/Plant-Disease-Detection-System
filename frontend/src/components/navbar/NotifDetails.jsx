@@ -1,5 +1,4 @@
 import trash from "../../images/icons/trash.svg";
-import { MdDelete } from "react-icons/md";
 import { useEffect, useRef, useState } from "react";
 import "../../styles/notifDetails.css";
 
@@ -54,25 +53,22 @@ export default function NotifDetails({
     }
   }, [isVisible]);
 
-
-
-
   const handleScroll = () => {
     if (notifListRef.current) {
-        const { scrollTop, scrollHeight, clientHeight } = notifListRef.current;
-        if (Math.ceil(scrollTop + clientHeight) >= scrollHeight) {
-            setAllViewed(true); 
-        }
+      const { scrollTop, scrollHeight, clientHeight } = notifListRef.current;
+      if (Math.ceil(scrollTop + clientHeight) >= scrollHeight) {
+        setAllViewed(true);
+      }
     }
-};
+  };
 
-useEffect(() => {
+  useEffect(() => {
     const notifList = notifListRef.current;
     if (notifList) {
-        notifList.addEventListener('scroll', handleScroll);
-        return () => notifList.removeEventListener('scroll', handleScroll);
+      notifList.addEventListener("scroll", handleScroll);
+      return () => notifList.removeEventListener("scroll", handleScroll);
     }
-}, []);
+  }, []);
 
   return (
     <div className={`notifDetails`} ref={containerRef}>
@@ -91,7 +87,10 @@ useEffect(() => {
           </button>
         )}
       </div>
-      <div className={`notif-list ${removingAll ? "removing" : ""}`} ref={notifListRef}> 
+      <div
+        className={`notif-list ${removingAll ? "removing" : ""}`}
+        ref={notifListRef}
+      >
         {notifications && notifications.length > 0 ? (
           notifications.map((notification) => (
             <div

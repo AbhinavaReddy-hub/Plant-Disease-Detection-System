@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import vid from "./bg2.mp4";
 import vide from "./bg4.mp4";
 import "../../styles/signUp.css";
+
 const SignUp = () => {
   const passwordPattern = {
     lowerCase: /(?=.*[a-z])/,
@@ -24,7 +25,7 @@ const SignUp = () => {
   const [selectedState, setSelectedState] = useState(32);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [screenSize, setScreenSize] = useState(window.innerWidth);
-  
+
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -65,20 +66,20 @@ const SignUp = () => {
 
   return (
     <div className="singupWrapper">
-       <video 
-    src={screenSize<=850 ? vide: vid} 
-    autoPlay 
-    loop 
-    muted 
-    playsInline 
-    style={{
-      position: "absolute",
-      width: "100vw",
-      height: "100vh",
-      objectFit: "cover",
-      zIndex: -1,
-    }}
-  ></video>
+      <video
+        src={screenSize <= 850 ? vide : vid}
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          width: "100vw",
+          height: "100vh",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      ></video>
       <div className="signupContainer">
         <div className="header">
           <h2>Sign Up to VrikshaRakshak</h2>
