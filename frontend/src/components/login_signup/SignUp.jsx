@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
-// import PhoneInput from "react-phone-input-2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import vid from "./bg2.mp4";
@@ -14,7 +13,6 @@ const SignUp = () => {
     specialChar: /(?=.*[@$!%*?&])/,
     length: /.{8,15}/,
   };
-  const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,6 +24,7 @@ const SignUp = () => {
   const [selectedState, setSelectedState] = useState(32);
   const [selectedDistrict, setSelectedDistrict] = useState("");
   const [screenSize, setScreenSize] = useState(window.innerWidth);
+  
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 

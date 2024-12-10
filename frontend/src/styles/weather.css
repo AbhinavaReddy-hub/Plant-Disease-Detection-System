@@ -51,7 +51,7 @@
   }
 
   .realFeel {
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
   .sideDetails {
@@ -62,7 +62,7 @@
 }
 
 .weatherContainer .extraContent {
-  width: 220px;
+  width: 260px;
   display: grid;
   grid-template-areas:
     "metaWind wind"
@@ -118,6 +118,11 @@
 .weatherContainer .wind {
   position: relative;
   grid-area: wind;
+}
+
+.weatherContainer .wind .kmph{
+  display: inline;
+  font-size: 11px;
 }
 
 .weatherContainer .metaHumidity {

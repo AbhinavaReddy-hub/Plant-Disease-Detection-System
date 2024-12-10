@@ -42,10 +42,10 @@
 
 .cropsForDiagnoseContainer .crops {
   width: 70px;
-  height: 90px;
-  margin-inline: 30px;
+  height: 70px;
+  margin-inline: 40px;
   position: absolute;
-  left: max(calc((70px + 30px) * 14), 100%);
+  left: max(calc((70px + 40px) * 14), 100%);
   animation-name: scroll-left;
   animation-timing-function: linear;
   animation-duration: 30s;
@@ -63,7 +63,7 @@
   font-size: 10px;
   text-align: center;
   position: relative;
-  bottom: 10px;
+  bottom: 0px;
 }
 
 @keyframes scroll-left {
@@ -101,8 +101,13 @@
   }
 
   .carouselWrapper .crops {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin: 0px 10px;
+  }
+
+  .cropsForDiagnoseContainer .crops {
+    margin-inline: 5px;
+    left: max(calc((70px + 5px) * 14), 100%);
   }
 }

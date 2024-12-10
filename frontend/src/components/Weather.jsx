@@ -149,13 +149,18 @@ export default function Weather() {
 
         <div className="data wind">
           <div>
-            {weatherData.wind.speed || "No Data"} m/s {/* <img */}
-            
+            {weatherData.wind.speed * (3600/1000) || "No Data"} <p className="kmph">kmph</p> {/* <img */}
           </div>
           <div>
             {weatherData.wind.gust
-              ? `${weatherData.wind.gust} m/s (gust)`
-              : "No Data"}
+              ? (
+                <>
+                {weatherData.wind.gust * (3600/1000)}` <p className="kmph">kmph (gust)</p>
+                </>
+              ) 
+              : (
+                <span style={{fontSize:"11px"}}>No Data</span>
+              )}
           </div>
         </div>
         <div className="data humidity">{weatherData.main.humidity}%</div>
