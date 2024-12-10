@@ -44,6 +44,11 @@ export default function SendHistory(){
             leaf:leaf,
         },
     ]
+    const month={"01":"January","02":"February","03":"March","04":"April","05":"May","06":"June","07":"July","08":"August","09":"September","10":"October","11":"November","12":"December"}
+    const extractMonth = (date)=>{
+        const mon = date.split("-")[1];
+        return month[mon];
+    }
     return(
         <div className="SendHistoryWrapper" style={isDarkMode?{color:"rgb(22, 152, 5)",backgroundColor:"#242a23"}:{color:"rgb(22, 152, 5)"}}>
              <section className="headerAndGotoInsights">
@@ -52,7 +57,7 @@ export default function SendHistory(){
             </section>
             <section className="containingDetails"style={isDarkMode?{color:"white"}:{color:"black"}}>
                 <div className="monthSectioinAndCount" style={{color:isDarkMode?"white":"black"}}>
-                    <h3 style={{fontSize:"20px"}}>October</h3>
+                    <h3 style={{fontSize:"20px"}}>{extractMonth(history[0].date)}</h3>
                     <button >Diagnosis Count : <span style={{color:"blue",fontWeight:"bolder", fontSize:"18px"}}>{history.length}</span></button>
                 </div>
                 {history.map(({id,disease,percentage,date,leaf})=>(

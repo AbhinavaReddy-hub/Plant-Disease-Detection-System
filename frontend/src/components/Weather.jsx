@@ -99,6 +99,8 @@ export default function Weather() {
           <span className="direction">
             <img className="circle" src={dirnCircle} alt="circle" style={{
               position:'relative',
+              filter:isDarkMode?'invert(1) brightness(1.5)':'none'
+              
             }} />
               <svg
                 fill="#000000"
