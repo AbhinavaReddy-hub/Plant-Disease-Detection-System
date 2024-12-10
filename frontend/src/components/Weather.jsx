@@ -149,13 +149,13 @@ export default function Weather() {
 
         <div className="data wind">
           <div>
-            {weatherData.wind.speed * (3600/1000) || "No Data"} <p className="kmph">kmph</p> {/* <img */}
+            {(weatherData.wind.speed * (3600/1000)).toFixed(2) || "No Data"} <p className="kmph">kmph</p> {/* <img */}
           </div>
           <div>
             {weatherData.wind.gust
               ? (
                 <>
-                {weatherData.wind.gust * (3600/1000)} <p className="kmph">kmph (gust)</p>
+                {(weatherData.wind.gust * (3600/1000)).toFixed(2)} <p className="kmph">kmph (gust)</p>
                 </>
               ) 
               : (
