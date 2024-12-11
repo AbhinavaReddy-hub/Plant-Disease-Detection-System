@@ -1,0 +1,263 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #d4f1f9, #eef3f7) !important;
+  color: #333;
+  overflow-y: auto;
+}
+
+/* Content Area */
+.content {
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.project-title {
+  font-size: 2.8rem;
+  color: #155724;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.cases-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.cases-section h3 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.solve-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  background: #345c72;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.solve-button:hover {
+  background: #3a6c87;
+  transform: scale(1.1);
+}
+
+.total-solved {
+  margin: 30px 0;
+  font-size: 1.2rem;
+  color: #4a4a4a;
+}
+
+.total-solved .emoji {
+  font-size: 1.5rem;
+}
+
+/* Report Card */
+.report-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin: 20px auto;
+  max-width: 600px;
+  height: auto;
+  animation: slideInUp 0.8s ease;
+}
+
+.report-card input,
+.report-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.uploaded-image {
+  max-width: 70%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.upload-button {
+  padding: 12px 25px;
+  background: #345c72;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.upload-button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* Popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+  animation: popupShow 0.5s forwards;
+}
+
+.popup h5 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.popup select,
+.popup textarea,
+.popup input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button,
+.close-button {
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.submit-button:hover,
+.close-button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popupShow {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+   
+
+
+/* Shared Button Styles */
+.solve-button,
+.upload-button,
+.submit-button,
+.close-button {
+  background: linear-gradient(90deg, #4caf50, #81c784); /* Green gradient */
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effects */
+.solve-button:hover,
+.upload-button:hover,
+.submit-button:hover,
+.close-button:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #43a047, #66bb6a); /* Darker gradient */
+}
+
+/* Specific Button Customizations */
+/* Solve Button - Updated Color */
+.solve-button {
+  background: linear-gradient(90deg, #2196f3, #64b5f6); /* Purple gradient */
+  color: white;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.solve-button:hover {
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(90deg, #1e88e5, #42a5f5); /* Darker purple */
+}
+
+.upload-button {
+  background: linear-gradient(90deg, #2196f3, #64b5f6); /* Blue gradient */
+}
+
+.upload-button:hover {
+  background: linear-gradient(90deg, #1e88e5, #42a5f5); /* Darker blue */
+}
+
+/* Responsive Styling for Buttons */
+.solve-button,
+.upload-button {
+  width: 200px; /* Adjust size for better UI */
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Disabled Buttons */
+button:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+  box-shadow: none;
+}

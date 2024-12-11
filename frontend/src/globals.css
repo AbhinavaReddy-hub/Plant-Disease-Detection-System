@@ -1,0 +1,185 @@
+:root {
+  --main-bg-color: #f9fef9;
+  --main-font: "Poppins", serif;
+  --text-color: rgb(10, 10, 10);
+  /* --cursor-url: url("./images/icons/leafCursor.svg"); */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: var(--cursor-url), auto;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* body {
+    background-color: var(--main-bg-color);
+    font-family: var(--main-font);
+    color: var(--text-color); */
+body {
+  background-color: #f9fef9;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(10, 10, 10);
+  height: fit-content;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: static !important;
+  /* background: inherit !important; */
+}
+
+.darkmode {
+  background-color: #042004;
+  color: white;
+}
+
+.button {
+  all: unset;
+  display: inline-block;
+  cursor: pointer;
+  background-color: rgb(2, 185, 2);
+  color: white;
+  font-weight: 500;
+  padding: 7.56px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.17s;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.button:hover {
+  background-color: rgb(9, 128, 9);
+  transform: scale(1.03);
+}
+
+.button:active {
+  transform: scale(0.88);
+}
+
+.button:disabled {
+  background-color: #c3c89c;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.button:disabled:hover{
+  transform: scale(1);
+}
+
+
+
+/* style for tranlator */
+#translate{
+ width: 96vw;
+  display:flex !important;
+  justify-content: flex-end !important;
+  top:90px;
+  position: fixed;
+  z-index: 1;
+
+
+}
+.translated-ltr{
+  width: 100vw !important;
+}
+.skiptranslate iframe{
+  display: none !important;
+  right: 3vw !important;
+  top:90px !important;
+}
+
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO {
+  display: none !important;
+}
+#goog-gt-tt{
+  display: none !important;
+}
+
+.VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q {
+  box-shadow: none !important;
+  background:none !important;
+}
+.goog-te-gadget{
+ all:unset;
+}
+.goog-te-gadget-simple{
+  all:unset;
+  border: 1px solid black;
+  padding: 2px 5px;
+  background: white;
+  border-radius: 1em;
+  font-size: 20px;
+}
+.goog-te-gadget-simple img{
+ display: none !important;
+}
+
+
+
+
+
+
+/* Tips before use:
+1. Make sure to add the class tool-tip
+2. Make sure to add the attrib = data-tooltip */
+.tooltip {
+  --tip-size: 10px;
+  --tooltip-color: #515151;
+  z-index: 6;
+}
+
+.tooltip::before, .tooltip::after {
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  bottom: calc(-25%);
+  transform: translateX(-50%) translateY(var(--translate-y,0)) scale(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tooltip::before {
+  --translate-y: calc(100% + var(--tip-size));
+  content: attr(data-tooltip);
+  background-color: var(--tooltip-color);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  min-width: 80px;
+  max-width: 180px;
+  font-size: 14px;
+  text-align: center;
+  word-wrap: break-word;
+  transform-origin: top center;
+}
+
+.tooltip::after {
+  --translate-y:calc(var(--tip-size) + 0.5px);
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: var(--tip-size) solid transparent;
+  border-right: var(--tip-size) solid transparent;
+  border-bottom: var(--tip-size) solid var(--tooltip-color);
+  transform-origin: bottom center;
+}
+
+.tooltip:hover::before, .tooltip:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(var(--translate-y,0)) scale(1);
+}
+
+.tooltip:not(:hover)::before, .tooltip:not(:hover)::after {
+  opacity: 0;
+  transform: translateX(-50%) translateY(var(--translate-y,0)) scale(0);
+}

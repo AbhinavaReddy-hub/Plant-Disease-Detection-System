@@ -1,0 +1,50 @@
+.newPostContainer {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.newPostContainer header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.newPostContainer .backLink {
+  display: block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.newPostContainer .backLink:hover {
+  text-decoration: underline;
+}
+
+.newPostContainer .formGroup {
+  margin-bottom: 15px;
+}
+
+.newPostContainer .formInput,
+.newPostContainer .formTextarea,
+.newPostContainer .formFileInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.newPostContainer .submitButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.newPostContainer .submitButton:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,337 @@
+.loginWrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  box-sizing: border-box;
+}
+
+.loginWrapper .loginContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background-image: url("./bg2.JPG");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 32px;
+}
+
+.loginWrapper .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.loginWrapper .header #logo {
+  font-size: 50px;
+  fill: black;
+}
+
+.loginWrapper .header h3 {
+  font-size: 25px;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.loginWrapper .fieldContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+}
+
+.loginWrapper .userText,
+.loginWrapper .passText {
+  margin-left: 1.2em;
+  font-size: 16px;
+  color: rgb(8, 8, 8);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+.loginWrapper .fieldContainer .login-input {
+  all: unset;
+  border: 2px solid rgb(7, 7, 7);
+  background-color: #ffffff5a;
+  backdrop-filter: blur(7px);
+  border-radius: 2em;
+  width: 100%;
+  height: 2.5em;
+  padding-left: 15px;
+  transition: all 0.35s ease;
+  /* cursor: pointer; */
+}
+
+.loginWrapper .fieldContainer .login-userName-input {
+  width: 93%;
+}
+
+.loginWrapper .fieldContainer .login-input::placeholder {
+  color: rgba(73, 72, 72, 0.742);
+  font-style: italic;
+  transition: all 0.35s ease;
+}
+
+.loginWrapper .fieldContainer .login-input:focus::placeholder {
+  opacity: 0;
+}
+
+.loginWrapper .active {
+  opacity: 1;
+}
+
+.loginWrapper .fieldContainer .login-input:focus {
+  border: 2px solid blue;
+  /* Keep custom cursor */
+}
+
+.loginWrapper .passwordField {
+  position: relative;
+  display: flex;
+}
+
+.loginWrapper .password a {
+  all: unset;
+}
+
+.loginWrapper .password a p {
+  color: rgb(17, 17, 247);
+}
+
+.loginWrapper .showbutton {
+  position: absolute;
+  font-size: 25px;
+  right: 5%;
+  top: 17%;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.loginWrapper .fieldContainer p {
+  margin-top: 0.3em;
+  margin-left: 0.6em;
+  color: rgb(20, 19, 19);
+  cursor: pointer;
+}
+
+.loginWrapper .loginbutton button {
+  all: unset;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 2px 15px;
+  color: #d9efdb;
+  background-color: #2e51327d;
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.loginWrapper .loginbutton button:hover {
+  filter: brightness(120%);
+}
+
+.loginWrapper .dontAccount a {
+  cursor: pointer;
+  color: rgb(17, 17, 247);
+}
+
+@media (max-width: 430px) {
+  .loginWrapper {
+    width: 90%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .loginWrapper .loginContainer {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .loginWrapper .header #logo {
+    font-size: 36px;
+  }
+
+  .loginWrapper .header h3 {
+    font-size: 18px;
+  }
+
+  .loginWrapper .userText,
+  .loginWrapper .passText {
+    font-size: 14px;
+  }
+
+  .loginWrapper .fieldContainer {
+    width: 80%;
+  }
+
+  .loginWrapper .dontAccount {
+    font-size: 13px;
+  }
+
+  .loginWrapper .loginbutton button {
+    padding: 2px 13px;
+    font-size: 18px;
+  }
+}
+
+@media (max-height: 525px) {
+  .loginWrapper {
+    /* width: 90%; */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .loginWrapper .loginContainer {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .loginWrapper .header #logo {
+    font-size: 36px;
+  }
+
+  .loginWrapper .header h3 {
+    font-size: 18px;
+  }
+
+  .loginWrapper .userText,
+  .loginWrapper .passText {
+    font-size: 14px;
+  }
+
+  .loginWrapper .fieldContainer {
+    width: 80%;
+  }
+
+  .loginWrapper .loginbutton button {
+    padding: 2px 13px;
+    font-size: 18px;
+  }
+
+  .loginWrapper .dontAccount {
+    font-size: 13px;
+  }
+
+  .loginWrapper .fieldContainer .login-input {
+    height: 2.2em;
+  }
+}
+
+@media (max-height: 420px) {
+  .loginWrapper {
+    .loginContainer {
+      padding: 16px;
+      gap: 8px;
+    }
+  }
+  .loginWrapper .header #logo {
+    font-size: 32px;
+  }
+
+  .loginWrapper .header h3 {
+    font-size: 17px;
+  }
+
+  .loginWrapper .userText,
+  .loginWrapper .passText {
+    font-size: 12.8px;
+  }
+
+  .loginWrapper .fieldContainer {
+    width: 80%;
+  }
+
+  .loginWrapper .dontAccount {
+    font-size: 12px;
+  }
+
+  .loginWrapper .password a {
+    font-size: 13.5px;
+  }
+
+  .loginWrapper .showbutton {
+    font-size: 24px;
+  }
+}
+
+@media (max-height: 390px) {
+  .loginWrapper {
+    .loginContainer {
+      padding: 16px;
+      gap: 6px;
+    }
+  }
+  .loginWrapper .fieldContainer {
+    gap: 0.5em;
+  }
+
+  .loginWrapper .header #logo {
+    font-size: 30px;
+  }
+
+  .loginWrapper .header h3 {
+    font-size: 16px;
+  }
+
+  .loginWrapper .userText,
+  .loginWrapper .passText {
+    font-size: 12.5px;
+  }
+
+  .loginWrapper .dontAccount {
+    font-size: 12px;
+  }
+
+  .loginWrapper .loginbutton button {
+    padding: 2px 11px;
+    font-size: 16px;
+  }
+}
+
+@media (max-height: 355px) {
+  .loginWrapper {
+    .fieldContainer .login-input {
+      height: 2em;
+      width: 90%;
+    }
+  }
+  .loginWrapper .showbutton {
+    font-size: 23.5px;
+    right: 5.3%;
+    top: 14%;
+  }
+
+  .loginWrapper .header #logo {
+    font-size: 30px;
+  }
+
+  .loginWrapper .header h3 {
+    font-size: 16px;
+  }
+
+  .loginWrapper .userText,
+  .loginWrapper .passText {
+    font-size: 12.5px;
+  }
+
+  .dontAccount {
+    font-size: 12px;
+  }
+
+  .loginWrapper .loginbutton button {
+    padding: 2px 11px;
+    font-size: 16px;
+  }
+}
+
+/* @media (max-width:385px) {
+    .loginWrapper{
+      width: 80%;
+    }
+  } */

@@ -1,0 +1,271 @@
+.navWraper {
+  --icon-hover-scale: 1.1;
+
+  header {
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 11;
+    padding: 5px 5vw 8px 5vw;
+    background-color: rgba(14, 98, 14, 0.66);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844);
+  }
+
+  .dmode {
+    background-color: rgba(22, 37, 22, 0.758);
+    backdrop-filter: blur(20px);
+    color: white;
+  }
+
+  .side-menu {
+    width: 22.5px;
+  }
+
+  .modebutton {
+    all: unset;
+    padding: 0;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      cursor: pointer;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.3s ease-in-out, scale 0.3s ease-in-out;
+    }
+    img.active {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    .title {
+      margin-left: 7px;
+      font-weight: 600;
+      opacity: 0.9;
+      font-size: 24px;
+      text-decoration: none;
+      color: rgb(255, 252, 252);
+      cursor: pointer;
+    }
+
+    .extraOptions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+
+      a {
+        position: relative;
+        text-decoration: none;
+        color: rgb(255, 252, 252);
+        cursor: pointer;
+      }
+
+      a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        right: 50%;
+        height: 1.52px;
+        background-color: rgba(255, 255, 255, 0.808);
+        pointer-events: none;
+        transition: left 0.25s ease-in-out, right 0.25s ease-in-out;
+      }
+
+      a:hover::after {
+        left: 3.5%;
+        right: 3.5%;
+      }
+    }
+
+    .notif {
+      width: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+  }
+
+  .deactive {
+    display: none;
+  }
+
+  .options {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    img.pp.active {
+      transform: scale(1.1);
+    }
+
+    img.pp {
+      width: 35px;
+      border-radius: 50%;
+      /* margin-right: 10px; */
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    img.pp:hover {
+      transform: scale(var(--icon-hover-scale));
+    }
+
+    img.notif:hover {
+      transform: scale(var(--icon-hover-scale));
+    }
+  }
+
+  .menu {
+    all: unset;
+    padding: 0;
+    position: relative;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 1%;
+
+    img {
+      /* margin-right: 1.4%; */
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      opacity: 0;
+      scale: 0;
+      transition: opacity 0.25s ease-in-out, scale 0.25s ease-in-out;
+    }
+    img.active {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
+
+
+@media (min-width:1800px) {
+  .navWraper header{
+    padding: 8px 3.5vw 8px 3.5vw; 
+  }
+
+  .navWraper .menu{
+    width: 35px;
+    height: 35px;
+  }
+
+  .navWraper nav .title{
+    font-size: 26px;
+  }
+
+  .navWraper .options{
+    ul{
+      gap: 28px;
+      font-size: 17px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .navWraper header {
+    left: 2.5vw;
+    right: 2.5vw;
+    width: 95vw;
+    border-radius: 5px 5px 20px 20px;
+    min-height: 50px;
+    top: 5.5px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 15px rgba(64, 75, 64, 0.844),
+      0px -3px 15px rgba(64, 75, 64, 0.484);
+  }
+  nav {
+    margin-top: 3.5px;
+  }
+}
+
+@media (max-width: 470px) {
+  .navWraper nav {
+    .title {
+      font-size: 20px;
+    }
+
+    .extraOptions {
+      gap: 18px;
+    }
+
+    .notif {
+      width: 29px;
+      height: 29px;
+    }
+
+    .options img.pp {
+      width: 33px;
+      height: 33px;
+    }
+
+    .modebutton img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .navWraper {
+    nav {
+      .title {
+        font-size: 19.5px;
+      }
+
+      .modebutton img {
+        width: 27.5px;
+        height: 27.5px;
+      }
+
+      .notif {
+        width: 26px;
+        height: 26px;
+      }
+
+      .options img.pp {
+        height: 30.5px;
+        width: 30.5px;
+      }
+    }
+
+    .SideMenuBar {
+      color: black;
+      font-size: 24px;
+      /* margin-right: 3%; */
+    }
+    .side-menu {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

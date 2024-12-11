@@ -1,0 +1,43 @@
+footer {
+    padding: 12px 40px;
+    width: 100%;
+    height: fit-content;
+    background-color: #185d1a;
+    font-size: 14px;
+    color: white;
+}
+
+.contact span:nth-child(2){
+    user-select:text;
+}
+.mainFooter span:first-child{
+    color: rgb(128, 190, 244);
+    user-select: none;
+}
+.mainFooter span:nth-child(2){
+    color: rgb(164, 250, 5);
+}
+
+.copyright{
+    color: rgb(251, 252, 251);
+    margin-right: 20px;
+    user-select: none;
+}
+
+.version{
+    color: rgb(168, 182, 251);
+    user-select: none;
+}
+
+.mainFooter{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width:950px) {
+    .mainFooter{
+        display: flex;
+        flex-direction: column;
+        gap:0.5em;
+    }
+}

@@ -1,0 +1,125 @@
+.OuterContainer {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    z-index: 6;
+}
+
+.ChatbotContainer{
+    position: fixed;
+    background-color: white;
+    /* padding:0em 2em; */
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    right:0;
+    min-width: 300px;
+    max-width: 35vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ChatSection{
+    max-height: 50vh;
+    padding: 0em 2em;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+}
+
+.HeaderSection{
+    width:101%;
+    height: 40px;
+    padding: 0.4em 0.81em;
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(222, 222, 222);
+    border-radius: 0.8em;
+    box-shadow: 2px 2px 5px white;
+}
+.HeaderSection .cross{
+    margin-top:3px;
+    font-size: 24px;
+}
+.botMessage{
+    padding:0.7em;
+    font-size: 13px;
+    background-color: rgb(232, 230, 230);
+    border-top-right-radius: 2em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+.userMessage{
+align-self: flex-end;
+padding: 0.6em;
+font-size: 15px;
+    background-color: rgb(232, 230, 230);
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+.userSection{
+    padding:1em 2em;
+}
+.userSection form{
+    all:unset;
+    display: flex;
+    font-size: 15px;
+    border-radius: 1em;
+    padding:0.5em 1em;
+    background-color: rgb(236, 236, 236);
+}
+.userSection input,button{
+    all:unset;
+
+}
+.userSection input{
+    width: calc(100%);
+}
+.userSection .but{
+    display: block !important;
+}
+.userSection button{
+    font-size: 22px;
+    display: block;
+    align-self: baseline;
+}
+
+.chatbotimagesection{
+    top:80%;
+    z-index:2000;
+    right: 2em;
+    position: fixed;
+}
+
+@media (max-width:800px) {
+    .chatbotimagesection{
+        height: 90vh;
+    }
+}
+@media (max-width:390px) {
+    .ChatbotContainer{
+        margin-top: 60px;
+    }
+}
