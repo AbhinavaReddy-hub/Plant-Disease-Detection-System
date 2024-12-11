@@ -84,3 +84,279 @@
       }
     } 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* General Styling for the Diagnosis Page Link */
+/* .diagnosisPageLink {
+  margin-top: 1em;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(145deg, #f3f4f6, #e2e5ea);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 4px 4px 12px #d1d4db, -4px -4px 12px #ffffff;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.diagnosisPageLink:hover {
+  transform: scale(1.02);
+  box-shadow: 6px 6px 16px #c2c5cc, -6px -6px 16px #ffffff;
+}
+
+.diagnosisPageLink .title {
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1em;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.diagnosisPageLink .heal-your-crop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.5vh;
+  gap: 15px;
+}
+
+.diagnosisPageLink .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #555;
+  transition: transform 0.2s ease-in-out;
+}
+
+.diagnosisPageLink .step img {
+  width: 100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.diagnosisPageLink .step:hover {
+  transform: translateY(-5px);
+}
+
+.diagnosisPageLink .step img:hover {
+  transform: scale(1.1);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.diagnosisPageLink .arrow {
+  color: #888;
+  font-size: 2rem;
+  font-weight: bold;
+  animation: bounce 1.5s infinite;
+  transform-origin: center;
+}
+
+.diagnosisPageLink .button {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #1089ec, #75c2ec, #77dae8);
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diagnosisPageLink .button:hover {
+  background: linear-gradient(90deg, #2196f3, #64b5f6);
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+Animations
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .diagnosisPageLink {
+      width: 70%;
+  }
+
+  .heal-your-crop {
+      gap: 10px;
+  }
+
+  .diagnosisPageLink .step img {
+      width: 80px;
+  }
+
+  .diagnosisPageLink .button {
+      font-size: 1.2rem;
+      padding: 10px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heal-your-crop {
+      flex-direction: column;
+      gap: 15px;
+  }
+
+  .diagnosisPageLink .arrow {
+      font-size: 1.5rem;
+  }
+
+  .diagnosisPageLink .step img {
+      width: 70px;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.3);
+  }
+}
+
+@keyframes pulseArrow {
+  0%, 100% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.5);
+  }
+}
+
+.diagnosisPageLink .step img {
+  width: 100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  animation: pulse 3s infinite;
+}
+
+.diagnosisPageLink .step:nth-child(1) img {
+  animation-delay: 0s;
+}
+
+.diagnosisPageLink .step:nth-child(3) img {
+  animation-delay: 6s; /* Adjust delay for sequence */
+}
+
+.diagnosisPageLink .step:nth-child(5) img {
+  animation-delay: 12s;
+}
+
+.diagnosisPageLink .arrow {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #888;
+  animation: pulseArrow 3s infinite;
+}
+
+.diagnosisPageLink .arrow:nth-child(2) {
+  animation-delay: 3s; /* Starts after the first image */
+}
+
+.diagnosisPageLink .arrow:nth-child(4) {
+  animation-delay: 9s; /* Starts after the second image */
+}
+
+@keyframes growShrink {
+  0% {
+      transform: scale(1); 
+  }
+  10% {
+      transform: scale(1.3); 
+  }
+  20% {
+      transform: scale(1);
+  }
+  100% {
+      transform: scale(1); 
+  }
+}
+
+.diagnosisPageLink .step img {
+  width: 100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  animation: growShrink 12s infinite;
+  transform-origin: center; 
+}
+
+.diagnosisPageLink .step:nth-child(3) img {
+  animation-delay: 4s; 
+}
+
+.diagnosisPageLink .step:nth-child(5) img {
+  animation-delay: 8s; 
+}
+
+/* Arrow Animation */
+@keyframes arrowPulse {
+  0%, 20% {
+      transform: scale(1);
+  }
+  30% {
+      transform: scale(1.3);
+  }
+  40% {
+      transform: scale(1); 
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.diagnosisPageLink .arrow {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #888;
+  animation: arrowPulse 12s infinite;
+}
+
+.diagnosisPageLink .arrow:nth-child(2) {
+  animation-delay: 1s; 
+}
+
+.diagnosisPageLink .arrow:nth-child(4) {
+  animation-delay: 4s; 
+} */

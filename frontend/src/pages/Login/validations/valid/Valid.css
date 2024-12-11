@@ -17,6 +17,10 @@
     animation: fadeIn 0.5s ease forwards, fadeOut 0.5s ease 3s forwards;
 }
 
+.valid-container.full{
+    top: 10px;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

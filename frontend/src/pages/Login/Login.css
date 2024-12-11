@@ -103,6 +103,7 @@
 }
 
 .loginWrapper .showbutton {
+  all: unset;
   position: absolute;
   font-size: 25px;
   right: 5%;
@@ -331,7 +332,7 @@
 }
 
 /* @media (max-width:385px) {
-    .loginWrapper{
-      width: 80%;
-    }
-  } */
+  .loginWrapper{
+    width: 80%;
+  }
+} */

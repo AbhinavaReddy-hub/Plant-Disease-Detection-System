@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import LoadingScreen from "../../loadingscreen/LoadingScreen";
 import { useDarkMode } from "../../../DarkModeContext";
+import LoadingScreen from "../../loadingscreen/LoadingScreen";
 import dirnCircle from "./dirnCircle.png";
 import "./Weather.css";
 
@@ -104,6 +104,7 @@ export default function Weather() {
               alt="circle"
               style={{
                 position: "relative",
+                filter: isDarkMode ? 'invert(1) brightness(1.5)' : 'none'
               }}
             />
             <svg

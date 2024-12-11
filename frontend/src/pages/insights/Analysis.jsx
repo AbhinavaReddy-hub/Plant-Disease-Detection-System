@@ -202,9 +202,9 @@
 // };
 
 // export default Analysis;
-import React, { useState, useEffect, useRef } from 'react';
-import './Analysis.css';
+import { useState, useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
+import './Analysis.css';
 
 const Analysis = () => {
   const [activeAnalysis, setActiveAnalysis] = useState('personal');
@@ -325,13 +325,13 @@ const Analysis = () => {
   };
 
   return (
-    <div className="container">
+    <div className="analysisContainer">
       <header>
         <h1>Plant Disease Analysis</h1>
         <p>Analyze the occurrence of diseases by month or season.</p>
       </header>
 
-      <div className="analysis-type">
+      <div className="analysisType">
         <button
           className={activeAnalysis === 'personal' ? 'active' : ''}
           onClick={() => {
@@ -357,7 +357,7 @@ const Analysis = () => {
 
       <div id="analysis-content">
         {activeAnalysis === 'personal' && (
-          <div id="personal-analysis" className="analysis-section">
+          <div id="personal-analysis" className="analysisSection">
             <h2>Personal Analysis</h2>
             <label htmlFor="personal-chart-type">Chart Type:</label>
             <select ref={personalChartTypeRef} onChange={updatePersonalChart}>
@@ -370,7 +370,7 @@ const Analysis = () => {
               <option value="month">Month</option>
               <option value="season">Season</option>
             </select>
-            <div className="chart-container">
+            <div className="chartContainer">
               <canvas ref={personalChartRef}></canvas>
             </div>
           </div>
@@ -406,7 +406,7 @@ const Analysis = () => {
               <option value="month">Month</option>
               <option value="season">Season</option>
             </select>
-            <div className="chart-container">
+            <div className="chartContainer">
               <canvas ref={locationChartRef}></canvas>
             </div>
           </div>

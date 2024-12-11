@@ -5,6 +5,11 @@ import "./SideMenu.css";
 export default function SideMenu({ darkMode, isVisible }) {
   const containerRef = useRef(null);
   const [width, setWidth] = useState(window.innerWidth);
+  const [username, setUsername] = useState(
+    localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user")).user_type
+      : ""
+  );
 
   useEffect(() => {
     let timer;
@@ -63,7 +68,11 @@ export default function SideMenu({ darkMode, isVisible }) {
               <Link to="/blogs">Blogs</Link>
             </li>
             <li>
-              <Link to="/workspace">WorkSpace</Link>
+              {username === "admin" && (
+                <li>
+                  <Link to="/workspace">WorkSpace</Link>
+                </li>
+              )}
             </li>
           </>
         )}

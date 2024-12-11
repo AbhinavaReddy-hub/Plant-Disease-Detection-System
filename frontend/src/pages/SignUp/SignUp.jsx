@@ -55,6 +55,15 @@ const SignUp = () => {
     }
   }, [selectedState]);
 
+  const handleEmailChange = (e) => {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const emailValue = e.target.value;
+    if (!emailPattern.test(emailValue)) {
+      console.log("Invalid email format");
+    }
+    setEmail(emailValue);
+  };
+
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -172,10 +181,7 @@ const SignUp = () => {
                 name="email"
                 placeholder="abc@gmail.com"
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                onChange={handleEmailChange}
                 required
               />
             </div>

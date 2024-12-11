@@ -40,7 +40,7 @@ export default function AboutUs() {
   }, [index, isTyping]);
 
   return (
-    <div className="aboutUs">
+    <div className="aboutUsContainer">
       <div className="c lc">
         <div className="text">
           <div className="leftContent">

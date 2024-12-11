@@ -36,11 +36,11 @@ const registerUser = async (req, res) => {
 
 // Login user
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
     // Check if user exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     if (!user) return res.status(401).json({ message: "Invalid email or password" });
 
     // Compare passwords
