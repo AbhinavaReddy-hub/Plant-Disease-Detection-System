@@ -67,9 +67,10 @@
   }
 
   .showButt {
+    all: unset;
     position: absolute;
     font-size: 25px;
-    left: 55%;
+    left: 56.5%;
     top: 21%;
     border: none;
     background: none;
