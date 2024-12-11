@@ -11,8 +11,8 @@
 
 .loading circle {
   fill: none;
-  stroke: hsl(152, 98%, 53%);
-  stroke-width: 4;
+  stroke: hsl(152, 79%, 44%);
+  stroke-width: 4.2;
   stroke-dasharray: 1, 200;
   stroke-dashoffset: 0;
   stroke-linecap: round;

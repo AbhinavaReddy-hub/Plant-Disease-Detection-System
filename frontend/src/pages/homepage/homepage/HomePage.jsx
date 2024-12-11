@@ -24,7 +24,7 @@ function HomePage() {
   return (
     <div className="homePageContainer">
       {showWelcomeMessage && userDetails && (
-        <Valid uname={userDetails.username} />
+        <Valid uname={userDetails} />
       )}
       <div className="contentWrapper" style={{ display: "grid", gap: "43px" }}>
         <GoogleTranslateWidget />

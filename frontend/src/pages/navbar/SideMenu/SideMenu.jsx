@@ -67,13 +67,13 @@ export default function SideMenu({ darkMode, isVisible }) {
             <li>
               <Link to="/blogs">Blogs</Link>
             </li>
-            <li>
-              {username === "admin" && (
+            {username === "admin" && (
+              <li>
                 <li>
                   <Link to="/workspace">WorkSpace</Link>
                 </li>
-              )}
-            </li>
+              </li>
+            )}
           </>
         )}
 

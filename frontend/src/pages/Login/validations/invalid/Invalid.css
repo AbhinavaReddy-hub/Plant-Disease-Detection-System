@@ -4,7 +4,7 @@
     background-color: rgb(182, 23, 15);
     color: black;
     position: absolute;
-    top: 4px;
+    top: 10px;
     left: calc(50% - 70px);
     display: flex;
     justify-content: center;

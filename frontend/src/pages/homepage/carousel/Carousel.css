@@ -44,12 +44,12 @@
   height: 70px;
   margin-inline: 40px;
   position: absolute;
-  left: max(calc((70px + 40px) * 14), 100%);
+  left: max(calc((70px + 40px) * 12), 100%);
   animation-name: scroll-left;
   animation-timing-function: linear;
   animation-duration: 30s;
   animation-iteration-count: infinite;
-  animation-delay: calc(30s/14 * (14 - var(--n)) * -1);
+  animation-delay: calc(30s/12 * (12 - var(--n)) * -1);
   transition: 0.5s ease;
 }
 
@@ -107,6 +107,6 @@
 
   .cropsForDiagnoseContainer .crops {
     margin-inline: 5px;
-    left: max(calc((70px + 5px) * 14), 100%);
+    left: max(calc((70px + 5px) * 12), 100%);
   }
 }

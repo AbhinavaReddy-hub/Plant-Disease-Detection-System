@@ -5,7 +5,7 @@
     background-color: rgb(1, 91, 1);
     color: black;
     position: fixed;
-    top: 54px;
+    top: 65px;
     left: calc(50% - 70px);
     display: flex;
     justify-content: center;
@@ -44,18 +44,12 @@
 
 @media (max-width: 768px) {
     .valid-container{
-        top: 60px;
-    }
-}
-
-@media (max-width: 470px) {
-    .valid-container{
-        top: 59px;
+        top: 70px;
     }
 }
 
 @media (max-width: 383px) {
     .valid-container{
-        top: 84px;
+        top: 90px;
     }
 }

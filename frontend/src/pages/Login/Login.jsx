@@ -158,6 +158,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Invalid from "./validations/invalid/Invalid";
 import Valid from "./validations/valid/Valid";
+import Loading from '../loadingscreen/LoadingScreen';
+import { useDarkMode } from "../../DarkModeContext";
 import vid from "./bg2.mp4";
 import vide from "./bg4.mp4";
 import "./Login.css";
@@ -171,6 +173,8 @@ export default function Login() {
   const [isValid, setIsValid] = useState(false);
   const [isNotValid, setIsNotValid] = useState(false);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
+  const [isLoading, setIsLoading] = useState(false);
+  const {isDarkMode} = useDarkMode();
 
   const navigate = useNavigate();
 
@@ -189,6 +193,7 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "http://localhost:5000/api/users/login",
@@ -208,22 +213,51 @@ export default function Login() {
         localStorage.setItem("user", JSON.stringify(user));
         sessionStorage.setItem("userId", response.data.user.user_id);
         sessionStorage.setItem("userLocation", response.data.user.location);
-        sessionStorage.setItem(
-          "user",
-          JSON.stringify(response.data.user.username)
-        );
+        sessionStorage.setItem("user", JSON.stringify(user));
         const authToken = localStorage.getItem("authToken"); // Check if the user is authenticated
         console.log(authToken);
         setTimeout(() => {
           setIsValid(false);
+          setIsLoading(false);
           navigate("/home");
-        }, 2500);
+        }, 1500);
       }
     } catch (error) {
       setIsNotValid(true);
-      setTimeout(() => setIsNotValid(false), 3500);
+      setIsLoading(false);
+      setTimeout(() => setIsNotValid(false), 3000);
     }
   };
+
+  if(isLoading){
+    return (
+      <div className="loginWrapper" style={
+        isDarkMode
+          ? { color: "white", backgroundColor: "#242a23" }
+          : { color: "black" }
+      }>
+        <video
+        src={screenSize <= 850 ? vide : vid}
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          width: "100vw",
+          height: "100vh",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      ></video>
+      {isValid && <Valid uname={username} fullScreen={true} />}
+      {isNotValid && <Invalid />}
+      <div className="loginContainer" >
+        <Loading />
+      </div>
+      </div>
+    )
+  }
 
   return (
     <div className="loginWrapper">

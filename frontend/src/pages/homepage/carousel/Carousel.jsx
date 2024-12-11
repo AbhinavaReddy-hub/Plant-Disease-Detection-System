@@ -1,8 +1,6 @@
 import tomato from "./cropsImages/tomato.svg";
 import potato from "./cropsImages/potato.svg";
 import bellPepper from "./cropsImages/bellpepper.svg";
-import paddy from "./cropsImages/paddy.svg";
-import cotton from "./cropsImages/cotton.png";
 import apple from "./cropsImages/apple.svg";
 import blueberry from "./cropsImages/blueberry.svg";
 import cherry from "./cropsImages/cherry.svg";
@@ -19,17 +17,15 @@ export default function Carousel() {
     { id: 1, src: tomato, name: "Tomato" },
     { id: 2, src: potato, name: "Potato" },
     { id: 3, src: bellPepper, name: "Bell Pepper" },
-    { id: 4, src: paddy, name: "Paddy" },
-    { id: 5, src: cotton, name: "Cotton" },
-    { id: 6, src: apple, name: "Apple" },
-    { id: 7, src: blueberry, name: "Blueberry" },
-    { id: 8, src: cherry, name: "Cherry" },
-    { id: 9, src: corn, name: "Corn" },
-    { id: 10, src: grapes, name: "Grapes" },
-    { id: 11, src: orange, name: "Orange" },
-    { id: 12, src: peach, name: "Peach" },
-    { id: 13, src: rasberry, name: "Raspberry" },
-    { id: 14, src: strawberry, name: "Strawberry" },
+    { id: 4, src: apple, name: "Apple" },
+    { id: 5, src: blueberry, name: "Blueberry" },
+    { id: 6, src: cherry, name: "Cherry" },
+    { id: 7, src: corn, name: "Corn" },
+    { id: 8, src: grapes, name: "Grapes" },
+    { id: 9, src: orange, name: "Orange" },
+    { id: 10, src: peach, name: "Peach" },
+    { id: 11, src: rasberry, name: "Raspberry" },
+    { id: 12, src: strawberry, name: "Strawberry" },
   ];
 
   return (
