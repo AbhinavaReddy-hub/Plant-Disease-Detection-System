@@ -24,6 +24,7 @@ export default function NavBar() {
   const [isSettingClicked, setSettingClicked] = useState(false);
   const [screenSize, setScreenSize] = useState(window.innerWidth);
   const [allViewed, setAllViewed] = useState(false);
+
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -31,6 +32,7 @@ export default function NavBar() {
 
     return () => window.removeEventListener("resize", handleResize);
   }, [screenSize]);
+  
   const [notifications, setNotifications] = useState([
     {
       id: 1,
