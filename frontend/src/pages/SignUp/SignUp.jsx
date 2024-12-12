@@ -87,6 +87,7 @@ const SignUp = () => {
         body: JSON.stringify(userData),
       });
       const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         // Assuming the server sends the 'token' and 'user' in the response

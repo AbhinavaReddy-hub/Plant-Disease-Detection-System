@@ -1,6 +1,6 @@
 import { RxCross1 } from "react-icons/rx";
 import ReactDOM from "react-dom";
-import { useDarkMode } from "./DarkModeContext";
+import { useDarkMode } from "../DarkModeContext";
 
 export default function HistoryModal({onclose,disease,percentage,leaf}){
     const { isDarkMode, setDarkMode } = useDarkMode();
