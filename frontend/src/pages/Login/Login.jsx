@@ -190,6 +190,11 @@ export default function Login() {
     document.title = "Login Page";
     console.log(LOCAL_IP);
   }, []);
+  const handleKeyDown = (e) => {
+    if (e.key === " ") {
+      e.preventDefault(); 
+    }
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -298,6 +303,7 @@ export default function Login() {
                 name="username"
                 placeholder="Username"
                 value={username}
+                onKeyDown={handleKeyDown}
                 onFocus={() => !isUserFocus && setUserFocus(true)}
                 onBlur={() => isUserFocus && setUserFocus(false)}
                 onChange={(e) => setUsername(e.target.value)}
@@ -314,6 +320,7 @@ export default function Login() {
                   name="password"
                   placeholder="Password"
                   value={password}
+                  onKeyDown={handleKeyDown}
                   onFocus={() => !isPasswordFocus && setPasswordFocus(true)}
                   onBlur={() => isPasswordFocus && setPasswordFocus(false)}
                   onChange={(e) => setPassword(e.target.value)}

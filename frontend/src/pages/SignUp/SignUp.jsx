@@ -63,7 +63,11 @@ const SignUp = () => {
     }
     setEmail(emailValue);
   };
-
+  const handleKeyDown = (e) => {
+    if (e.key === " ") {
+      e.preventDefault(); 
+    }
+  };
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -164,6 +168,7 @@ const SignUp = () => {
                 name="username"
                 placeholder="Username"
                 value={username}
+                onKeyDown={handleKeyDown}
                 onChange={(e) => {
                   console.log(e.target);
                   setUsername(e.target.value);
@@ -182,6 +187,7 @@ const SignUp = () => {
                 name="email"
                 placeholder="abc@gmail.com"
                 value={email}
+                onKeyDown={handleKeyDown}
                 onChange={handleEmailChange}
                 required
               />
@@ -198,6 +204,7 @@ const SignUp = () => {
                   name="password"
                   placeholder="password"
                   value={password}
+                  onKeyDown={handleKeyDown}
                   onChange={(e) => setPassword(e.target.value)}
                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$"
                   required
@@ -241,6 +248,7 @@ const SignUp = () => {
                 name="confirmpassword"
                 placeholder="re-enter password"
                 value={confirmPassword}
+                onKeyDown={handleKeyDown}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
