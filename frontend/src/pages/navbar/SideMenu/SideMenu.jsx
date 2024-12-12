@@ -76,10 +76,6 @@ export default function SideMenu({ darkMode, isVisible }) {
             )}
           </>
         )}
-
-        <li>
-          <Link to="/intdb">Interactive DB</Link>
-        </li>
         {width < 960 && (
           <li>
             <Link to="/insights">Insights</Link>

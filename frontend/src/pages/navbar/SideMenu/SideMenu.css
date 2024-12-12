@@ -163,13 +163,13 @@
     }
 }
 
-@media (max-width: 383px) {
+@media (max-width: 381px) {
     .SideMenu {
         margin-top: 90px;
     }
 }
 
-@media (max-width:371px) {
+@media (max-width:386px) {
     .SideMenu .SideOptions{
         grid-template-columns: repeat(1, 1fr);
     }
