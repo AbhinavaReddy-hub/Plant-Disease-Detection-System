@@ -81,7 +81,7 @@ const SignUp = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/register", {
+      const response = await fetch("http://192.168.0.179:5000/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
@@ -204,9 +204,11 @@ const SignUp = () => {
                 <button
                   className="showButt"
                   type="button"
-                  onClick={() => setshowPassword((prev) => !prev)}
+                  onClick={() => {
+                    setshowPassword((prev) => !prev)}}
                 >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  <FaEyeSlash className={`eye ${!showPassword ? 'active' : ''}`} />
+                  <FaEye className={`eye ${showPassword ? 'active' : ''}`} />
                 </button>
               </div>
               <div className="password-constraints">

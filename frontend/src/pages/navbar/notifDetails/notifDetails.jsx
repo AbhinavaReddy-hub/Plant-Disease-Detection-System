@@ -30,7 +30,7 @@ export default function NotifDetails({
       }
     };
     fetchNotifications();
-  }, [userId]);
+  }, [userId, setNotifications]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -66,9 +66,15 @@ export default function NotifDetails({
         headers: { "Content-Type": "application/json" },
         data: { userId, notificationId },
       });
-      setNotifications((curr) =>
-        curr.filter((notif) => notif.id !== notificationId)
-      );
+
+      setRemoving((prev) => [...prev, notificationId]);
+      setTimeout(() => {
+        setNotifications((curr) =>
+          curr.filter((notif) => notif.id !== notificationId)
+        );
+        setRemoving((prev) => prev.filter((remId) => remId !== id));
+      }, 250);
+      
     } catch (error) {
       console.error("Failed to delete notification:", error);
     }

@@ -200,7 +200,7 @@
 }
 
 @media (min-width: 1800px) {
-  .notifDetails {
+  .notifDetails{
     top: 66px;
   }
 }
@@ -244,9 +244,9 @@
     right: calc(27.5px + 30.5px + 36px + 13.3px - 125px);
   }
   /* .deletebut {
-      margin-left: 175px;
-      transform: translate(10px, 35px);
-    } */
+    margin-left: 175px;
+    transform: translate(10px, 35px);
+  } */
 }
 
 @media (max-width: 380px) {
