@@ -1,7 +1,9 @@
 .valid-container {
+    box-sizing: border-box;
     z-index: 9;
     height: 35px;
-    width: 140px;
+    min-width: 140px;
+    padding-inline: 10px;
     background-color: rgb(1, 91, 1);
     color: black;
     position: fixed;
