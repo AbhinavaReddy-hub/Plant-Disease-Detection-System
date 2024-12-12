@@ -39,7 +39,7 @@
     border-radius: 2em;
     width: 63.5%;
     height: 2.7em;
-    padding-inline: 15px;
+    padding-inline: 19px;
     transition: all 0.4s;
   }
   
@@ -151,8 +151,10 @@
   }
 
   .agreement input {
-    height: 3 0px;
-    width: 30px;
+    margin-left: 5px;
+    height: 37px;
+    width: 37px;
+    cursor: pointer;
   }
 
   .submitButton {
