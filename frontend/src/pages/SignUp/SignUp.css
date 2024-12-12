@@ -1,4 +1,5 @@
 .singupWrapper {
+  width: 100vw;
   box-sizing: border-box;
   height: 100vh;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -206,6 +207,20 @@
 @media (max-width: 500px) {
   .singupWrapper .signupContainer {
     scale: 0.6;
-    margin: auto;
+    margin: auto; 
+  }
+}
+@media (max-width: 370px) {
+  .singupWrapper .signupContainer {
+    scale: 0.8;
+    margin: auto; 
+  }
+  
+  .signupfieldContainer .inputboxes{
+    width:90% !important;
+  }
+
+  .addressWrapper{
+    flex-direction: column;
   }
 }
