@@ -323,7 +323,8 @@ export default function Login() {
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
                 >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  <FaEyeSlash className={`eye ${!showPassword ? 'active' : ''}`} />
+                  <FaEye className={`eye ${showPassword ? 'active' : ''}`} />
                 </button>
               </div>
 
