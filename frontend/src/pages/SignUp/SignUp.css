@@ -34,12 +34,17 @@
 
   .signupfieldContainer .inputboxes {
     all: unset;
+    box-sizing: border-box;
     border: 2px solid rgb(7, 7, 7);
     border-radius: 2em;
-    width: 60%;
-    height: 2.5em;
-    padding-left: 15px;
+    width: 63.5%;
+    height: 2.7em;
+    padding-inline: 15px;
     transition: all 0.4s;
+  }
+  
+  .signupContainer .passwordfield .inputboxes{
+    padding-right: 58px;
   }
 
   .inputboxes:focus {
