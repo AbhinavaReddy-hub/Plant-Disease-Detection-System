@@ -11,7 +11,7 @@ const GoogleTranslateWidget = () => {
 
       // Define the global initialization function
       window.googleTranslateElementInit = () => {
-        if (!document.querySelector('#translate .goog-te-combo')) {
+        if (!document.querySelector('.VIpgJd-ZVi9od-xl07Ob-lTBxed')) {
           new window.google.translate.TranslateElement(
             {
               pageLanguage: 'en',
